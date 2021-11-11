@@ -1,32 +1,32 @@
 html {
-	box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 *, *:before, *:after {
-	box-sizing: inherit;
-	margin: 0;
-	padding: 0;
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
 }
 
 #conteiner_NewCard {
-	background-color: #023031;
-	width: 100%;
+  background-color: #023031;
+  width: 100%;
 }
 
 #content_AddNewCard {
-	align-items: center;
-	background-color: white;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	padding: 40px;
-	width: 50%;
+  align-items: center;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40px;
+  width: 50%;
 }
 
 #add_card {
-	border: solid 1px brown;
-	display: flex;
-	flex-direction: column;
-	gap: 20px;
-	width: 50%;
+  border: solid 1px brown;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 50%;
 }

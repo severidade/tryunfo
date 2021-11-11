@@ -45,6 +45,9 @@ class Form extends Component {
             data-testid="trunfo-input"
           />
         </label>
+        <button type="button" data-testid="save-button">
+          Salvar:
+        </button>
       </form>
     );
   }

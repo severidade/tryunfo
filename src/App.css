@@ -15,7 +15,7 @@ html {
 
 #content_AddNewCard {
 	align-items: center;
-	background-color: #fff;
+	background-color: white;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -25,11 +25,8 @@ html {
 
 #add_card {
 	border: solid 1px brown;
-	width: 50%;
-}
-
-#add_card {
 	display: flex;
 	flex-direction: column;
 	gap: 20px;
+	width: 50%;
 }

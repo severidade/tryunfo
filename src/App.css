@@ -1,5 +1,5 @@
 html {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 *, *:before, *:after {
@@ -29,4 +29,5 @@ html {
   flex-direction: column;
   gap: 20px;
   width: 50%;
+  max-width: 50vw;
 }

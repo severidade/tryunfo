@@ -28,6 +28,6 @@ html {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  width: 50%;
   max-width: 50vw;
+  width: 50%;
 }

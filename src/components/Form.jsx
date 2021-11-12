@@ -19,7 +19,7 @@ class Form extends Component {
     } = this.props;
 
     return (
-      <div id="content_AddNewCard">
+      <div className="content_AddNewCard">
         <h2>Adicionar nova carta</h2>
         <form id="add_card">
           <label htmlFor="cardName">

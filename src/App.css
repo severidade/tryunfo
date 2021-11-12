@@ -15,14 +15,13 @@ html {
   width: 100vw;
 }
 
-#content_AddNewCard {
+.content_AddNewCard {
   align-items: center;
   background-color: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding: 40px;
-  /* width: 50vw; */
 }
 
 #add_card {
@@ -30,6 +29,6 @@ html {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  width: 20vw;
   max-width: 300px;
+  width: 20vw;
 }

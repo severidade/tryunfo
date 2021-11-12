@@ -10,9 +10,9 @@ html {
 
 #conteiner_NewCard {
   background-color: #023031;
-  width: 100vw;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  width: 100vw;
 }
 
 #content_AddNewCard {

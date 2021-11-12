@@ -12,12 +12,20 @@ html {
   background-color: #023031;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  width: 100vw;
+  width: 100%;
 }
 
 .content_AddNewCard {
   align-items: center;
   background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40px;
+}
+
+.content_PreviewNewCard {
+  align-items: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -30,4 +38,12 @@ html {
   gap: 20px;
   max-width: 300px;
   width: 20vw;
+}
+
+.PreviewNewCard {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.25);
+  height: 549px;
+  width: 368px;
 }

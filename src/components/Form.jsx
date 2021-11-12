@@ -37,6 +37,7 @@ class Form extends Component {
             Descrição
             <textarea
               id="description-input"
+              name="description-input"
               data-testid="description-input"
               value={ cardDescription }
               onChange={ onInputChange }
@@ -47,6 +48,7 @@ class Form extends Component {
             <input
               id="attr1-input"
               type="number"
+              name="attr1-input"
               value={ cardAttr1 }
               data-testid="attr1-input"
               onChange={ onInputChange }
@@ -57,6 +59,7 @@ class Form extends Component {
             <input
               id="attr2-input"
               type="number"
+              name="attr2-input"
               value={ cardAttr2 }
               data-testid="attr2-input"
               onChange={ onInputChange }
@@ -67,6 +70,7 @@ class Form extends Component {
             <input
               id="attr3-input"
               type="number"
+              name="attr3-input"
               value={ cardAttr3 }
               data-testid="attr3-input"
               onChange={ onInputChange }
@@ -77,6 +81,7 @@ class Form extends Component {
             <input
               id="img"
               type="text"
+              name="cardImage"
               value={ cardImage }
               data-testid="image-input"
               onChange={ onInputChange }
@@ -97,12 +102,12 @@ class Form extends Component {
             </select>
           </label>
 
-          <label htmlFor="superTrunfo">
+          <label htmlFor="trunfo-input">
             Super Trybe Trunfo
             <input
-              id="superTrunfo"
+              id="trunfo-input"
               type="checkbox"
-              name="superTrunfo"
+              name="trunfo-input"
               data-testid="trunfo-input"
               checked={ cardTrunfo }
               // lembrar de validar no constructor

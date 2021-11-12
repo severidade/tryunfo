@@ -9,7 +9,8 @@ html {
 }
 
 .conteiner_NewCard {
-  background-color: #023031;
+  background: url('./img/fundo_site.png');
+  background-size: 150px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   width: 100%;
@@ -32,6 +33,10 @@ html {
   padding: 40px;
 }
 
+.content_PreviewNewCard h2 {
+  color: white;
+}
+
 .AddNewCard {
   display: flex;
   flex-direction: column;
@@ -43,7 +48,72 @@ html {
 .PreviewNewCard {
   background: white;
   border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.25);
+  box-shadow: 10px 10px 20px rgb(0 0 0);
+  display: flex;
+  flex-direction: column;
   height: 549px;
+  padding: 20px;
+  position: relative;
   width: 368px;
+  z-index: 2;
+}
+
+.PreviewNewCard:after {
+  background: #206152;
+  border-radius: 10px;
+  content: '';
+  height: calc(100% - 20px);
+  left: 10px;
+  position: absolute;
+  top: 10px;
+  width: calc(100% - 20px);
+  z-index: -1;
+}
+
+.PreviewNewCard h3 {
+  background: #023031;
+  border-radius: 10px 10px 0 0;
+  height: 40px;
+  width: 100%;
+}
+
+.PreviewNewCard figure {
+  background: tan;
+  height: 200px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.description-card {
+  background-color: #206152;
+  min-height: 80px;
+}
+
+.powers-card {
+  background: white;
+  border-radius: 0 0 10px 10px;
+  flex-grow: 1;
+  padding: 10px;
+}
+
+.powers-card p {
+  background: #eceff3;
+  border-radius: 10px;
+  height: 30px;
+  line-height: 30px;
+  margin-bottom: 4px;
+  padding: 0 10px;
+  position: relative;
+}
+
+.powers-card p strong {
+  background: #023031;
+  border-radius: 0 10px 10px 0;
+  color: #eceff3;
+  height: 100%;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  top: 0;
+  width: 48px;
 }

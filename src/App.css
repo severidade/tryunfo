@@ -8,7 +8,7 @@ html {
   padding: 0;
 }
 
-#conteiner_NewCard {
+.conteiner_NewCard {
   background-color: #023031;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -24,7 +24,7 @@ html {
   padding: 40px;
 }
 
-#add_card {
+.add_card {
   border: solid 1px brown;
   display: flex;
   flex-direction: column;

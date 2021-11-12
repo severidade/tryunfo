@@ -8,7 +8,7 @@ class App extends React.Component {
     return (
       <div>
         <h1>Tryunfs</h1>
-        <div id="conteiner_NewCard">
+        <div className="conteiner_NewCard">
           <Form />
         </div>
       </div>

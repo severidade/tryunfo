@@ -21,7 +21,7 @@ class Form extends Component {
     return (
       <div className="content_AddNewCard">
         <h2>Adicionar nova carta</h2>
-        <form className="add_card">
+        <form className="AddNewCard">
           <label htmlFor="cardName">
             Nome
             <input

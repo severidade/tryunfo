@@ -24,7 +24,7 @@ html {
   padding: 40px;
 }
 
-.add_card {
+.AddNewCard {
   display: flex;
   flex-direction: column;
   gap: 20px;

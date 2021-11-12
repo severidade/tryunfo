@@ -11,6 +11,8 @@ html {
 #conteiner_NewCard {
   background-color: #023031;
   width: 100vw;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
 }
 
 #content_AddNewCard {
@@ -20,7 +22,7 @@ html {
   flex-direction: column;
   justify-content: center;
   padding: 40px;
-  width: 50vw;
+  /* width: 50vw; */
 }
 
 #add_card {
@@ -28,5 +30,6 @@ html {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  max-width: 50vw;
+  width: 20vw;
+  max-width: 300px;
 }

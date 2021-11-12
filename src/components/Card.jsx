@@ -49,7 +49,7 @@ class Card extends Component {
                 {cardAttr3}
               </strong>
             </p>
-            <p data-testid="rare-card">
+            <p className="rare" data-testid="rare-card">
               <strong>
                 {cardRare}
               </strong>

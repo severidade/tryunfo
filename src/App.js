@@ -35,7 +35,12 @@ class App extends React.Component {
       state: {
         cardName,
         cardDescription,
-        cardAttr1 },
+        cardAttr1,
+        cardAttr2,
+        cardAttr3,
+        cardImage,
+        cardRare,
+        cardTrunfo },
       onInputChange,
     } = this;
     return (
@@ -47,6 +52,11 @@ class App extends React.Component {
             cardName={ cardName }
             cardDescription={ cardDescription }
             cardAttr1={ cardAttr1 }
+            cardAttr2={ cardAttr2 }
+            cardAttr3={ cardAttr3 }
+            cardImage={ cardImage }
+            cardRare={ cardRare }
+            cardTrunfo={ cardTrunfo }
           />
         </div>
       </div>

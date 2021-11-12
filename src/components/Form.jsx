@@ -59,7 +59,7 @@ class Form extends Component {
             <input
               id="attr2-input"
               type="number"
-              name="attr2-input"
+              name="cardAttr2"
               value={ cardAttr2 }
               data-testid="attr2-input"
               onChange={ onInputChange }
@@ -70,7 +70,7 @@ class Form extends Component {
             <input
               id="attr3-input"
               type="number"
-              name="attr3-input"
+              name="cardAttr3"
               value={ cardAttr3 }
               data-testid="attr3-input"
               onChange={ onInputChange }
@@ -91,7 +91,7 @@ class Form extends Component {
           <label htmlFor="rare-input">
             Raridade:
             <select
-              name="rare-input"
+              name="cardRare"
               data-testid="rare-input"
               value={ cardRare }
               onChange={ onInputChange }
@@ -107,7 +107,7 @@ class Form extends Component {
             <input
               id="trunfo-input"
               type="checkbox"
-              name="trunfo-input"
+              name="cardTrunfo"
               data-testid="trunfo-input"
               checked={ cardTrunfo }
               // lembrar de validar no constructor

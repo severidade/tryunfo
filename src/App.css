@@ -85,12 +85,35 @@ html {
   background: tan;
   height: 200px;
   overflow: hidden;
+  position: relative;
   width: 100%;
+}
+
+.PreviewNewCard figure img {
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+figure div {
+  background: url('./img/selo.svg');
+  background-position: center;
+  background-size: contain;
+  bottom: 10px;
+  height: 100px;
+  overflow: hidden;
+  position: absolute;
+  right: 10px;
+  text-indent: -1000%;
+  width: 100px;
 }
 
 .description-card {
   background-color: #206152;
+  color: white;
+  font-size: 14px;
   min-height: 80px;
+  padding: 10px;
 }
 
 .powers-card {
@@ -121,3 +144,7 @@ html {
   top: 0;
   width: 48px;
 }
+
+/* .rare {
+  display: none;
+} */

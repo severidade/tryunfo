@@ -25,7 +25,6 @@ html {
 }
 
 .add_card {
-  border: solid 1px brown;
   display: flex;
   flex-direction: column;
   gap: 20px;

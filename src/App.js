@@ -4,19 +4,31 @@ import Card from './components/Card';
 import './App.css';
 
 class App extends React.Component {
-  // constructor() {
-  //   super();
-  //   this.state = {
-  //     cardName: ''
-  //   };
-  //   this.onInputChange = this.onInputChange.bind(this);
-  //   // é o que faz visivel o estado inicial nos componentes quando a funcao for chamada
-  // }
+  constructor() {
+    super();
+    this.state = {
+      cardName: '',
+      cardDescription: '',
+      cardAttr1: '0',
+      cardAttr2: '0',
+      cardAttr3: '0',
+      cardImage: '',
+      cardRare: 'normal',
+      cardTrunfo: false,
+    };
+    this.onInputChange = this.onInputChange.bind(this);
+    // é o que faz visivel o estado inicial nos componentes quando a funcao for chamada
+  }
 
-  // onInputChange({target}) {
-  //   const { name } = target;
-  //   // name é a propriedade dos elementos no formulario
-  // }
+  onInputChange({ target }) {
+    const { name } = target;
+    // identifica mudanca no campo do formulário tendo como alvo a propriedade name
+    const value = (target.type === 'checkbox') ? target.checked : target.value;
+    // operador ternario: se for checkbox usa no target caso contrario usa a propriedade name
+
+    this.setState({ [name]: value });
+    // faz com que a função pegue de forma genérica todos os campos do formulário
+  }
 
   render() {
     return (

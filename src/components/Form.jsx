@@ -48,7 +48,7 @@ class Form extends Component {
             <input
               id="attr1-input"
               type="number"
-              name="attr1-input"
+              name="cardAttr1"
               value={ cardAttr1 }
               data-testid="attr1-input"
               onChange={ onInputChange }

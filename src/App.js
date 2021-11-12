@@ -34,7 +34,8 @@ class App extends React.Component {
     const {
       state: {
         cardName,
-        cardDescription },
+        cardDescription,
+        cardAttr1 },
       onInputChange,
     } = this;
     return (
@@ -45,9 +46,8 @@ class App extends React.Component {
           <Card
             cardName={ cardName }
             cardDescription={ cardDescription }
+            cardAttr1={ cardAttr1 }
           />
-          {/* <Form cardName={ cardName } />
-          <Card cardName={ cardName } /> */}
         </div>
       </div>
     );

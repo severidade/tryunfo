@@ -27,16 +27,25 @@ class App extends React.Component {
     // operador ternario: se for checkbox usa no target caso contrario usa a propriedade name
 
     this.setState({ [name]: value });
-    // faz com que a função pegue de forma genérica todos os campos do formulário
+    // faz com que a função pegue de forma genérica todos os campos "name" do formulário
   }
 
   render() {
+    const {
+      state: {
+        cardName,
+        cardDescription },
+      onInputChange,
+    } = this;
     return (
       <div>
         <h1>Tryunfs</h1>
         <div className="conteiner_NewCard">
-          <Form />
-          <Card />
+          <Form onInputChange={ onInputChange } />
+          <Card
+            cardName={ cardName }
+            cardDescription={ cardDescription }
+          />
           {/* <Form cardName={ cardName } />
           <Card cardName={ cardName } /> */}
         </div>

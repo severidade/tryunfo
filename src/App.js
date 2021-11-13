@@ -29,16 +29,37 @@ class App extends React.Component {
     const value = (target.type === 'checkbox') ? target.checked : target.value;
     // operador ternario: se for checkbox usa no target caso contrario usa a propriedade name
 
+    // this.setState faz com que a função pegue de forma genérica todos os campos "name" do formulário e atualiza o estado
+    // depois tem a validacao
     this.setState({ [name]: value }, () => {
-      const { cardName } = this.state;
+      const {
+        cardName,
+        cardDescription,
+        cardAttr1,
+        cardAttr2,
+        cardAttr3,
+        cardImage,
+      } = this.state;
+
+      const maxValue = 90;
+      const maxSumValues = 210;
+      const attrOne = Number(cardAttr1);
+      const attrTwo = Number(cardAttr2);
+      const attrThree = Number(cardAttr3);
+      const attrSumValues = attrOne + attrTwo + attrThree;
+
       if (cardName === '') {
+        this.setState({ isSaveButtonDisabled: true });
+      } else if (cardDescription === '') {
+        this.setState({ isSaveButtonDisabled: true });
+      } else if (cardImage === '') {
+        this.setState({ isSaveButtonDisabled: true });
+      } else if (attrSumValues > maxSumValues) {
         this.setState({ isSaveButtonDisabled: true });
       } else {
         this.setState({ isSaveButtonDisabled: false });
       }
     });
-    // this.setState faz com que a função pegue de forma genérica todos os campos "name" do formulário e atualiza o estado
-    // depois tem a validacao
   }
 
   // criar a funcaoisSaveButtonDisabled

@@ -16,7 +16,7 @@ class App extends React.Component {
       cardRare: 'normal',
       cardTrunfo: false,
 
-      isDisabled: true,
+      isSaveButtonDisabled: true,
     };
     this.onInputChange = this.onInputChange.bind(this);
     // this.onInputChange = this.isSaveButtonDisabled.bind(this);
@@ -31,10 +31,10 @@ class App extends React.Component {
 
     this.setState({ [name]: value }, () => {
       const { cardName } = this.state;
-      if(cardName === "") {
-        this.setState({ isDisabled: true });
+      if (cardName === '') {
+        this.setState({ isSaveButtonDisabled: true });
       } else {
-        this.setState({ isDisabled: false });
+        this.setState({ isSaveButtonDisabled: false });
       }
     });
     // this.setState faz com que a função pegue de forma genérica todos os campos "name" do formulário e atualiza o estado
@@ -54,6 +54,7 @@ class App extends React.Component {
         cardImage,
         cardRare,
         cardTrunfo,
+        isSaveButtonDisabled,
       }, onInputChange,
     } = this;
     return (
@@ -69,6 +70,7 @@ class App extends React.Component {
             cardAttr3={ cardAttr3 }
             cardImage={ cardImage }
             cardRare={ cardRare }
+            isSaveButtonDisabled={ isSaveButtonDisabled }
           />
           <Card
             cardName={ cardName }

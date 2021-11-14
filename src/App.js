@@ -60,7 +60,21 @@ class App extends React.Component {
     });
   }
 
-  // criar a funcaoisSaveButtonDisabled
+  onSaveButtonClick = (event) => {
+    event.preventDefault();
+    this.onVerifyTrunfo();
+    this.setState(() => ({
+      cardName: '',
+      cardDescription: '',
+      cardAttr1: '0',
+      cardAttr2: '0',
+      cardAttr3: '0',
+      cardImage: '',
+      cardRare: 'normal',
+      cardTrunfo: false,
+      isSaveButtonDisabled: true,
+    }));
+  }
 
   render() {
     const {

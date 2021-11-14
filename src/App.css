@@ -21,8 +21,8 @@ html {
   background-color: white;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding: 40px;
+  justify-content: flex-start;
+  padding: 0 40px 40px;
 }
 
 .content_PreviewNewCard {
@@ -31,6 +31,11 @@ html {
   flex-direction: column;
   justify-content: center;
   padding: 0 40px 40px;
+}
+
+.content_AddNewCard h2, .content_PreviewNewCard h2 {
+  margin-bottom: 20px;
+  margin-top: 20px;
 }
 
 .content_PreviewNewCard h2 {
@@ -145,6 +150,6 @@ figure div {
   width: 48px;
 }
 
-/* .rare {
+.rare {
   display: none;
-} */
+}

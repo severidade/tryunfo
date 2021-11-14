@@ -110,7 +110,6 @@ class Form extends Component {
               name="cardTrunfo"
               data-testid="trunfo-input"
               checked={ cardTrunfo }
-              // lembrar de validar no constructor
               onChange={ onInputChange }
             />
           </label>

@@ -19,6 +19,7 @@ class App extends React.Component {
       isSaveButtonDisabled: true,
     };
     this.onInputChange = this.onInputChange.bind(this);
+    this.onSaveButtonClick = this.onSaveButtonClick.bind(this);
     // é o que faz visivel o estado inicial nos componentes quando a funcao for chamada
   }
 
@@ -59,6 +60,22 @@ class App extends React.Component {
     });
   }
 
+  // A resolucao dessa função foi possível apos estudar o codigo de Aparecida Goulart;
+  onSaveButtonClick = (event) => {
+    event.preventDefault();
+    this.setState(() => ({
+      cardName: '',
+      cardDescription: '',
+      cardAttr1: '0',
+      cardAttr2: '0',
+      cardAttr3: '0',
+      cardImage: '',
+      cardRare: 'normal',
+      cardTrunfo: false,
+      isSaveButtonDisabled: true,
+    }));
+  }
+
   render() {
     const {
       state: {
@@ -71,7 +88,7 @@ class App extends React.Component {
         cardRare,
         cardTrunfo,
         isSaveButtonDisabled,
-      }, onInputChange,
+      }, onInputChange, onSaveButtonClick,
     } = this;
     return (
       <div>
@@ -87,6 +104,7 @@ class App extends React.Component {
             cardImage={ cardImage }
             cardRare={ cardRare }
             isSaveButtonDisabled={ isSaveButtonDisabled }
+            onSaveButtonClick={ onSaveButtonClick }
           />
           <Card
             cardName={ cardName }

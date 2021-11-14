@@ -19,7 +19,6 @@ class App extends React.Component {
       isSaveButtonDisabled: true,
     };
     this.onInputChange = this.onInputChange.bind(this);
-    // this.onInputChange = this.isSaveButtonDisabled.bind(this);
     // é o que faz visivel o estado inicial nos componentes quando a funcao for chamada
   }
 
@@ -58,22 +57,6 @@ class App extends React.Component {
         this.setState({ isSaveButtonDisabled: false });
       }
     });
-  }
-
-  onSaveButtonClick = (event) => {
-    event.preventDefault();
-    this.onVerifyTrunfo();
-    this.setState(() => ({
-      cardName: '',
-      cardDescription: '',
-      cardAttr1: '0',
-      cardAttr2: '0',
-      cardAttr3: '0',
-      cardImage: '',
-      cardRare: 'normal',
-      cardTrunfo: false,
-      isSaveButtonDisabled: true,
-    }));
   }
 
   render() {

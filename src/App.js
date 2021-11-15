@@ -114,6 +114,7 @@ class App extends React.Component {
     }));
   }
 
+  // soluçao encontrada com ajuda de laura Fumagalli
   verificaTrunfo(cardTrunfo) {
     if (cardTrunfo === true) {
       this.setState({ hasTrunfo: true });

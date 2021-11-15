@@ -14,8 +14,9 @@ class App extends React.Component {
       cardAttr3: '0',
       cardImage: '',
       cardRare: 'normal',
-
       cardTrunfo: false,
+
+      hasTrunfo: false,
 
       isSaveButtonDisabled: true,
 
@@ -23,6 +24,7 @@ class App extends React.Component {
     };
     this.onInputChange = this.onInputChange.bind(this);
     this.onSaveButtonClick = this.onSaveButtonClick.bind(this);
+    this.verificaTrunfo = this.verificaTrunfo.bind(this);
     // é o que faz visivel o estado inicial nos componentes quando a funcao for chamada
   }
 
@@ -65,12 +67,13 @@ class App extends React.Component {
 
   createNewCard = (newCard) => {
     this.setState((prevState) => (
-      { cardlist: [...prevState.cardlist, newCard] }
+      { cardlist: [newCard, ...prevState.cardlist] }
     ));
   }
 
   // A resolucao dessa função foi possível apos estudar o codigo de Aparecida Goulart;
   onSaveButtonClick = (event) => {
+    event.preventDefault();
     const {
       cardName,
       cardDescription,
@@ -96,9 +99,8 @@ class App extends React.Component {
       hasTrunfo,
       cardlist,
     });
-
+    this.verificaTrunfo(cardTrunfo);
     // limpar
-    event.preventDefault();
     this.setState(() => ({
       cardName: '',
       cardDescription: '',
@@ -112,6 +114,12 @@ class App extends React.Component {
     }));
   }
 
+  verificaTrunfo(cardTrunfo) {
+    if (cardTrunfo === true) {
+      this.setState({ hasTrunfo: true });
+    }
+  }
+
   render() {
     const {
       state: {
@@ -123,6 +131,7 @@ class App extends React.Component {
         cardImage,
         cardRare,
         cardTrunfo,
+        hasTrunfo,
         isSaveButtonDisabled,
         cardlist,
       }, onInputChange, onSaveButtonClick,
@@ -140,6 +149,7 @@ class App extends React.Component {
             cardAttr3={ cardAttr3 }
             cardImage={ cardImage }
             cardRare={ cardRare }
+            hasTrunfo={ hasTrunfo }
             isSaveButtonDisabled={ isSaveButtonDisabled }
             onSaveButtonClick={ onSaveButtonClick }
           />

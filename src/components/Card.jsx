@@ -16,7 +16,7 @@ class Card extends Component {
 
     return (
       <div className="content_PreviewNewCard">
-        <h2>Pré-visualização</h2>
+        {/* <h2>Pré-visualização</h2> */}
         <div className="PreviewNewCard">
           <h3 data-testid="name-card">{cardName}</h3>
           <figure>

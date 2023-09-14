@@ -1,78 +1,67 @@
-import React from 'react';
+import React, { useState, useCallback } from 'react';
 import Form from './components/Form';
 import Card from './components/Card';
 import './App.css';
 
-class App extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      cardName: '',
-      cardDescription: '',
-      cardAttr1: '0',
-      cardAttr2: '0',
-      cardAttr3: '0',
-      cardImage: '',
-      cardRare: 'normal',
-      cardTrunfo: false,
+const App = () => {
+  const [cardState, setCardState] = useState({
+    cardName: '',
+    cardDescription: '',
+    cardAttr1: '0',
+    cardAttr2: '0',
+    cardAttr3: '0',
+    cardImage: '',
+    cardRare: 'normal',
+    cardTrunfo: false,
+    hasTrunfo: false,
+    isSaveButtonDisabled: true,
+    cardlist: [],
+  });
 
-      hasTrunfo: false,
+  const MIN_CARD_NAME_LENGTH = 5;
+  const MIN_CARD_DESCRIPTION_LENGTH = 6;
 
-      isSaveButtonDisabled: true,
+  const validateForm = (data) => {
+    const {
+      cardName,
+      cardDescription,
+    } = data;
 
-      cardlist: [],
-    };
-    this.onInputChange = this.onInputChange.bind(this);
-    this.onSaveButtonClick = this.onSaveButtonClick.bind(this);
-    this.verificaTrunfo = this.verificaTrunfo.bind(this);
-    // é o que faz visivel o estado inicial nos componentes quando a funcao for chamada
-  }
+    const isNameValid = cardName.length > MIN_CARD_NAME_LENGTH;
+    const isDescriptionValid = cardDescription.length > MIN_CARD_DESCRIPTION_LENGTH;
 
-  onInputChange({ target }) {
+    return isNameValid && isDescriptionValid;
+  };
+
+  const onInputChange = useCallback(({ target }) => {
     const { name } = target;
-    // identifica mudanca no campo do formulário tendo como alvo a propriedade name
-    const value = (target.type === 'checkbox') ? target.checked : target.value;
-    // operador ternario: se for checkbox usa no target caso contrario usa a propriedade name
+    const value = target.type === 'checkbox' ? target.checked : target.value;
 
-    // this.setState faz com que a função pegue de forma genérica todos os campos "name" do formulário e atualiza o estado
-    // depois tem a validacao
-    this.setState({ [name]: value }, () => {
-      const {
-        cardName,
-        cardDescription,
-        cardAttr1,
-        cardAttr2,
-        cardAttr3,
-        cardImage,
-      } = this.state;
+    setCardState((prevCardState) => ({
+      ...prevCardState,
+      [name]: value,
+    }));
 
-      const stringValues = [cardName, cardDescription, cardImage];
-      const stringItem = stringValues.some((string) => string.length === 0);
-
-      const maxValue = 90;
-      const maxTotalValue = 210;
-      const numValues = [cardAttr1, cardAttr2, cardAttr3];
-      const numItem = numValues.some((num) => num < 0 || num > maxValue || num === '');
-      const sumValues = Number(cardAttr1) + Number(cardAttr2) + Number(cardAttr3);
-
-      if (stringItem === true || numItem === true) {
-        this.setState({ isSaveButtonDisabled: true });
-      } else if (sumValues > maxTotalValue) {
-        this.setState({ isSaveButtonDisabled: true });
-      } else {
-        this.setState({ isSaveButtonDisabled: false });
-      }
+    // Lógica de validação
+    const isValid = validateForm({
+      ...cardState,
+      [name]: value,
     });
-  }
 
-  createNewCard = (newCard) => {
-    this.setState((prevState) => (
-      { cardlist: [newCard, ...prevState.cardlist] }
-    ));
-  }
+    setCardState((prevState) => ({
+      ...prevState,
+      isSaveButtonDisabled: !isValid,
+    }));
+  }, [cardState]);
 
-  // A resolucao dessa função foi possível apos estudar o codigo de Aparecida Goulart;
-  onSaveButtonClick = (event) => {
+  const createNewCard = useCallback((newCard) => {
+    setCardState((prevState) => ({
+      ...prevState,
+      cardlist: [newCard, ...prevState.cardlist],
+    }));
+  }, []);
+
+  const onSaveButtonClick = useCallback((event) => {
     event.preventDefault();
     const {
       cardName,
@@ -85,9 +74,9 @@ class App extends React.Component {
       cardTrunfo,
       hasTrunfo,
       cardlist,
-    } = this.state;
+    } = cardState;
 
-    this.createNewCard({
+    createNewCard({
       cardName,
       cardDescription,
       cardAttr1,
@@ -99,9 +88,18 @@ class App extends React.Component {
       hasTrunfo,
       cardlist,
     });
-    this.verificaTrunfo(cardTrunfo);
-    // limpar
-    this.setState(() => ({
+
+    // Lógica de verificação de trunfo
+    if (cardTrunfo === true) {
+      setCardState((prevState) => ({
+        ...prevState,
+        hasTrunfo: true,
+      }));
+    }
+
+    // Limpar os campos
+    setCardState((prevState) => ({
+      ...prevState,
       cardName: '',
       cardDescription: '',
       cardAttr1: '0',
@@ -112,62 +110,54 @@ class App extends React.Component {
       cardTrunfo: false,
       isSaveButtonDisabled: true,
     }));
-  }
+  }, [cardState, createNewCard]);
 
-  // soluçao encontrada com ajuda de laura Fumagalli
-  verificaTrunfo(cardTrunfo) {
-    if (cardTrunfo === true) {
-      this.setState({ hasTrunfo: true });
-    }
-  }
+  const {
+    cardName,
+    cardDescription,
+    cardAttr1,
+    cardAttr2,
+    cardAttr3,
+    cardImage,
+    cardRare,
+    cardTrunfo,
+    hasTrunfo,
+    isSaveButtonDisabled,
+    cardlist,
+  } = cardState;
 
-  render() {
-    const {
-      state: {
-        cardName,
-        cardDescription,
-        cardAttr1,
-        cardAttr2,
-        cardAttr3,
-        cardImage,
-        cardRare,
-        cardTrunfo,
-        hasTrunfo,
-        isSaveButtonDisabled,
-        cardlist,
-      }, onInputChange, onSaveButtonClick,
-    } = this;
-    return (
-      <div>
-        <h1>Tryunfs</h1>
-        <div className="conteiner_NewCard">
-          <Form
-            onInputChange={ onInputChange }
-            cardName={ cardName }
-            cardDescription={ cardDescription }
-            cardAttr1={ cardAttr1 }
-            cardAttr2={ cardAttr2 }
-            cardAttr3={ cardAttr3 }
-            cardImage={ cardImage }
-            cardRare={ cardRare }
-            hasTrunfo={ hasTrunfo }
-            isSaveButtonDisabled={ isSaveButtonDisabled }
-            onSaveButtonClick={ onSaveButtonClick }
-          />
+  return (
+    <div>
+      <h1>Tryunfs</h1>
+      <div className="conteiner_NewCard">
+        <Form
+          onInputChange={ onInputChange }
+          cardName={ cardName }
+          cardDescription={ cardDescription }
+          cardAttr1={ cardAttr1 }
+          cardAttr2={ cardAttr2 }
+          cardAttr3={ cardAttr3 }
+          cardImage={ cardImage }
+          cardRare={ cardRare }
+          hasTrunfo={ hasTrunfo }
+          isSaveButtonDisabled={ isSaveButtonDisabled }
+          onSaveButtonClick={ onSaveButtonClick }
+        />
+        <Card
+          cardName={ cardName }
+          cardDescription={ cardDescription }
+          cardAttr1={ cardAttr1 }
+          cardAttr2={ cardAttr2 }
+          cardAttr3={ cardAttr3 }
+          cardImage={ cardImage }
+          cardRare={ cardRare }
+          cardTrunfo={ cardTrunfo }
+        />
+      </div>
+      <div className="conteiner_SavedCard">
+        <h2>Cartas Salvas</h2>
+        {cardlist.map((card, i) => (
           <Card
-            cardName={ cardName }
-            cardDescription={ cardDescription }
-            cardAttr1={ cardAttr1 }
-            cardAttr2={ cardAttr2 }
-            cardAttr3={ cardAttr3 }
-            cardImage={ cardImage }
-            cardRare={ cardRare }
-            cardTrunfo={ cardTrunfo }
-          />
-        </div>
-        <div className="conteiner_SavedCard">
-          <h2> Cartas Salvas </h2>
-          {cardlist.map((card, i) => (<Card
             key={ i }
             cardName={ card.cardName }
             cardDescription={ card.cardDescription }
@@ -177,11 +167,11 @@ class App extends React.Component {
             cardImage={ card.cardImage }
             cardRare={ card.cardRare }
             cardTrunfo={ card.cardTrunfo }
-          />))}
-        </div>
+          />
+        ))}
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
 export default App;

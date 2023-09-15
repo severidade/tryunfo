@@ -1,5 +1,7 @@
+/* eslint-disable react/jsx-max-depth */
 import React from 'react';
 import PropTypes from 'prop-types';
+import styles from './card.module.css';
 
 function Card(props) {
   const {
@@ -12,6 +14,13 @@ function Card(props) {
     cardAttr3,
     cardRare,
   } = props;
+
+  const MAX_ATTR_VALUE = 90;
+
+  const calculateProgressBarWidth = (attrValue) => {
+    const maxWidth = 100;
+    return `${(attrValue / MAX_ATTR_VALUE) * maxWidth}%`;
+  };
 
   return (
     <div className="content_PreviewNewCard">
@@ -31,27 +40,48 @@ function Card(props) {
         </div>
 
         <div className="powers-card">
-          <div className="power" data-testid="attr1-card">
-            <div className="power_attr">
-              Attr01
+
+          <div className={ styles.power } data-testid="attr1-card">
+            <div className={ styles.power_attr }>
+              Força
             </div>
-            <div className="power_value">
+            <div className={ styles.power_gauge }>
+              <div
+                className={ styles.power_gauge_pointer }
+                style={ { width: calculateProgressBarWidth(cardAttr1) } }
+              />
+            </div>
+            <div className={ styles.power_value }>
               {cardAttr1}
             </div>
           </div>
-          <div className="power" data-testid="attr2-card">
-            <div className="power_attr">
-              Attr02
+
+          <div className={ styles.power } data-testid="attr2-card">
+            <div className={ styles.power_attr }>
+              Defesa
             </div>
-            <div className="power_value">
+            <div className={ styles.power_gauge }>
+              <div
+                className={ styles.power_gauge_pointer }
+                style={ { width: calculateProgressBarWidth(cardAttr2) } }
+              />
+            </div>
+            <div className={ styles.power_value }>
               {cardAttr2}
             </div>
           </div>
-          <div className="power" data-testid="attr3-card">
-            <div className="power_attr">
-              Attr03
+
+          <div className={ styles.power } data-testid="attr3-card">
+            <div className={ styles.power_attr }>
+              Agilidade
             </div>
-            <div className="power_value">
+            <div className={ styles.power_gauge }>
+              <div
+                className={ styles.power_gauge_pointer }
+                style={ { width: calculateProgressBarWidth(cardAttr3) } }
+              />
+            </div>
+            <div className={ styles.power_value }>
               {cardAttr3}
             </div>
           </div>

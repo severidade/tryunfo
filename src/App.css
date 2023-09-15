@@ -128,17 +128,18 @@ figure div {
   padding: 10px;
 }
 
-.power {
+/* .power {
   background: #eceff3;
   border-radius: 10px;
+  display: flex;
   height: 30px;
   line-height: 30px;
   margin-bottom: 4px;
   padding: 0 10px;
   position: relative;
-}
+} */
 
-.power_value {
+/* .power_value {
   background: #023031;
   border-radius: 0 10px 10px 0;
   color: #eceff3;
@@ -148,7 +149,12 @@ figure div {
   text-align: center;
   top: 0;
   width: 48px;
-}
+} */
+
+/* .power_gauge {
+  background-color: tomato;
+  width: 100%;
+} */
 
 .rare {
   display: none;

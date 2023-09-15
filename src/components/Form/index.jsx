@@ -44,7 +44,7 @@ function Form(props) {
         </label>
 
         <label htmlFor="attr1-input">
-          Attr01
+          Força
           <input
             id="attr1-input"
             type="number"
@@ -57,7 +57,7 @@ function Form(props) {
           />
         </label>
         <label htmlFor="attr2-input">
-          Attr02
+          Defesa
           <input
             id="attr2-input"
             type="number"
@@ -70,7 +70,7 @@ function Form(props) {
           />
         </label>
         <label htmlFor="attr3-input">
-          Attr03
+          Agilidade
           <input
             id="attr3-input"
             type="number"

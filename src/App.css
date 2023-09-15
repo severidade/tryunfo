@@ -128,7 +128,7 @@ figure div {
   padding: 10px;
 }
 
-.powers-card p {
+.power {
   background: #eceff3;
   border-radius: 10px;
   height: 30px;
@@ -138,7 +138,7 @@ figure div {
   position: relative;
 }
 
-.powers-card p strong {
+.power_value {
   background: #023031;
   border-radius: 0 10px 10px 0;
   color: #eceff3;

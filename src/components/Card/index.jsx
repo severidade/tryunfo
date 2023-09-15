@@ -29,25 +29,32 @@ function Card(props) {
         >
           {cardDescription}
         </div>
+
         <div className="powers-card">
-          <p data-testid="attr1-card">
-            Attr01
-            <strong>
+          <div className="power" data-testid="attr1-card">
+            <div className="power_attr">
+              Attr01
+            </div>
+            <div className="power_value">
               {cardAttr1}
-            </strong>
-          </p>
-          <p data-testid="attr2-card">
-            Attr02
-            <strong>
+            </div>
+          </div>
+          <div className="power" data-testid="attr2-card">
+            <div className="power_attr">
+              Attr02
+            </div>
+            <div className="power_value">
               {cardAttr2}
-            </strong>
-          </p>
-          <p data-testid="attr3-card">
-            Attr03
-            <strong>
+            </div>
+          </div>
+          <div className="power" data-testid="attr3-card">
+            <div className="power_attr">
+              Attr03
+            </div>
+            <div className="power_value">
               {cardAttr3}
-            </strong>
-          </p>
+            </div>
+          </div>
           <p className="rare" data-testid="rare-card">
             <strong>
               {cardRare}

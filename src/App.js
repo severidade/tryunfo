@@ -4,112 +4,45 @@ import Card from './components/Card';
 import validateForm from './utils/validation';
 import './App.css';
 
+const initialState = {
+  cardName: '',
+  cardDescription: '',
+  cardAttr1: '',
+  cardAttr2: '',
+  cardAttr3: '',
+  cardImage: '',
+  cardRare: 'normal',
+  cardTrunfo: false,
+  hasTrunfo: false,
+  isSaveButtonDisabled: true,
+  cardlist: [],
+};
+
 const App = () => {
-  const [cardState, setCardState] = useState({
-    cardName: '',
-    cardDescription: '',
-    cardAttr1: '',
-    cardAttr2: '',
-    cardAttr3: '',
-    cardImage: '',
-    cardRare: 'normal',
-    cardTrunfo: false,
-    hasTrunfo: false,
-    isSaveButtonDisabled: true,
-    cardlist: [],
-  });
+  const [cardState, setCardState] = useState(initialState);
 
   const onInputChange = useCallback(({ target }) => {
     const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
 
-    setCardState((prevCardState) => ({
-      ...prevCardState,
-      [name]: value,
-    }));
-
-    const isValid = validateForm({
-      ...cardState,
-      [name]: value,
-    });
-
     setCardState((prevState) => ({
       ...prevState,
-      isSaveButtonDisabled: !isValid,
-    }));
-  }, [cardState]);
-
-  const createNewCard = useCallback((newCard) => {
-    setCardState((prevState) => ({
-      ...prevState,
-      cardlist: [newCard, ...prevState.cardlist],
+      [name]: value,
+      isSaveButtonDisabled: !validateForm({ ...prevState, [name]: value }),
     }));
   }, []);
 
   const onSaveButtonClick = useCallback((event) => {
     event.preventDefault();
-    const {
-      cardName,
-      cardDescription,
-      cardAttr1,
-      cardAttr2,
-      cardAttr3,
-      cardImage,
-      cardRare,
-      cardTrunfo,
-      hasTrunfo,
-      cardlist,
-    } = cardState;
 
-    createNewCard({
-      cardName,
-      cardDescription,
-      cardAttr1,
-      cardAttr2,
-      cardAttr3,
-      cardImage,
-      cardRare,
-      cardTrunfo,
-      hasTrunfo,
-      cardlist,
-    });
+    const updatedCardState = {
+      ...initialState,
+      cardlist: [cardState, ...cardState.cardlist],
+      hasTrunfo: cardState.cardTrunfo,
+    };
 
-    // Lógica de verificação de trunfo
-    if (cardTrunfo === true) {
-      setCardState((prevState) => ({
-        ...prevState,
-        hasTrunfo: true,
-      }));
-    }
-
-    // Limpar os campos
-    setCardState((prevState) => ({
-      ...prevState,
-      cardName: '',
-      cardDescription: '',
-      cardAttr1: '',
-      cardAttr2: '',
-      cardAttr3: '',
-      cardImage: '',
-      cardRare: 'normal',
-      cardTrunfo: false,
-      isSaveButtonDisabled: true,
-    }));
-  }, [cardState, createNewCard]);
-
-  const {
-    cardName,
-    cardDescription,
-    cardAttr1,
-    cardAttr2,
-    cardAttr3,
-    cardImage,
-    cardRare,
-    cardTrunfo,
-    hasTrunfo,
-    isSaveButtonDisabled,
-    cardlist,
-  } = cardState;
+    setCardState(updatedCardState);
+  }, [cardState]);
 
   return (
     <div>
@@ -117,42 +50,15 @@ const App = () => {
       <div className="conteiner_NewCard">
         <Form
           onInputChange={ onInputChange }
-          cardName={ cardName }
-          cardDescription={ cardDescription }
-          cardAttr1={ cardAttr1 }
-          cardAttr2={ cardAttr2 }
-          cardAttr3={ cardAttr3 }
-          cardImage={ cardImage }
-          cardRare={ cardRare }
-          hasTrunfo={ hasTrunfo }
-          isSaveButtonDisabled={ isSaveButtonDisabled }
+          { ...cardState }
           onSaveButtonClick={ onSaveButtonClick }
         />
-        <Card
-          cardName={ cardName }
-          cardDescription={ cardDescription }
-          cardAttr1={ cardAttr1 }
-          cardAttr2={ cardAttr2 }
-          cardAttr3={ cardAttr3 }
-          cardImage={ cardImage }
-          cardRare={ cardRare }
-          cardTrunfo={ cardTrunfo }
-        />
+        <Card { ...cardState } />
       </div>
       <div className="conteiner_SavedCard">
         <h2>Cartas Salvas</h2>
-        {cardlist.map((card, i) => (
-          <Card
-            key={ i }
-            cardName={ card.cardName }
-            cardDescription={ card.cardDescription }
-            cardAttr1={ card.cardAttr1 }
-            cardAttr2={ card.cardAttr2 }
-            cardAttr3={ card.cardAttr3 }
-            cardImage={ card.cardImage }
-            cardRare={ card.cardRare }
-            cardTrunfo={ card.cardTrunfo }
-          />
+        {cardState.cardlist.map((card, i) => (
+          <Card key={ i } { ...card } />
         ))}
       </div>
     </div>

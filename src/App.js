@@ -1,6 +1,7 @@
 import React, { useState, useCallback } from 'react';
 import Form from './components/Form';
 import Card from './components/Card';
+import validateForm from './utils/validation';
 import './App.css';
 
 const App = () => {
@@ -18,30 +19,6 @@ const App = () => {
     cardlist: [],
   });
 
-  const validateForm = (data) => {
-    const {
-      cardName,
-      cardDescription,
-      cardAttr1,
-      cardAttr2,
-      cardAttr3,
-    } = data;
-
-    const stringValues = [cardName, cardDescription];
-    const stringItem = stringValues.some((string) => string.length === 0);
-
-    const maxValue = 90;
-    const maxTotalValue = 210;
-    const numValues = [cardAttr1, cardAttr2, cardAttr3];
-    const numItem = numValues.some((num) => num < 0 || num > maxValue || num === '');
-    const sumValues = Number(cardAttr1) + Number(cardAttr2) + Number(cardAttr3);
-
-    if (stringItem === true || numItem === true || sumValues > maxTotalValue) {
-      return false;
-    }
-    return true;
-  };
-
   const onInputChange = useCallback(({ target }) => {
     const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
@@ -51,7 +28,6 @@ const App = () => {
       [name]: value,
     }));
 
-    // Lógica de validação
     const isValid = validateForm({
       ...cardState,
       [name]: value,

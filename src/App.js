@@ -1,3 +1,4 @@
+/* eslint-disable no-magic-numbers */
 import React, { useState, useCallback } from 'react';
 import Form from './components/Form/index';
 import Card from './components/Card/index';
@@ -14,6 +15,7 @@ const initialState = {
   cardRare: 'normal',
   cardTrunfo: false,
   hasTrunfo: false,
+  remainingPower: 210,
   isSaveButtonDisabled: true,
   cardlist: [],
 };
@@ -25,10 +27,14 @@ const App = () => {
     const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
 
+    // impede que valor seja maior que 90
+    const sanitizedValue = name.startsWith('cardAttr') && Number(value) > 90
+      ? '90' : value;
+
     setCardState((prevState) => ({
       ...prevState,
-      [name]: value,
-      isSaveButtonDisabled: !validateForm({ ...prevState, [name]: value }),
+      [name]: sanitizedValue,
+      isSaveButtonDisabled: !validateForm({ ...prevState, [name]: sanitizedValue }),
     }));
   }, []);
 

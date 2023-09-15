@@ -14,6 +14,7 @@ function Form(props) {
     hasTrunfo,
     onInputChange,
     isSaveButtonDisabled,
+    remainingPower,
     onSaveButtonClick,
   } = props;
 
@@ -43,6 +44,7 @@ function Form(props) {
           />
         </label>
 
+        <p>Poderes</p>
         <label htmlFor="attr1-input">
           Força
           <input
@@ -82,6 +84,14 @@ function Form(props) {
             max="90"
           />
         </label>
+
+        <div className="remaining_power">
+          Poder restante:
+          <span>
+            {' '}
+            { remainingPower }
+          </span>
+        </div>
 
         <label htmlFor="img">
           Imagem
@@ -148,6 +158,7 @@ Form.propTypes = {
   cardRare: PropTypes.string.isRequired,
   cardTrunfo: PropTypes.bool.isRequired,
   hasTrunfo: PropTypes.bool.isRequired,
+  remainingPower: PropTypes.number.isRequired,
   isSaveButtonDisabled: PropTypes.bool.isRequired,
   onInputChange: PropTypes.func.isRequired,
   onSaveButtonClick: PropTypes.func.isRequired,

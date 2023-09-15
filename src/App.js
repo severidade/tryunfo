@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from 'react';
 import Form from './components/Form/index';
-import Card from './components/Card';
+import Card from './components/Card/index';
 import validateForm from './utils/validation';
 import './App.css';
 

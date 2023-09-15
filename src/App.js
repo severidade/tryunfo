@@ -18,19 +18,36 @@ const App = () => {
     cardlist: [],
   });
 
-  const MIN_CARD_NAME_LENGTH = 5;
-  const MIN_CARD_DESCRIPTION_LENGTH = 6;
+  // const MIN_CARD_NAME_LENGTH = 5;
+  // const MIN_CARD_DESCRIPTION_LENGTH = 6;
 
   const validateForm = (data) => {
     const {
       cardName,
       cardDescription,
+      cardAttr1,
+      cardAttr2,
+      cardAttr3,
     } = data;
 
-    const isNameValid = cardName.length > MIN_CARD_NAME_LENGTH;
-    const isDescriptionValid = cardDescription.length > MIN_CARD_DESCRIPTION_LENGTH;
+    // const isNameValid = cardName.length > MIN_CARD_NAME_LENGTH;
+    // const isDescriptionValid = cardDescription.length > MIN_CARD_DESCRIPTION_LENGTH;
 
-    return isNameValid && isDescriptionValid;
+    const stringValues = [cardName, cardDescription];
+    const stringItem = stringValues.some((string) => string.length === 0);
+
+    const maxValue = 90;
+    const maxTotalValue = 210;
+    const numValues = [cardAttr1, cardAttr2, cardAttr3];
+    const numItem = numValues.some((num) => num < 0 || num > maxValue || num === '');
+    const sumValues = Number(cardAttr1) + Number(cardAttr2) + Number(cardAttr3);
+
+    // return isNameValid && isDescriptionValid;
+
+    if (stringItem === true || numItem === true || sumValues > maxTotalValue) {
+      return false;
+    }
+    return true;
   };
 
   const onInputChange = useCallback(({ target }) => {

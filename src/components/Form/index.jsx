@@ -42,6 +42,7 @@ function Form(props) {
             onChange={ onInputChange }
           />
         </label>
+
         <label htmlFor="attr1-input">
           Attr01
           <input
@@ -51,6 +52,8 @@ function Form(props) {
             value={ cardAttr1 }
             data-testid="attr1-input"
             onChange={ onInputChange }
+            min="0"
+            max="90"
           />
         </label>
         <label htmlFor="attr2-input">
@@ -62,6 +65,8 @@ function Form(props) {
             value={ cardAttr2 }
             data-testid="attr2-input"
             onChange={ onInputChange }
+            min="0"
+            max="90"
           />
         </label>
         <label htmlFor="attr3-input">
@@ -73,8 +78,11 @@ function Form(props) {
             value={ cardAttr3 }
             data-testid="attr3-input"
             onChange={ onInputChange }
+            min="0"
+            max="90"
           />
         </label>
+
         <label htmlFor="img">
           Imagem
           <input

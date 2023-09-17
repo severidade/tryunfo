@@ -16,6 +16,7 @@ function Form(props) {
     isSaveButtonDisabled,
     remainingPower,
     onSaveButtonClick,
+    showErrorMessage,
   } = props;
 
   return (
@@ -86,11 +87,8 @@ function Form(props) {
         </label>
 
         <div className="remaining_power">
-          Poder restante:
-          <span>
-            {' '}
-            { remainingPower }
-          </span>
+          {showErrorMessage ? 'Calma, 210 é o limite para somar poderes!'
+            : `Poder restante: ${remainingPower}`}
         </div>
 
         <label htmlFor="img">
@@ -160,6 +158,7 @@ Form.propTypes = {
   hasTrunfo: PropTypes.bool.isRequired,
   remainingPower: PropTypes.number.isRequired,
   isSaveButtonDisabled: PropTypes.bool.isRequired,
+  showErrorMessage: PropTypes.bool.isRequired,
   onInputChange: PropTypes.func.isRequired,
   onSaveButtonClick: PropTypes.func.isRequired,
 };

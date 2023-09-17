@@ -13,7 +13,6 @@ const initialState = {
   cardImage: '',
   cardRare: 'normal',
   cardTrunfo: false,
-  hasTrunfo: false,
   remainingPower: 210,
   isSaveButtonDisabled: true,
   cardList: [],
@@ -22,6 +21,7 @@ const initialState = {
 const App = () => {
   const [cardState, setCardState] = useState(initialState);
   const [showErrorMessage, setShowErrorMessage] = useState(false);
+  const [hasTrunfo, setHasTrunfo] = useState(false);
 
   const onInputChange = useCallback(({ target }) => {
     const { name } = target;
@@ -69,16 +69,19 @@ const App = () => {
     const updatedCardState = {
       ...initialState,
       cardList: [cardState, ...cardState.cardList],
-      hasTrunfo: cardState.cardTrunfo ? true : initialState.hasTrunfo,
+      hasTrunfo: cardState.cardTrunfo ? true : hasTrunfo,
     };
 
     setCardState(updatedCardState);
-  }, [cardState]);
+
+    // Atualize o estado separado hasTrunfo
+    setHasTrunfo(updatedCardState.hasTrunfo);
+  }, [cardState, hasTrunfo]);
 
   return (
     <div>
       <h1>Tryunfs</h1>
-      <div className="conteiner_NewCard">
+      <div className="container_new_card">
         <Form
           onInputChange={ onInputChange }
           { ...cardState }
@@ -87,7 +90,7 @@ const App = () => {
         />
         <Card { ...cardState } />
       </div>
-      <div className="conteiner_SavedCard">
+      <div className="container_saved_card">
         <h2>Cartas Salvas</h2>
         {cardState.cardList.map((card, i) => (
           <Card key={ i } { ...card } />

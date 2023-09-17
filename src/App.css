@@ -8,7 +8,7 @@ html {
   padding: 0;
 }
 
-.conteiner_NewCard {
+.container_new_card {
   background: url('./img/fundo_site.png');
   background-size: 150px;
   display: grid;

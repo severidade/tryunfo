@@ -87,7 +87,7 @@ function Form(props) {
         </label>
 
         <div className="remaining_power">
-          {showErrorMessage ? 'Calma, 210 é o limite para somar poderes!'
+          {showErrorMessage ? 'A soma de poderes é de no máximo 210'
             : `Poder restante: ${remainingPower}`}
         </div>
 

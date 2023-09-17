@@ -39,7 +39,7 @@ const App = () => {
       [name]: maximumInputValue,
     };
 
-    // // Calcula a soma dos valores atualizados
+    // Calcula a soma dos valores atualizados
     const sumAttrs = ['cardAttr1', 'cardAttr2', 'cardAttr3'];
     const sum = sumAttrs.reduce((total, attr) => total
       + Number(updatedCardState[attr]), 0);
@@ -51,13 +51,13 @@ const App = () => {
 
       // Atualize remainingPower subtraindo sum
       updatedCardState.remainingPower = initialState.remainingPower - sum;
-
       setCardState(updatedCardState);
       setShowErrorMessage(false);
     } else {
       setShowErrorMessage(true);
     }
 
+    // console.log(`Nome: ${name}, Valor: ${value}`);
     // if (name.startsWith('cardAttr')) {
     //   console.log(`Nome: ${name}, Valor: ${value}`);
     // }

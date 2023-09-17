@@ -1,0 +1,40 @@
+.power {
+  align-items: center;
+  background: #eceff3;
+  border-radius: 10px;
+  display: flex;
+  gap: 20px;
+  height: 30px;
+  line-height: 30px;
+  margin-bottom: 4px;
+  position: relative;
+}
+
+.power_attr {
+  padding-left: 15px;
+  width: 80px;
+}
+
+.power_value {
+  background: #023031;
+  border-radius: 0 10px 10px 0;
+  color: #eceff3;
+  height: 100%;
+
+  /* position: absolute; */
+  right: 0;
+  text-align: center;
+  top: 0;
+  width: 48px;
+}
+
+.power_gauge {
+  background-color: rgb(199, 199, 199);
+  flex-grow: 2;
+  height: 10px;
+}
+
+.power_gauge_pointer {
+  background-color: olive;
+  height: 100%;
+}

@@ -1,187 +1,103 @@
-import React from 'react';
-import Form from './components/Form';
-import Card from './components/Card';
+import React, { useState, useCallback } from 'react';
+import Form from './components/Form/index';
+import Card from './components/Card/index';
+import validateForm from './utils/validation';
 import './App.css';
 
-class App extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      cardName: '',
-      cardDescription: '',
-      cardAttr1: '0',
-      cardAttr2: '0',
-      cardAttr3: '0',
-      cardImage: '',
-      cardRare: 'normal',
-      cardTrunfo: false,
+const initialState = {
+  cardName: '',
+  cardDescription: '',
+  cardAttr1: '0',
+  cardAttr2: '0',
+  cardAttr3: '0',
+  cardImage: '',
+  cardRare: 'normal',
+  cardTrunfo: false,
+  remainingPower: 210,
+  isSaveButtonDisabled: true,
+  cardList: [],
+};
 
-      hasTrunfo: false,
+const App = () => {
+  const [cardState, setCardState] = useState(initialState);
+  const [showErrorMessage, setShowErrorMessage] = useState(false);
+  const [hasTrunfo, setHasTrunfo] = useState(false);
 
-      isSaveButtonDisabled: true,
-
-      cardlist: [],
-    };
-    this.onInputChange = this.onInputChange.bind(this);
-    this.onSaveButtonClick = this.onSaveButtonClick.bind(this);
-    this.verificaTrunfo = this.verificaTrunfo.bind(this);
-    // é o que faz visivel o estado inicial nos componentes quando a funcao for chamada
-  }
-
-  onInputChange({ target }) {
+  const onInputChange = useCallback(({ target }) => {
     const { name } = target;
-    // identifica mudanca no campo do formulário tendo como alvo a propriedade name
-    const value = (target.type === 'checkbox') ? target.checked : target.value;
-    // operador ternario: se for checkbox usa no target caso contrario usa a propriedade name
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    const maxValue = 90;
 
-    // this.setState faz com que a função pegue de forma genérica todos os campos "name" do formulário e atualiza o estado
-    // depois tem a validacao
-    this.setState({ [name]: value }, () => {
-      const {
-        cardName,
-        cardDescription,
-        cardAttr1,
-        cardAttr2,
-        cardAttr3,
-        cardImage,
-      } = this.state;
+    // impede que valor seja maior que 90
+    const maximumInputValue = name.startsWith('cardAttr')
+      && Number(value) > maxValue
+      ? '90' : value;
 
-      const stringValues = [cardName, cardDescription, cardImage];
-      const stringItem = stringValues.some((string) => string.length === 0);
+    // Atualize os valores de cardAttr1, cardAttr2, cardAttr3
+    const updatedCardState = {
+      ...cardState,
+      [name]: maximumInputValue,
+    };
 
-      const maxValue = 90;
-      const maxTotalValue = 210;
-      const numValues = [cardAttr1, cardAttr2, cardAttr3];
-      const numItem = numValues.some((num) => num < 0 || num > maxValue || num === '');
-      const sumValues = Number(cardAttr1) + Number(cardAttr2) + Number(cardAttr3);
+    // Calcula a soma dos valores atualizados
+    const sumAttrs = ['cardAttr1', 'cardAttr2', 'cardAttr3'];
+    const sum = sumAttrs.reduce((total, attr) => total
+      + Number(updatedCardState[attr]), 0);
 
-      if (stringItem === true || numItem === true) {
-        this.setState({ isSaveButtonDisabled: true });
-      } else if (sumValues > maxTotalValue) {
-        this.setState({ isSaveButtonDisabled: true });
-      } else {
-        this.setState({ isSaveButtonDisabled: false });
-      }
-    });
-  }
+    // Verifica se a soma é maior que remainingPower
+    if (sum <= initialState.remainingPower) {
+      // Atualize o restante do estado do cartão
+      updatedCardState.isSaveButtonDisabled = !validateForm(updatedCardState);
 
-  createNewCard = (newCard) => {
-    this.setState((prevState) => (
-      { cardlist: [newCard, ...prevState.cardlist] }
-    ));
-  }
-
-  // A resolucao dessa função foi possível apos estudar o codigo de Aparecida Goulart;
-  onSaveButtonClick = (event) => {
-    event.preventDefault();
-    const {
-      cardName,
-      cardDescription,
-      cardAttr1,
-      cardAttr2,
-      cardAttr3,
-      cardImage,
-      cardRare,
-      cardTrunfo,
-      hasTrunfo,
-      cardlist,
-    } = this.state;
-
-    this.createNewCard({
-      cardName,
-      cardDescription,
-      cardAttr1,
-      cardAttr2,
-      cardAttr3,
-      cardImage,
-      cardRare,
-      cardTrunfo,
-      hasTrunfo,
-      cardlist,
-    });
-    this.verificaTrunfo(cardTrunfo);
-    // limpar
-    this.setState(() => ({
-      cardName: '',
-      cardDescription: '',
-      cardAttr1: '0',
-      cardAttr2: '0',
-      cardAttr3: '0',
-      cardImage: '',
-      cardRare: 'normal',
-      cardTrunfo: false,
-      isSaveButtonDisabled: true,
-    }));
-  }
-
-  // soluçao encontrada com ajuda de laura Fumagalli
-  verificaTrunfo(cardTrunfo) {
-    if (cardTrunfo === true) {
-      this.setState({ hasTrunfo: true });
+      // Atualize remainingPower subtraindo sum
+      updatedCardState.remainingPower = initialState.remainingPower - sum;
+      setCardState(updatedCardState);
+      setShowErrorMessage(false);
+    } else {
+      setShowErrorMessage(true);
     }
-  }
 
-  render() {
-    const {
-      state: {
-        cardName,
-        cardDescription,
-        cardAttr1,
-        cardAttr2,
-        cardAttr3,
-        cardImage,
-        cardRare,
-        cardTrunfo,
-        hasTrunfo,
-        isSaveButtonDisabled,
-        cardlist,
-      }, onInputChange, onSaveButtonClick,
-    } = this;
-    return (
-      <div>
-        <h1>Tryunfs</h1>
-        <div className="conteiner_NewCard">
-          <Form
-            onInputChange={ onInputChange }
-            cardName={ cardName }
-            cardDescription={ cardDescription }
-            cardAttr1={ cardAttr1 }
-            cardAttr2={ cardAttr2 }
-            cardAttr3={ cardAttr3 }
-            cardImage={ cardImage }
-            cardRare={ cardRare }
-            hasTrunfo={ hasTrunfo }
-            isSaveButtonDisabled={ isSaveButtonDisabled }
-            onSaveButtonClick={ onSaveButtonClick }
-          />
-          <Card
-            cardName={ cardName }
-            cardDescription={ cardDescription }
-            cardAttr1={ cardAttr1 }
-            cardAttr2={ cardAttr2 }
-            cardAttr3={ cardAttr3 }
-            cardImage={ cardImage }
-            cardRare={ cardRare }
-            cardTrunfo={ cardTrunfo }
-          />
-        </div>
-        <div className="conteiner_SavedCard">
-          <h2> Cartas Salvas </h2>
-          {cardlist.map((card, i) => (<Card
-            key={ i }
-            cardName={ card.cardName }
-            cardDescription={ card.cardDescription }
-            cardAttr1={ card.cardAttr1 }
-            cardAttr2={ card.cardAttr2 }
-            cardAttr3={ card.cardAttr3 }
-            cardImage={ card.cardImage }
-            cardRare={ card.cardRare }
-            cardTrunfo={ card.cardTrunfo }
-          />))}
-        </div>
+    // console.log(`Nome: ${name}, Valor: ${value}`);
+    // if (name.startsWith('cardAttr')) {
+    //   console.log(`Nome: ${name}, Valor: ${value}`);
+    // }
+  }, [cardState]);
+
+  const onSaveButtonClick = useCallback((event) => {
+    event.preventDefault();
+
+    const updatedCardState = {
+      ...initialState,
+      cardList: [cardState, ...cardState.cardList],
+      hasTrunfo: cardState.cardTrunfo ? true : hasTrunfo,
+    };
+
+    setCardState(updatedCardState);
+
+    // Atualize o estado separado hasTrunfo
+    setHasTrunfo(updatedCardState.hasTrunfo);
+  }, [cardState, hasTrunfo]);
+
+  return (
+    <div>
+      <h1>Tryunfs</h1>
+      <div className="container_new_card">
+        <Form
+          onInputChange={ onInputChange }
+          { ...cardState }
+          onSaveButtonClick={ onSaveButtonClick }
+          showErrorMessage={ showErrorMessage }
+        />
+        <Card { ...cardState } />
       </div>
-    );
-  }
-}
+      <div className="container_saved_card">
+        <h2>Cartas Salvas</h2>
+        {cardState.cardList.map((card, i) => (
+          <Card key={ i } { ...card } />
+        ))}
+      </div>
+    </div>
+  );
+};
 
 export default App;

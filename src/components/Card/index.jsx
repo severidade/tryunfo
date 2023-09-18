@@ -35,6 +35,11 @@ function Card(props) {
             </div>
           ) : ''}
         </figure>
+        <div className={ styles.rarity } data-testid="rare-card">
+          <strong>
+            {cardRare}
+          </strong>
+        </div>
         <div
           className={ styles.description_card }
           data-testid="description-card"
@@ -43,7 +48,6 @@ function Card(props) {
         </div>
 
         <div className={ styles.powers_container }>
-
           <div className={ styles.power } data-testid="attr1-card">
             <div className={ styles.power_attr }>
               Força
@@ -88,11 +92,11 @@ function Card(props) {
               {cardAttr3}
             </div>
           </div>
-          <p className="rare" data-testid="rare-card">
+          {/* <p className="rare" data-testid="rare-card">
             <strong>
               {cardRare}
             </strong>
-          </p>
+          </p> */}
         </div>
       </div>
     </div>

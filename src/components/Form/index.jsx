@@ -20,6 +20,10 @@ function Form(props) {
     showErrorMessage,
   } = props;
 
+  const handleInputFocus = (event) => {
+    event.target.value = '';
+  };
+
   return (
     <div className={ styles.create_card_container }>
       <h2>Adicionar nova carta</h2>
@@ -58,6 +62,7 @@ function Form(props) {
             onChange={ onInputChange }
             min="0"
             max="90"
+            onFocus={ handleInputFocus }
           />
         </label>
         <label htmlFor="attr2-input">
@@ -71,6 +76,7 @@ function Form(props) {
             onChange={ onInputChange }
             min="0"
             max="90"
+            onFocus={ handleInputFocus }
           />
         </label>
         <label htmlFor="attr3-input">
@@ -84,6 +90,7 @@ function Form(props) {
             onChange={ onInputChange }
             min="0"
             max="90"
+            onFocus={ handleInputFocus }
           />
         </label>
 

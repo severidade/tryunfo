@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styles from './form.module.css';
 
 function Form(props) {
   const {
@@ -20,7 +21,7 @@ function Form(props) {
   } = props;
 
   return (
-    <div className="content_AddNewCard">
+    <div className={ styles.create_card_container }>
       <h2>Adicionar nova carta</h2>
       <form className="AddNewCard">
         <label htmlFor="cardName">

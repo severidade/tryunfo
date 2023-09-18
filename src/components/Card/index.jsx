@@ -25,21 +25,24 @@ function Card(props) {
   return (
     <div className="content_PreviewNewCard">
       {/* <h2>Pré-visualização</h2> */}
-      <div className="PreviewNewCard">
-        <h3 data-testid="name-card">{cardName}</h3>
-        <figure>
+      <div className={ styles.card }>
+        <h3 data-testid="name-card" className={ styles.name_card }>{ cardName }</h3>
+        <figure className={ styles.card_image_container }>
           <img src={ cardImage } alt={ cardName } data-testid="image-card" />
-          { cardTrunfo ? <div data-testid="trunfo-card">Super Trunfo</div> : '' }
-          {/* operador ternario - se card trufo for (=== true ?) mostra super trunfo se nao um mostra nada */}
+          {cardTrunfo ? (
+            <div data-testid="trunfo-card" className={ styles.super_seal }>
+              Super Trunfo
+            </div>
+          ) : ''}
         </figure>
         <div
-          className="description-card"
+          className={ styles.description_card }
           data-testid="description-card"
         >
           {cardDescription}
         </div>
 
-        <div className="powers-card">
+        <div className={ styles.powers_container }>
 
           <div className={ styles.power } data-testid="attr1-card">
             <div className={ styles.power_attr }>

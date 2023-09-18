@@ -81,7 +81,7 @@ const App = () => {
   return (
     <div>
       <h1>Tryunfs</h1>
-      <div className="container_new_card">
+      <div className="build_container">
         <Form
           onInputChange={ onInputChange }
           { ...cardState }

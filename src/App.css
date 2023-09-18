@@ -8,7 +8,7 @@ html {
   padding: 0;
 }
 
-.container_new_card {
+.build_container {
   background: url('./img/fundo_site.png');
   background-size: 150px;
   display: grid;
@@ -16,13 +16,10 @@ html {
   width: 100%;
 }
 
-.content_AddNewCard {
-  align-items: center;
-  background-color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  padding: 0 40px 40px;
+img {
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
 }
 
 .content_PreviewNewCard {
@@ -50,31 +47,6 @@ html {
   width: 20vw;
 }
 
-.PreviewNewCard {
-  background: white;
-  border-radius: 10px;
-  box-shadow: 10px 10px 20px rgb(0 0 0);
-  display: flex;
-  flex-direction: column;
-  height: 549px;
-  padding: 20px;
-  position: relative;
-  width: 368px;
-  z-index: 2;
-}
-
-.PreviewNewCard:after {
-  background: #206152;
-  border-radius: 10px;
-  content: '';
-  height: calc(100% - 20px);
-  left: 10px;
-  position: absolute;
-  top: 10px;
-  width: calc(100% - 20px);
-  z-index: -1;
-}
-
 .PreviewNewCard h3 {
   background: #10a1a3;
   border-radius: 10px 10px 0 0;
@@ -84,78 +56,4 @@ html {
   padding: 0 10px;
   text-align: right;
   width: 100%;
-}
-
-.PreviewNewCard figure {
-  background: tan;
-  height: 200px;
-  overflow: hidden;
-  position: relative;
-  width: 100%;
-}
-
-.PreviewNewCard figure img {
-  height: 100%;
-  object-fit: cover;
-  width: 100%;
-}
-
-figure div {
-  background: url('./img/selo.svg');
-  background-position: center;
-  background-size: contain;
-  bottom: 10px;
-  height: 100px;
-  overflow: hidden;
-  position: absolute;
-  right: 10px;
-  text-indent: -1000%;
-  width: 100px;
-}
-
-.description-card {
-  background-color: #206152;
-  color: white;
-  font-size: 14px;
-  min-height: 80px;
-  padding: 10px;
-}
-
-.powers-card {
-  background: white;
-  border-radius: 0 0 10px 10px;
-  flex-grow: 1;
-  padding: 10px;
-}
-
-/* .power {
-  background: #eceff3;
-  border-radius: 10px;
-  display: flex;
-  height: 30px;
-  line-height: 30px;
-  margin-bottom: 4px;
-  padding: 0 10px;
-  position: relative;
-} */
-
-/* .power_value {
-  background: #023031;
-  border-radius: 0 10px 10px 0;
-  color: #eceff3;
-  height: 100%;
-  position: absolute;
-  right: 0;
-  text-align: center;
-  top: 0;
-  width: 48px;
-} */
-
-/* .power_gauge {
-  background-color: tomato;
-  width: 100%;
-} */
-
-.rare {
-  display: none;
 }

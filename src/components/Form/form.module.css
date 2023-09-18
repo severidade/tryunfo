@@ -1,0 +1,8 @@
+.create_card_container {
+  align-items: center;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 0 40px 40px;
+}

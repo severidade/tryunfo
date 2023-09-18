@@ -1,13 +1,15 @@
 .card {
+
+  --card-width: 320px;
   background: white;
   border-radius: 10px;
   box-shadow: 10px 10px 20px rgb(0 0 0);
   display: flex;
   flex-direction: column;
-  height: 549px;
+  height: calc((var(--card-width)) * 7 / 5);
   padding: 20px;
   position: relative;
-  width: 368px;
+  width: var(--card-width);
   z-index: 2;
 }
 
@@ -24,19 +26,20 @@
 }
 
 .name_card {
-  background: var(--primary-color-light);
+  background: var(--primary-color);
   border-radius: 10px 10px 0 0;
   color: white;
   height: 40px;
   line-height: 40px;
   padding: 0 10px;
-  text-align: right;
+  text-transform: uppercase;
   width: 100%;
 }
 
 .card_image_container {
   background: var(--secondary-color);
-  height: 200px;
+  border-radius: 10px 10px 0 0;
+  height: 150px;
   overflow: hidden;
   position: relative;
   width: 100%;
@@ -46,27 +49,45 @@
   background: url('../../img/selo.svg');
   background-position: center;
   background-size: contain;
-  bottom: 10px;
-  height: 100px;
+  height: calc(var(--card-width) * 1 / 4.5);
   overflow: hidden;
   position: absolute;
   right: 10px;
   text-indent: -1000%;
-  width: 100px;
+  top: 10px;
+  width: calc(var(--card-width) * 1 / 4.5);
+}
+
+.rarity {
+  align-items: center;
+  background-color: white;
+  border-radius: 5px;
+  color: var(--primary-color-dark);
+  display: flex;
+  justify-content: center;
+  left: 50%;
+  padding: 8px;
+  position: absolute;
+  top: 210px;
+  transform: translate(-50%, -50%);
+  width: 150px;
 }
 
 .description_card {
+  align-items: center;
   background-color: var(--primary-color);
   color: white;
+  display: flex;
+  flex-grow: 1;
   font-size: 14px;
-  min-height: 80px;
-  padding: 10px;
+  justify-content: center;
+  line-height: 1.5;
+  padding: 10px 5px 5px;
 }
 
 .powers_container {
   background: white;
   border-radius: 0 0 10px 10px;
-  flex-grow: 1;
   padding: 10px;
 }
 

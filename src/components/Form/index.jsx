@@ -24,6 +24,22 @@ function Form(props) {
     event.target.value = '';
   };
 
+  // const handleImageInputChange = (event) => {
+  //   const file = event.target.files[0]; // Obtenha o primeiro arquivo selecionado
+
+  //   if (file) {
+  //     const reader = new FileReader();
+
+  //     reader.onload = (e) => {
+  //       const imageDataURL = e.target.result; // Aqui você obtém o arquivo como Data URL
+  //       console.log('Data URL:', imageDataURL);
+  //     };
+
+  //     // Leia o arquivo como Data URL
+  //     reader.readAsDataURL(file);
+  //   }
+  // };
+
   return (
     <div className={ styles.create_card_container }>
       <h2>Adicionar nova carta</h2>
@@ -103,11 +119,14 @@ function Form(props) {
           Imagem
           <input
             id="img"
-            type="text"
+            // type="text"
+            type="file"
+            accept="image/*"
             name="cardImage"
             value={ cardImage }
             data-testid="image-input"
             onChange={ onInputChange }
+            // onChange={ handleImageInputChange }
           />
         </label>
 

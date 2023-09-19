@@ -76,6 +76,7 @@ const App = () => {
 
     // Atualize o estado separado hasTrunfo
     setHasTrunfo(updatedCardState.hasTrunfo);
+    // console.log(cardState.cardList[0].cardImage);
   }, [cardState, hasTrunfo]);
 
   return (
@@ -87,6 +88,7 @@ const App = () => {
           { ...cardState }
           onSaveButtonClick={ onSaveButtonClick }
           showErrorMessage={ showErrorMessage }
+          hasTrunfo={ hasTrunfo }
         />
         <Card { ...cardState } />
       </div>

@@ -43,12 +43,10 @@ const App = () => {
             ...cardState,
             [name]: imageDataURL,
           };
-          // setCardState(updatedCardState);
-          console.log(updatedCardState);
+          setCardState(updatedCardState);
         };
         reader.readAsDataURL(file);
       }
-      // console.log('passei aqui obando');
     } else {
       const updatedCardState = {
         ...cardState,
@@ -67,7 +65,7 @@ const App = () => {
       } else {
         setShowErrorMessage(true);
       }
-      console.log(updatedCardState);
+      // console.log(updatedCardState);
     }
   }, [cardState]);
 

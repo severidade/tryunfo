@@ -125,6 +125,7 @@ function Form(props) {
             name="cardImage"
             value={ cardImage }
             data-testid="image-input"
+            data-type="file"
             onChange={ onInputChange }
             // onChange={ handleImageInputChange }
           />

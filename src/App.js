@@ -28,39 +28,47 @@ const App = () => {
     const value = target.type === 'checkbox' ? target.checked : target.value;
     const maxValue = 90;
 
-    // impede que valor seja maior que 90
     const maximumInputValue = name.startsWith('cardAttr')
       && Number(value) > maxValue
       ? '90' : value;
 
-    // Atualize os valores de cardAttr1, cardAttr2, cardAttr3
-    const updatedCardState = {
-      ...cardState,
-      [name]: maximumInputValue,
-    };
-
-    // Calcula a soma dos valores atualizados
-    const sumAttrs = ['cardAttr1', 'cardAttr2', 'cardAttr3'];
-    const sum = sumAttrs.reduce((total, attr) => total
-      + Number(updatedCardState[attr]), 0);
-
-    // Verifica se a soma é maior que remainingPower
-    if (sum <= initialState.remainingPower) {
-      // Atualize o restante do estado do cartão
-      updatedCardState.isSaveButtonDisabled = !validateForm(updatedCardState);
-
-      // Atualize remainingPower subtraindo sum
-      updatedCardState.remainingPower = initialState.remainingPower - sum;
-      setCardState(updatedCardState);
-      setShowErrorMessage(false);
+    if (target.getAttribute('data-type') === 'file') {
+      // Se o campo é um campo de arquivo, leia o arquivo como Data URL
+      const file = target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          const imageDataURL = e.target.result;
+          const updatedCardState = {
+            ...cardState,
+            [name]: imageDataURL,
+          };
+          // setCardState(updatedCardState);
+          console.log(updatedCardState);
+        };
+        reader.readAsDataURL(file);
+      }
+      // console.log('passei aqui obando');
     } else {
-      setShowErrorMessage(true);
-    }
+      const updatedCardState = {
+        ...cardState,
+        [name]: maximumInputValue,
+      };
 
-    // console.log(`Nome: ${name}, Valor: ${value}`);
-    // if (name.startsWith('cardAttr')) {
-    //   console.log(`Nome: ${name}, Valor: ${value}`);
-    // }
+      const sumAttrs = ['cardAttr1', 'cardAttr2', 'cardAttr3'];
+      const sum = sumAttrs.reduce((total, attr) => total
+          + Number(updatedCardState[attr]), 0);
+
+      if (sum <= initialState.remainingPower) {
+        updatedCardState.isSaveButtonDisabled = !validateForm(updatedCardState);
+        updatedCardState.remainingPower = initialState.remainingPower - sum;
+        setCardState(updatedCardState);
+        setShowErrorMessage(false);
+      } else {
+        setShowErrorMessage(true);
+      }
+      console.log(updatedCardState);
+    }
   }, [cardState]);
 
   const onSaveButtonClick = useCallback((event) => {

@@ -1,6 +1,8 @@
 .card {
 
-  --card-width: 320px;
+  /* --card-width: 320px; */
+
+  --card-width: 87vw;
   background: white;
   border-radius: 10px;
   box-shadow: 10px 10px 20px rgb(0 0 0);
@@ -128,4 +130,13 @@
 .power_gauge_pointer {
   background-color: var(--primary-color);
   height: 100%;
+}
+
+@media screen and ( min-width : 600px ) {
+
+  .card {
+
+    --card-width: 320px;
+
+  }
 }

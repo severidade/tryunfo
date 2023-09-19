@@ -79,7 +79,7 @@ const App = () => {
   }, [cardState, hasTrunfo]);
 
   return (
-    <div>
+    <div className="container_app">
       <h1>Tryunfs</h1>
       <div className="build_container">
         <Form

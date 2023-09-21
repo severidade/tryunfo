@@ -1,36 +1,14 @@
-html {
-  box-sizing: border-box;
-}
-
-*, *:before, *:after {
-  box-sizing: inherit;
-  margin: 0;
-  padding: 0;
-}
-
-img {
-  height: 100%;
-  object-fit: cover;
-  width: 100%;
-}
-
 .container_app {
   background: url('./img/fundo_site.png');
   background-size: 150px;
   max-width: 100%;
-
-  /* min-height: 100vh; */
+  min-height: 100vh;
   width: 100vw;
 }
 
 .build_container {
   background-color: violet;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-
-  /* width: 100%; */
 }
-
 
 .content_PreviewNewCard {
   align-items: center;
@@ -38,15 +16,7 @@ img {
   display: flex;
   flex-direction: column;
   justify-content: center;
-
-  /* left: 0%; */
   margin: auto;
-
-  /* position: absolute; */
-
-  /* padding: 0 40px 40px; */
-
-  /* width: 100%; */
 }
 
 .content_AddNewCard h2, .content_PreviewNewCard h2 {
@@ -58,13 +28,13 @@ img {
   color: white;
 }
 
-.AddNewCard {
+/* .AddNewCard {
   display: flex;
   flex-direction: column;
   gap: 20px;
   max-width: 300px;
   width: 20vw;
-}
+} */
 
 .PreviewNewCard h3 {
   background: #10a1a3;

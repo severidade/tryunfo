@@ -80,7 +80,7 @@ const App = () => {
 
   return (
     <div className="container_app">
-      <h1>Tryunfs</h1>
+      <h1>Super Trunfo</h1>
       <div className="build_container">
         <Form
           onInputChange={ onInputChange }

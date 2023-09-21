@@ -26,8 +26,8 @@ function Form(props) {
 
   return (
     <div className={ styles.create_card_container }>
-      <h2>Adicionar nova carta</h2>
-      <form className="AddNewCard">
+      <h2>Crie uma carta</h2>
+      <form className={ styles.form_new_card }>
         <label htmlFor="cardName">
           Nome
           <input

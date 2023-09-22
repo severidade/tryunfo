@@ -1,4 +1,4 @@
-.preview {
+.preview_card, .edit_card {
   align-items: center;
   background-color: rgb(71, 92, 255);
   display: flex;
@@ -9,15 +9,7 @@
   width: 200px;
 }
 
-.preview:after {
-  content: 'editar';
-}
-
-.card {
-  background-color: violet;
-}
-
-.card:after {
+.preview_card:after {
   background-image: url('./icon/view.png');
   background-position: center;
   background-repeat: no-repeat;

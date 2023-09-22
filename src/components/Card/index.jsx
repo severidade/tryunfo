@@ -111,7 +111,7 @@ function Card(props) {
           >
             Ver carta
           </div> */}
-          <PreviewButton togglePreview={ togglePreview } />
+          <PreviewButton togglePreview={ togglePreview } isFromCard />
         </div>
       </div>
     </div>

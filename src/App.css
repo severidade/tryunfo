@@ -86,3 +86,13 @@
 .container_saved_card .card_back {
   position: initial;
 }
+
+.container_saved_card .card_back .flip_button {
+  display: none;
+}
+
+/* este botão é inicializado ivisível e e ativado dentro do componente PreviewButton */
+
+/* .flip_button {
+  display: none;
+} */

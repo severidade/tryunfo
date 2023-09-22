@@ -154,7 +154,8 @@ function Form(props) {
 
       </form>
 
-      <PreviewButton togglePreview={ togglePreview } />
+      {/* <PreviewButton togglePreview={ togglePreview } /> */}
+      <PreviewButton togglePreview={ togglePreview } isFromForm />
 
     </div>
   );

@@ -1,3 +1,28 @@
 .preview {
+  align-items: center;
   background-color: rgb(71, 92, 255);
+  display: flex;
+  height: 40px;
+  justify-content: space-between;
+  padding: 0 20px;
+  position: relative;
+  width: 200px;
+}
+
+.preview:after {
+  content: 'editar';
+}
+
+.card {
+  background-color: violet;
+}
+
+.card:after {
+  background-image: url('./icon/view.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 70%;
+  content: '';
+  height: 40px;
+  width: 40px;
 }

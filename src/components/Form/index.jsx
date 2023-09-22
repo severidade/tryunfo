@@ -17,6 +17,7 @@ function Form(props) {
     isSaveButtonDisabled,
     remainingPower,
     onSaveButtonClick,
+    togglePreview,
     showErrorMessage,
   } = props;
 
@@ -152,9 +153,20 @@ function Form(props) {
 
       </form>
 
-      {/* <div className={ styles.preview } onClick={ onSaveButtonClick }>
+      <div
+        className={ styles.preview }
+        onClick={ togglePreview }
+        onKeyDown={ (event) => {
+          if (event.key === 'Enter') {
+            togglePreview();
+          }
+        } }
+        role="button" // Add role="button" to indicate it's clickable
+        tabIndex={ 0 } // Add tabIndex to make it focusable
+      >
         Ver carta
-      </div> */}
+      </div>
+
     </div>
   );
 }
@@ -174,6 +186,7 @@ Form.propTypes = {
   showErrorMessage: PropTypes.bool.isRequired,
   onInputChange: PropTypes.func.isRequired,
   onSaveButtonClick: PropTypes.func.isRequired,
+  togglePreview: PropTypes.func.isRequired,
 };
 
 export default Form;

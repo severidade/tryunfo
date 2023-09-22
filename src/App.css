@@ -62,7 +62,7 @@
   width: 100%;
 }
 
-.flip_card.prevIsFlipped .flip_card_inner {
+.flip_card.flipped .flip_card_inner {
   transform: rotateY(-180deg);
 }
 

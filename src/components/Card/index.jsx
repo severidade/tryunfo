@@ -13,6 +13,7 @@ function Card(props) {
     cardAttr2,
     cardAttr3,
     cardRare,
+    togglePreview,
   } = props;
 
   const MAX_ATTR_VALUE = 90;
@@ -96,6 +97,19 @@ function Card(props) {
                 {cardRare}
               </strong>
             </p> */}
+          <div
+            className={ styles.preview }
+            onClick={ togglePreview }
+            onKeyDown={ (event) => {
+              if (event.key === 'Enter') {
+                togglePreview();
+              }
+            } }
+            role="button" // Add role="button" to indicate it's clickable
+            tabIndex={ 0 } // Add tabIndex to make it focusable
+          >
+            Ver carta
+          </div>
         </div>
       </div>
     </div>
@@ -111,6 +125,7 @@ Card.propTypes = {
   cardAttr2: PropTypes.string.isRequired,
   cardAttr3: PropTypes.string.isRequired,
   cardRare: PropTypes.string.isRequired,
+  togglePreview: PropTypes.func.isRequired,
 };
 
 export default Card;

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './form.module.css';
+import PreviewButton from '../PreviewButton';
 
 function Form(props) {
   const {
@@ -153,19 +154,7 @@ function Form(props) {
 
       </form>
 
-      <div
-        className={ styles.preview }
-        onClick={ togglePreview }
-        onKeyDown={ (event) => {
-          if (event.key === 'Enter') {
-            togglePreview();
-          }
-        } }
-        role="button" // Add role="button" to indicate it's clickable
-        tabIndex={ 0 } // Add tabIndex to make it focusable
-      >
-        Ver carta
-      </div>
+      <PreviewButton togglePreview={ togglePreview } />
 
     </div>
   );

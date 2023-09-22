@@ -2,6 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './card.module.css';
+import PreviewButton from '../PreviewButton';
 
 function Card(props) {
   const {
@@ -97,7 +98,7 @@ function Card(props) {
                 {cardRare}
               </strong>
             </p> */}
-          <div
+          {/* <div
             className={ styles.preview }
             onClick={ togglePreview }
             onKeyDown={ (event) => {
@@ -109,7 +110,8 @@ function Card(props) {
             tabIndex={ 0 } // Add tabIndex to make it focusable
           >
             Ver carta
-          </div>
+          </div> */}
+          <PreviewButton togglePreview={ togglePreview } />
         </div>
       </div>
     </div>

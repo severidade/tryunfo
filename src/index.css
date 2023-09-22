@@ -3,6 +3,8 @@
   --primary-color-dark: #023031;
   --primary-color-light: #10a1a3;
   --secondary-color: #d2b48c;
+
+  --card-width: 87vw;
 }
 
 html {
@@ -33,4 +35,13 @@ img {
   height: 100%;
   object-fit: cover;
   width: 100%;
+}
+
+@media screen and ( min-width : 600px ) {
+
+  :root {
+
+    --card-width: 320px;
+
+  }
 }

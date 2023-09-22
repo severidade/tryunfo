@@ -1,8 +1,4 @@
 .card {
-
-  /* --card-width: 320px; */
-
-  --card-width: 87vw;
   background: white;
   border-radius: 10px;
   box-shadow: 10px 10px 20px rgb(0 0 0);

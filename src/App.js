@@ -81,14 +81,19 @@ const App = () => {
   return (
     <div className="container_app">
       <h1>Super Trunfo</h1>
-      <div className="build_container">
-        <Form
-          onInputChange={ onInputChange }
-          { ...cardState }
-          onSaveButtonClick={ onSaveButtonClick }
-          showErrorMessage={ showErrorMessage }
-        />
-        <Card { ...cardState } />
+      <div className="container_preview_card">
+        <div className="flip_card">
+          <div className="flip_card_inner">
+            <Form
+              onInputChange={ onInputChange }
+              { ...cardState }
+              onSaveButtonClick={ onSaveButtonClick }
+              showErrorMessage={ showErrorMessage }
+            />
+            <Card { ...cardState } />
+
+          </div>
+        </div>
       </div>
       <div className="container_saved_card">
         <h2>Cartas Salvas</h2>

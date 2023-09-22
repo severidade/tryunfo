@@ -1,12 +1,30 @@
-.create_card_container {
+/* .card_front {
+
+  --card-width: 87vw;
   align-items: center;
   background-color: rgb(248, 89, 89);
   display: flex;
   flex-direction: column;
+  height: calc((var(--card-width)) * 7 / 5);
   justify-content: flex-start;
-  width: 100%;
-}
+  width: var(--card-width);
+} */
 
-.form_new_card {
-  border: solid 2px black;
+/* @media screen and ( min-width : 600px ) {
+
+  .card_front {
+
+    --card-width: 320px;
+
+  }
+} */
+
+.preview {
+  align-items: center;
+  background-color: blue;
+  cursor: pointer;
+  display: flex;
+  height: 50px;
+  justify-content: center;
+  width: 90%;
 }

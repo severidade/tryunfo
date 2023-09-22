@@ -25,7 +25,7 @@ function Form(props) {
   };
 
   return (
-    <div className={ styles.create_card_container }>
+    <div className="card_front">
       <h2>Crie uma carta</h2>
       <form className={ styles.form_new_card }>
         <label htmlFor="cardName">
@@ -149,7 +149,12 @@ function Form(props) {
         >
           Salvar
         </button>
+
       </form>
+
+      {/* <div className={ styles.preview } onClick={ onSaveButtonClick }>
+        Ver carta
+      </div> */}
     </div>
   );
 }

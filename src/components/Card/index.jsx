@@ -23,8 +23,7 @@ function Card(props) {
   };
 
   return (
-    <div className="content_PreviewNewCard">
-      {/* <h2>Pré-visualização</h2> */}
+    <div className="card_back">
       <div className={ styles.card }>
         <h3 data-testid="name-card" className={ styles.name_card }>{ cardName }</h3>
         <figure className={ styles.card_image_container }>
@@ -93,10 +92,10 @@ function Card(props) {
             </div>
           </div>
           {/* <p className="rare" data-testid="rare-card">
-            <strong>
-              {cardRare}
-            </strong>
-          </p> */}
+              <strong>
+                {cardRare}
+              </strong>
+            </p> */}
         </div>
       </div>
     </div>

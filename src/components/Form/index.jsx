@@ -27,8 +27,11 @@ function Form(props) {
   };
 
   return (
-    <div className="card_front">
-      <h2>Crie uma carta</h2>
+    <div className={ styles.card_front }>
+      <div className={ styles.header_card_front }>
+        <h2 className={ styles.heder_card_title }>Nova Carta </h2>
+        <PreviewButton togglePreview={ togglePreview } isFromForm />
+      </div>
       <form className={ styles.form_new_card }>
         <label htmlFor="cardName">
           Nome
@@ -155,7 +158,6 @@ function Form(props) {
       </form>
 
       {/* <PreviewButton togglePreview={ togglePreview } /> */}
-      <PreviewButton togglePreview={ togglePreview } isFromForm />
 
     </div>
   );

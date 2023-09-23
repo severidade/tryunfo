@@ -1,12 +1,22 @@
 .preview_card, .edit_card {
   align-items: center;
-  background-color: rgb(71, 92, 255);
+  border: none;
   display: flex;
+  flex-grow: 1;
+  gap: 10px;
   height: 40px;
-  justify-content: space-between;
-  padding: 0 20px;
+  justify-content: center;
+  padding: 0 10px;
   position: relative;
-  width: 200px;
+}
+
+.preview_card {
+  background-color: var(--color-cta-secondary);
+  border-radius: 0 10px;
+  color: var(--primary-color-extra-dark);
+
+  /* color: tomato; */
+  font-weight: 700;
 }
 
 .preview_card:after {

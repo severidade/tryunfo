@@ -1,8 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700;900&family=Ultra&display=swap');
+
 :root {
   --primary-color: #206152;
-  --primary-color-dark: #023031;
+  --primary-color-dark: #2F4F4F;
+  --primary-color-extra-dark: #023031;
   --primary-color-light: #10a1a3;
   --secondary-color: #d2b48c;
+
+  --color-cta-primary: #DAA520;
+  --color-cta-secondary: #8D9909;
 
   --card-width: 87vw;
 }
@@ -19,11 +25,11 @@ html {
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Titillium Web', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: var(--primary-color-dark);
+  font-weight: 400;
 }
 
 code {

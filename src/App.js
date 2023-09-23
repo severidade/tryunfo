@@ -86,7 +86,12 @@ const App = () => {
 
   return (
     <div className="container_app">
-      <h1>Super Trunfo</h1>
+      <h1 className="logo">
+        Super
+        {' '}
+        <strong>Trunfo</strong>
+      </h1>
+
       <div className="container_preview_card">
         <div className={ `flip_card ${isPreviewFlipped ? 'flipped' : ''}` }>
           <div className="flip_card_inner">

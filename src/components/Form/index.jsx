@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { TextField } from '@mui/material';
 import styles from './form.module.css';
 import PreviewButton from '../PreviewButton';
 
@@ -33,7 +34,7 @@ function Form(props) {
         <PreviewButton togglePreview={ togglePreview } isFromForm />
       </div>
       <form className={ styles.form_new_card }>
-        <label htmlFor="cardName">
+        {/* <label htmlFor="cardName">
           Nome
           <input
             type="text"
@@ -43,8 +44,21 @@ function Form(props) {
             value={ cardName }
             onChange={ onInputChange }
           />
-        </label>
-        <label htmlFor="description-input">
+        </label> */}
+
+        <TextField
+          // id="cardName"
+          id="standard-basic"
+          name="cardName"
+          data-testid="name-input"
+          label="Nome"
+          value={ cardName }
+          onChange={ onInputChange }
+          variant="standard"
+        />
+
+        {/* <TextField id="standard-basic" label="Nome" variant="standard" /> */}
+        {/* <label htmlFor="description-input">
           Descrição
           <textarea
             id="description-input"
@@ -53,9 +67,20 @@ function Form(props) {
             value={ cardDescription }
             onChange={ onInputChange }
           />
-        </label>
+        </label> */}
+        <TextField
+          id="standard-textarea"
+          label="Descrição"
+          name="cardDescription"
+          data-testid="description-input"
+          // placeholder="Placeholder"
+          rows={ 1 }
+          multiline
+          variant="standard"
+          value={ cardDescription }
+          onChange={ onInputChange }
+        />
 
-        <p>Poderes</p>
         <label htmlFor="attr1-input">
           Força
           <input

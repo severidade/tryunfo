@@ -34,18 +34,6 @@ function Form(props) {
         <PreviewButton togglePreview={ togglePreview } isFromForm />
       </div>
       <form className={ styles.form_new_card }>
-        {/* <label htmlFor="cardName">
-          Nome
-          <input
-            type="text"
-            id="cardName"
-            name="cardName"
-            data-testid="name-input"
-            value={ cardName }
-            onChange={ onInputChange }
-          />
-        </label> */}
-
         <TextField
           // id="cardName"
           id="standard-basic"
@@ -56,18 +44,6 @@ function Form(props) {
           onChange={ onInputChange }
           variant="standard"
         />
-
-        {/* <TextField id="standard-basic" label="Nome" variant="standard" /> */}
-        {/* <label htmlFor="description-input">
-          Descrição
-          <textarea
-            id="description-input"
-            name="cardDescription"
-            data-testid="description-input"
-            value={ cardDescription }
-            onChange={ onInputChange }
-          />
-        </label> */}
         <TextField
           id="standard-textarea"
           label="Descrição"
@@ -129,17 +105,16 @@ function Form(props) {
             : `Poder restante: ${remainingPower}`}
         </div>
 
-        <label htmlFor="img">
-          Imagem
-          <input
-            id="img"
-            type="text"
-            name="cardImage"
-            value={ cardImage }
-            data-testid="image-input"
-            onChange={ onInputChange }
-          />
-        </label>
+        <TextField
+          id="standard-textarea"
+          label="Imagem"
+          name="cardImage"
+          data-testid="description-input"
+          // placeholder="Placeholder"
+          variant="standard"
+          value={ cardImage }
+          onChange={ onInputChange }
+        />
 
         <label htmlFor="rare-input">
           Raridade:

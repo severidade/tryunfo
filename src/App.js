@@ -23,6 +23,8 @@ const App = () => {
   const [showErrorMessage, setShowErrorMessage] = useState(false);
   const [hasTrunfo, setHasTrunfo] = useState(false);
 
+  const [isPreviewFlipped, setIsPreviewFlipped] = useState(false);
+
   const onInputChange = useCallback(({ target }) => {
     const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
@@ -78,17 +80,32 @@ const App = () => {
     setHasTrunfo(updatedCardState.hasTrunfo);
   }, [cardState, hasTrunfo]);
 
+  const togglePreview = () => {
+    setIsPreviewFlipped((prevIsFlipped) => !prevIsFlipped);
+  };
+
   return (
     <div className="container_app">
-      <h1>Tryunfs</h1>
-      <div className="build_container">
-        <Form
-          onInputChange={ onInputChange }
-          { ...cardState }
-          onSaveButtonClick={ onSaveButtonClick }
-          showErrorMessage={ showErrorMessage }
-        />
-        <Card { ...cardState } />
+      <h1 className="logo">
+        Super
+        {' '}
+        <strong>Trunfo</strong>
+      </h1>
+
+      <div className="container_preview_card">
+        <div className={ `flip_card ${isPreviewFlipped ? 'flipped' : ''}` }>
+          <div className="flip_card_inner">
+            <Form
+              onInputChange={ onInputChange }
+              { ...cardState }
+              onSaveButtonClick={ onSaveButtonClick }
+              togglePreview={ togglePreview }
+              showErrorMessage={ showErrorMessage }
+            />
+            <Card { ...cardState } togglePreview={ togglePreview } />
+
+          </div>
+        </div>
       </div>
       <div className="container_saved_card">
         <h2>Cartas Salvas</h2>

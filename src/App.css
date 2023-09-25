@@ -1,52 +1,42 @@
-html {
-  box-sizing: border-box;
-}
+/* stylelint-disable font-weight-notation */
 
-*, *:before, *:after {
-  box-sizing: inherit;
-  margin: 0;
-  padding: 0;
-}
-
-img {
-  height: 100%;
-  object-fit: cover;
-  width: 100%;
-}
-
+/* stylelint-disable font-family-name-quotes */
 .container_app {
   background: url('./img/fundo_site.png');
   background-size: 150px;
   max-width: 100%;
-
-  /* min-height: 100vh; */
+  min-height: 100vh;
   width: 100vw;
 }
 
-.build_container {
+/* .build_container {
   background-color: violet;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+} */
 
-  /* width: 100%; */
-}
-
-
-.content_PreviewNewCard {
+/* .content_PreviewNewCard {
   align-items: center;
   background-color: #10a1a3;
   display: flex;
   flex-direction: column;
   justify-content: center;
-
-  /* left: 0%; */
   margin: auto;
+}  */
 
-  /* position: absolute; */
+.logo {
+  color: white;
+  font-family: 'Ultra' , serif;
+  font-size: 48px;
+  font-weight: normal;
+  line-height: 0.6;
+  padding: 15px 0 30px;
+  text-align: center;
+  text-shadow: 1px 4px 6px rgba(0, 0, 0, 1);
+  white-space: pre-wrap;
+}
 
-  /* padding: 0 40px 40px; */
-
-  /* width: 100%; */
+.logo strong {
+  color: var(--color-cta-primary);
+  font-weight: normal;
 }
 
 .content_AddNewCard h2, .content_PreviewNewCard h2 {
@@ -56,14 +46,6 @@ img {
 
 .content_PreviewNewCard h2 {
   color: white;
-}
-
-.AddNewCard {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  max-width: 300px;
-  width: 20vw;
 }
 
 .PreviewNewCard h3 {
@@ -76,3 +58,61 @@ img {
   text-align: right;
   width: 100%;
 }
+
+.container_preview_card {
+  align-items: center;
+
+  /* background-color: salmon; */
+  display: flex;
+  justify-content: center;
+}
+
+
+/* para rodar as cartas */
+.flip_card {
+  height: calc((var(--card-width)) * 7 / 5);
+  width: var(--card-width);
+}
+
+.flip_card_inner {
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: 1s;
+  width: 100%;
+}
+
+.flip_card.flipped .flip_card_inner {
+  transform: rotateY(-180deg);
+}
+
+.card_back, .card_front {
+  backface-visibility: hidden;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.flip_card .card_back {
+  transform: rotateY(-180deg);
+}
+
+.container_saved_card {
+  position: relative;
+  width: 100%;
+}
+
+.container_saved_card .card_back {
+  position: initial;
+}
+
+.container_saved_card .card_back .flip_button {
+  display: none;
+}
+
+/* este botão é inicializado ivisível e e ativado dentro do componente PreviewButton */
+
+/* .flip_button {
+  display: none;
+} */

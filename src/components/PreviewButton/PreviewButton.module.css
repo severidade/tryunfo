@@ -1,0 +1,30 @@
+.preview_card, .edit_card {
+  align-items: center;
+  border: none;
+  display: flex;
+  flex-grow: 1;
+  gap: 10px;
+  height: 40px;
+  justify-content: center;
+  padding: 0 10px;
+  position: relative;
+}
+
+.preview_card {
+  background-color: var(--color-cta-secondary);
+  border-radius: 0 10px;
+  color: var(--primary-color-extra-dark);
+
+  /* color: tomato; */
+  font-weight: 700;
+}
+
+.preview_card:after {
+  background-image: url('./icon/view.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 70%;
+  content: '';
+  height: 40px;
+  width: 40px;
+}

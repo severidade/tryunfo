@@ -2,6 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './card.module.css';
+import PreviewButton from '../PreviewButton';
 
 function Card(props) {
   const {
@@ -13,6 +14,7 @@ function Card(props) {
     cardAttr2,
     cardAttr3,
     cardRare,
+    togglePreview,
   } = props;
 
   const MAX_ATTR_VALUE = 90;
@@ -23,8 +25,7 @@ function Card(props) {
   };
 
   return (
-    <div className="content_PreviewNewCard">
-      {/* <h2>Pré-visualização</h2> */}
+    <div className="card_back">
       <div className={ styles.card }>
         <h3 data-testid="name-card" className={ styles.name_card }>{ cardName }</h3>
         <figure className={ styles.card_image_container }>
@@ -93,10 +94,24 @@ function Card(props) {
             </div>
           </div>
           {/* <p className="rare" data-testid="rare-card">
-            <strong>
-              {cardRare}
-            </strong>
-          </p> */}
+              <strong>
+                {cardRare}
+              </strong>
+            </p> */}
+          {/* <div
+            className={ styles.preview }
+            onClick={ togglePreview }
+            onKeyDown={ (event) => {
+              if (event.key === 'Enter') {
+                togglePreview();
+              }
+            } }
+            role="button" // Add role="button" to indicate it's clickable
+            tabIndex={ 0 } // Add tabIndex to make it focusable
+          >
+            Ver carta
+          </div> */}
+          <PreviewButton togglePreview={ togglePreview } isFromCard />
         </div>
       </div>
     </div>
@@ -112,6 +127,7 @@ Card.propTypes = {
   cardAttr2: PropTypes.string.isRequired,
   cardAttr3: PropTypes.string.isRequired,
   cardRare: PropTypes.string.isRequired,
+  togglePreview: PropTypes.func.isRequired,
 };
 
 export default Card;

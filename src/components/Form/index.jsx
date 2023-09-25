@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './form.module.css';
+import PreviewButton from '../PreviewButton';
 
 function Form(props) {
   const {
@@ -17,6 +18,7 @@ function Form(props) {
     isSaveButtonDisabled,
     remainingPower,
     onSaveButtonClick,
+    togglePreview,
     showErrorMessage,
   } = props;
 
@@ -25,9 +27,12 @@ function Form(props) {
   };
 
   return (
-    <div className={ styles.create_card_container }>
-      <h2>Adicionar nova carta</h2>
-      <form className="AddNewCard">
+    <div className={ styles.card_front }>
+      <div className={ styles.header_card_front }>
+        <h2 className={ styles.heder_card_title }>Nova Carta </h2>
+        <PreviewButton togglePreview={ togglePreview } isFromForm />
+      </div>
+      <form className={ styles.form_new_card }>
         <label htmlFor="cardName">
           Nome
           <input
@@ -149,7 +154,11 @@ function Form(props) {
         >
           Salvar
         </button>
+
       </form>
+
+      {/* <PreviewButton togglePreview={ togglePreview } /> */}
+
     </div>
   );
 }
@@ -169,6 +178,7 @@ Form.propTypes = {
   showErrorMessage: PropTypes.bool.isRequired,
   onInputChange: PropTypes.func.isRequired,
   onSaveButtonClick: PropTypes.func.isRequired,
+  togglePreview: PropTypes.func.isRequired,
 };
 
 export default Form;

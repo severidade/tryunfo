@@ -1,0 +1,34 @@
+/* stylelint-disable font-family-name-quotes */
+.label_power {
+  align-items: center;
+  background-color: violet;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.label_power_title {
+
+  /* background-color: tomato; */
+  flex-grow: 1;
+}
+
+.number_input {
+  border: 0;
+  color: var(--primary-color);
+  font-family: 'Titillium Web' , sans-serif;
+  font-size: 19px;
+  font-weight: 900;
+  padding: 5px;
+  text-align: center;
+}
+
+.decrement_btn, .increment_btn {
+  background-color: white;
+  border: 0.1px solid;
+  color: black;
+  font-family: 'Titillium Web' , sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  height: 100%;
+  width: 50px;
+}

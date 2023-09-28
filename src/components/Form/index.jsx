@@ -31,18 +31,8 @@ function Form(props) {
   // const [value, setValue] = useState(0);
 
   const handleInputFocus = (event) => {
-    event.target.value = '0';
+    event.target.value = '';
   };
-
-  // const handleIncrement = () => {
-  //   setValue(value + 1);
-  // };
-
-  // const handleDecrement = () => {
-  //   if (value > 0) {
-  //     setValue(value - 1);
-  //   }
-  // };
 
   return (
     <div className={ styles.card_front }>

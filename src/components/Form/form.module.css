@@ -11,6 +11,7 @@
 .card_front {
   background: white;
   border-radius: 10px;
+  box-shadow: 10px 10px 20px rgb(0 0 0);
   height: 100%;
   overflow: hidden;
   padding: 50px 20px 20px;
@@ -42,13 +43,13 @@
 
 .descripition {
   background-color: white;
-  border: dotted;
 }
 
 
 .footer_form_card {
   align-items: center;
-  background-color: violet;
+
+  /* background-color: violet; */
   display: flex;
   gap: 20px;
   justify-content: space-between;
@@ -64,7 +65,7 @@
 
 .remaining_power {
   color: var(--color-cta-primary);
-  font-size: 16;
+  font-size: 14px;
   font-weight: 600;
   text-align: right;
 }
@@ -72,4 +73,16 @@
 .remaining_power_value {
   font-size: 18px;
   font-weight: 900;
+}
+
+.save_btn {
+  align-self: center;
+  background-color: var(--color-cta-primary);
+  border: none;
+  border-radius: 40px;
+  color: white;
+  height: 40px;
+
+  /* margin-top: 12px; */
+  width: 178px;
 }

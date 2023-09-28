@@ -63,22 +63,6 @@ function Form(props) {
           onChange={ onInputChange }
         />
 
-        {/* <label htmlFor="attr1-input">
-          Força
-          <input
-            id="attr1-input"
-            type="number"
-            name="cardAttr1"
-            value={ cardAttr1 }
-            data-testid="attr1-input"
-            onChange={ onInputChange }
-            min="0"
-            max="90"
-            onFocus={ handleInpu
-              tFocus }
-          />
-        </label> */}
-
         <NumberInput
           attribute="attr1"
           name="cardAttr1"
@@ -182,6 +166,7 @@ function Form(props) {
           data-testid="save-button"
           disabled={ isSaveButtonDisabled }
           onClick={ onSaveButtonClick }
+          className={ styles.save_btn }
         >
           Salvar
         </button>

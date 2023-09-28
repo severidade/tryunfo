@@ -24,8 +24,11 @@ function NumberInput(props) {
   };
 
   return (
-    <label htmlFor={ `${attribute}-input` } className={ styles.label_power }>
-      <span className={ styles.label_power_title }>
+    <label
+      htmlFor={ `${attribute}-input` }
+      className={ styles.label_power }
+    >
+      <span className={ `${styles.label_power_title} ${styles[attribute]}` }>
         { label}
         {' '}
       </span>

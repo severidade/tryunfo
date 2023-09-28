@@ -4,9 +4,10 @@
   box-shadow: 10px 10px 20px rgb(0 0 0);
   display: flex;
   flex-direction: column;
-  height: calc((var(--card-width)) * 7 / 5);
+  height: calc((var(--card-width)) * 8 / 5);
   padding: 20px;
   position: relative;
+  width: var(--card-width);
   width: var(--card-width);
   z-index: 2;
 }

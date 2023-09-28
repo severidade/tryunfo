@@ -1,30 +1,61 @@
 .preview_card, .edit_card {
   align-items: center;
+  background-color: var(--color-cta-secondary);
   border: none;
+  border-radius: 0 10px;
+  color: var(--primary-color-extra-dark);
   display: flex;
   flex-grow: 1;
-  gap: 10px;
+  font-weight: 700;
   height: 40px;
   justify-content: center;
-  padding: 0 10px;
+  padding: 10px 50px 10px 10px;
   position: relative;
 }
 
-.preview_card {
-  background-color: var(--color-cta-secondary);
-  border-radius: 0 10px;
-  color: var(--primary-color-extra-dark);
-
-  /* color: tomato; */
-  font-weight: 700;
+.preview_card:before {
+  background-image: url('./border_inverse/border_inverse.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  content: '';
+  height: 30px;
+  left: -27px;
+  position: absolute;
+  top: -3px;
+  width: 30px;
 }
 
 .preview_card:after {
+  background-image: url('./border_inverse/border_inverse.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  bottom: -27px;
+  content: '';
+  height: 30px;
+  position: absolute;
+  right: -3px;
+  width: 30px;
+}
+
+.preview_card p {
+  align-items: center;
+  display: flex;
+  height: 40px;
+  justify-content: center;
+  position: relative;
+}
+
+.preview_card p:after {
   background-image: url('./icon/view.png');
   background-position: center;
   background-repeat: no-repeat;
   background-size: 70%;
   content: '';
   height: 40px;
+  position: absolute;
+  right: -40px;
+  top: 0;
   width: 40px;
 }

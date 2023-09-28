@@ -87,39 +87,32 @@ function Form(props) {
           focus={ handleInputFocus }
           change={ onInputChange }
         />
+        <NumberInput
+          attribute="attr2"
+          name="cardAttr2"
+          label="Defesa"
+          value={ cardAttr2.toString() }
+          focus={ handleInputFocus }
+          change={ onInputChange }
+        />
 
-        <label htmlFor="attr2-input">
-          Defesa
-          <input
-            id="attr2-input"
-            type="number"
-            name="cardAttr2"
-            value={ cardAttr2 }
-            data-testid="attr2-input"
-            onChange={ onInputChange }
-            min="0"
-            max="90"
-            onFocus={ handleInputFocus }
-          />
-        </label>
-        <label htmlFor="attr3-input">
-          Agilidade
-          <input
-            id="attr3-input"
-            type="number"
-            name="cardAttr3"
-            value={ cardAttr3 }
-            data-testid="attr3-input"
-            onChange={ onInputChange }
-            min="0"
-            max="90"
-            onFocus={ handleInputFocus }
-          />
-        </label>
+        <NumberInput
+          attribute="attr3"
+          name="cardAttr3"
+          label="Agilidade"
+          value={ cardAttr3.toString() }
+          focus={ handleInputFocus }
+          change={ onInputChange }
+        />
 
-        <div className="remaining_power">
-          {showErrorMessage ? 'A soma de poderes é de no máximo 210'
-            : `Poder restante: ${remainingPower}`}
+        <div className={ styles.remaining_power }>
+          {showErrorMessage ? 'A soma de poderes é de no máximo 210' : (
+            <>
+              Poder restante
+              {' '}
+              <strong className={ styles.remaining_power_value }>{remainingPower}</strong>
+            </>
+          )}
         </div>
 
         <TextField

@@ -12,6 +12,7 @@
   background: white;
   border-radius: 10px;
   height: 100%;
+  overflow: hidden;
   padding: 50px 20px 20px;
   position: relative;
   width: 100%;
@@ -59,4 +60,16 @@
 
 .super_trunfo {
   width: 100px;
+}
+
+.remaining_power {
+  color: var(--color-cta-primary);
+  font-size: 16;
+  font-weight: 600;
+  text-align: right;
+}
+
+.remaining_power_value {
+  font-size: 18px;
+  font-weight: 900;
 }

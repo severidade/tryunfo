@@ -10,6 +10,8 @@
 
   /* background-color: tomato; */
   flex-grow: 1;
+  font-weight: 400;
+  margin-left: 50px;
 }
 
 .number_input {

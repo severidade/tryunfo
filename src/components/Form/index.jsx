@@ -84,7 +84,8 @@ function Form(props) {
             onChange={ onInputChange }
             min="0"
             max="90"
-            onFocus={ handleInputFocus }
+            onFocus={ handleInpu
+              tFocus }
           />
         </label> */}
 

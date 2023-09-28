@@ -2,12 +2,40 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function NumberInput(props) {
-  const { attribute, name, value, focus, change } = props;
+  const { attribute, name, label, value, focus, change } = props;
+
+  const MAX_ATTR_VALUE = 90;
+
+  const decrementValue = () => {
+    const numericValue = parseInt(value, 10);
+    if (!Number.isNaN(numericValue) && numericValue > 0) {
+      const newValue = (numericValue - 1).toString();
+      change({ target: { name, value: newValue } });
+    }
+  };
+
+  const incrementValue = () => {
+    const numericValue = parseInt(value, 10);
+    if (!Number.isNaN(numericValue) && numericValue < MAX_ATTR_VALUE) {
+      const newValue = (numericValue + 1).toString();
+      change({ target: { name, value: newValue } });
+    }
+  };
 
   return (
-    <label htmlFor={ `${attribute}-input` }>
-      Força
-      <button type="button" className="decrement_btn">-</button>
+    <label htmlFor={ `${attribute}-input` } className="label_power">
+      <span className="label_power_title">
+        { label}
+        {' '}
+      </span>
+      <button
+        type="button"
+        className="decrement_btn"
+        onClick={ decrementValue }
+      >
+        -
+      </button>
+
       <input
         id={ `${attribute}-input` }
         type="number"
@@ -19,7 +47,13 @@ function NumberInput(props) {
         max="90"
         onFocus={ focus }
       />
-      <button type="button" className="increment_btn">+</button>
+      <button
+        type="button"
+        className="increment_btn"
+        onClick={ incrementValue }
+      >
+        +
+      </button>
     </label>
   );
 }
@@ -28,6 +62,7 @@ NumberInput.propTypes = {
   attribute: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
   focus: PropTypes.func.isRequired,
   change: PropTypes.func.isRequired,
 };

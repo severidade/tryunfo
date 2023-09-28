@@ -92,6 +92,7 @@ function Form(props) {
         <NumberInput
           attribute="attr1"
           name="cardAttr1"
+          label="Força"
           value={ cardAttr1.toString() }
           focus={ handleInputFocus }
           change={ onInputChange }

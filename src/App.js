@@ -28,6 +28,7 @@ const App = () => {
   const onInputChange = useCallback(({ target }) => {
     const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
+    // console.log(`Name: ${name}, Value: ${value}`);
     const maxValue = 90;
 
     // impede que valor seja maior que 90

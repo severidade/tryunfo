@@ -43,6 +43,16 @@ img {
   width: 100%;
 }
 
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0; /* Remove a margem padrão */
+  display: none; /* Oculta as setas */
+}
+
 @media screen and ( min-width : 600px ) {
 
   :root {

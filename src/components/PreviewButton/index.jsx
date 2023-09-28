@@ -6,19 +6,20 @@ function PreviewButton({ togglePreview, isFromForm, isFromCard }) {
   const buttonText = isFromForm ? 'Pré-visualizar' : 'Voltar a edição';
 
   return (
-    // <div className={ `flip_card ${isPreviewFlipped ? 'flipped' : ''}` }></div>
     <button
-      // className={ `${styles.preview} ${isFromForm ? styles.preview_card : ''}` }
       className={ `
         flip_button
-        
+
         ${isFromForm ? styles.preview_card : ''} 
         ${isFromCard ? styles.edit_card : ''}
       ` }
       onClick={ togglePreview }
       type="button"
     >
-      {buttonText}
+      <p>
+        {buttonText}
+        {' '}
+      </p>
     </button>
   );
 }

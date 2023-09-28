@@ -70,7 +70,7 @@
 
 /* para rodar as cartas */
 .flip_card {
-  height: calc((var(--card-width)) * 7 / 5);
+  height: calc((var(--card-width)) * 8 / 5);
   width: var(--card-width);
 }
 

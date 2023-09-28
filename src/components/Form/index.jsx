@@ -1,8 +1,13 @@
+/* eslint-disable react/jsx-max-depth */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { TextField } from '@mui/material';
-import styles from './form.module.css';
+// import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
 import PreviewButton from '../PreviewButton';
+import styles from './form.module.css';
 
 function Form(props) {
   const {
@@ -45,6 +50,7 @@ function Form(props) {
           variant="standard"
         />
         <TextField
+          className={ styles.descripition }
           id="standard-textarea"
           label="Descrição"
           name="cardDescription"
@@ -116,7 +122,7 @@ function Form(props) {
           onChange={ onInputChange }
         />
 
-        <label htmlFor="rare-input">
+        {/* <label htmlFor="rare-input">
           Raridade:
           <select
             name="cardRare"
@@ -128,23 +134,44 @@ function Form(props) {
             <option value="raro">raro</option>
             <option value="muito raro">muito raro</option>
           </select>
-        </label>
+        </label> */}
 
-        <label htmlFor="trunfo-input">
-          Super Trybe Trunfo
-          {hasTrunfo ? (
-            <p>Você já tem um Super Trunfo em seu baralho</p>
-          ) : (
-            <input
-              id="trunfo-input"
-              type="checkbox"
-              name="cardTrunfo"
-              data-testid="trunfo-input"
-              checked={ cardTrunfo }
+        <div className={ styles.footer_form_card }>
+          <FormControl variant="standard" className={ styles.rare_input }>
+            {/* <InputLabel id="rare-input-label">Raridade</InputLabel> */}
+            <Select
+              labelId="rare-input-label"
+              id="rare-input"
+              name="cardRare" // Nome do campo que será enviado ao `onInputChange`
+              data-testid="rare-input"
+              value={ cardRare }
               onChange={ onInputChange }
-            />
-          )}
-        </label>
+            >
+              <MenuItem value="normal">Normal</MenuItem>
+              <MenuItem value="raro">Raro</MenuItem>
+              <MenuItem value="muito raro">Muito Raro</MenuItem>
+            </Select>
+          </FormControl>
+
+          <label
+            htmlFor="trunfo-input"
+            className={ styles.super_trunfo }
+          >
+            Super Trunfo
+            {hasTrunfo ? (
+              <p>Você já tem um Super Trunfo em seu baralho</p>
+            ) : (
+              <input
+                id="trunfo-input"
+                type="checkbox"
+                name="cardTrunfo"
+                data-testid="trunfo-input"
+                checked={ cardTrunfo }
+                onChange={ onInputChange }
+              />
+            )}
+          </label>
+        </div>
 
         <button
           type="submit"

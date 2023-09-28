@@ -2,12 +2,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { TextField } from '@mui/material';
-// import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import PreviewButton from '../PreviewButton';
 import styles from './form.module.css';
+import NumberInput from '../NumberInput';
 
 function Form(props) {
   const {
@@ -28,9 +28,21 @@ function Form(props) {
     showErrorMessage,
   } = props;
 
+  // const [value, setValue] = useState(0);
+
   const handleInputFocus = (event) => {
-    event.target.value = '';
+    event.target.value = '0';
   };
+
+  // const handleIncrement = () => {
+  //   setValue(value + 1);
+  // };
+
+  // const handleDecrement = () => {
+  //   if (value > 0) {
+  //     setValue(value - 1);
+  //   }
+  // };
 
   return (
     <div className={ styles.card_front }>
@@ -40,7 +52,6 @@ function Form(props) {
       </div>
       <form className={ styles.form_new_card }>
         <TextField
-          // id="cardName"
           id="standard-basic"
           name="cardName"
           data-testid="name-input"
@@ -55,7 +66,6 @@ function Form(props) {
           label="Descrição"
           name="cardDescription"
           data-testid="description-input"
-          // placeholder="Placeholder"
           rows={ 1 }
           multiline
           variant="standard"
@@ -63,7 +73,7 @@ function Form(props) {
           onChange={ onInputChange }
         />
 
-        <label htmlFor="attr1-input">
+        {/* <label htmlFor="attr1-input">
           Força
           <input
             id="attr1-input"
@@ -76,7 +86,16 @@ function Form(props) {
             max="90"
             onFocus={ handleInputFocus }
           />
-        </label>
+        </label> */}
+
+        <NumberInput
+          attribute="attr1"
+          name="cardAttr1"
+          value={ cardAttr1.toString() }
+          focus={ handleInputFocus }
+          change={ onInputChange }
+        />
+
         <label htmlFor="attr2-input">
           Defesa
           <input

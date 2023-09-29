@@ -26,7 +26,7 @@ function NumberInput(props) {
   return (
     <label
       htmlFor={ `${attribute}-input` }
-      className={ styles.label_power }
+      className={ `${styles.label_power} ${styles[`${attribute}`]}` }
     >
       <span className={ `${styles.label_power_title} ${styles[attribute]}` }>
         { label}

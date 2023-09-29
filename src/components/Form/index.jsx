@@ -138,13 +138,13 @@ function Form(props) {
             </Select>
           </FormControl>
 
-          <label
+          {/* <label
             htmlFor="trunfo-input"
             className={ styles.super_trunfo }
           >
-            Super Trunfo
+            trunfo
             {hasTrunfo ? (
-              <p>Você já tem um Super Trunfo em seu baralho</p>
+              ''
             ) : (
               <input
                 id="trunfo-input"
@@ -155,7 +155,32 @@ function Form(props) {
                 onChange={ onInputChange }
               />
             )}
+          </label> */}
+          <label
+            htmlFor="trunfo-input"
+            // className={ styles.super_trunfo }
+            className={
+              `
+                ${styles.super_trunfo} 
+                ${hasTrunfo ? styles.labelDisabled : ''}
+              `
+            }
+          >
+            SuperTrunfo
+            {' '}
+            <input
+              id="trunfo-input"
+              type="checkbox"
+              name="cardTrunfo"
+              data-testid="trunfo-input"
+              checked={ cardTrunfo }
+              onChange={ onInputChange }
+              disabled={ hasTrunfo }
+            />
           </label>
+        </div>
+        <div className={ styles.has_trunfo_msg }>
+          { hasTrunfo ? 'Já existe um Super Trunfo no baralho' : ''}
         </div>
 
         <button

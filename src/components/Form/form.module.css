@@ -54,7 +54,25 @@
 }
 
 .super_trunfo {
-  width: 100px;
+  display: flex;
+  flex-grow: 1;
+  gap: 17px;
+  justify-content: flex-end;
+}
+
+.super_trunfo.labelDisabled {
+  opacity: 0.5;
+}
+
+.has_trunfo_msg {
+  color: gray;
+  font-size: 13px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.css-m5hdmq-MuiInputBase-root-MuiI {
+  background-color: tomato;
 }
 
 .save_btn {

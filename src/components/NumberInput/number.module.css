@@ -7,53 +7,61 @@
   justify-content: flex-end;
 }
 
-.label_power_title {
+.label_power.attr1 {
 
-  /* background-color: tomato; */
+  /* background-color: olive; */
+  grid-column: 2 /3;
+  grid-row: 1 / 2;
+}
+
+
+.label_power.attr2 {
+
+  /* background-color: rgb(0, 77, 128); */
+  grid-column: 2 /3;
+  grid-row: 2 / 3;
+}
+
+.label_power.attr3 {
+
+  /* background-color: rgb(128, 0, 117); */
+  grid-column: 2 /3;
+  grid-row: 3 / 4;
+}
+
+.label_power_title {
   flex-grow: 1;
   font-weight: 400;
   height: 30px;
-  margin-left: 90px;
+  margin-left: 40px;
   position: relative;
 }
 
-.attr1:before {
-  background-image: url('./img/power.png');
+.attr1:before, .attr2:before, .attr3:before {
   background-position: center;
   background-repeat: no-repeat;
-  background-size: 70%;
   content: '';
-  height: 30px;
-  left: -40px;
+  height: 26px;
+  left: -36px;
   position: absolute;
   top: 0;
-  width: 30px;
+  width: 26px;
+}
+
+
+.attr1:before {
+  background-image: url('./img/power.png');
+  background-size: 70%;
 }
 
 .attr2:before {
   background-image: url('./img/defesa.png');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 80%;
-  content: '';
-  height: 30px;
-  left: -40px;
-  position: absolute;
-  top: 0;
-  width: 30px;
+  background-size: 70%;
 }
 
 .attr3:before {
   background-image: url('./img/agilidade.png');
-  background-position: center;
-  background-repeat: no-repeat;
   background-size: 80%;
-  content: '';
-  height: 30px;
-  left: -40px;
-  position: absolute;
-  top: 0;
-  width: 30px;
 }
 
 .number_input {
@@ -63,6 +71,7 @@
   font-size: 19px;
   font-weight: 900;
   padding: 5px;
+  row-gap: 5px;
   text-align: center;
 }
 
@@ -75,4 +84,8 @@
   font-weight: 400;
   height: 100%;
   width: 30px;
+}
+
+.decrement_btn {
+  margin-left: 20px;
 }

@@ -63,40 +63,52 @@ function Form(props) {
           onChange={ onInputChange }
         />
 
-        <NumberInput
-          attribute="attr1"
-          name="cardAttr1"
-          label="Força"
-          value={ cardAttr1.toString() }
-          focus={ handleInputFocus }
-          change={ onInputChange }
-        />
-        <NumberInput
-          attribute="attr2"
-          name="cardAttr2"
-          label="Defesa"
-          value={ cardAttr2.toString() }
-          focus={ handleInputFocus }
-          change={ onInputChange }
-        />
+        <div className={ styles.container_power }>
+          <h3 className={ styles.power_title }>
+            Poder
+          </h3>
+          <NumberInput
+            className={ styles.attr1 }
+            attribute="attr1"
+            name="cardAttr1"
+            label="Força"
+            value={ cardAttr1.toString() }
+            focus={ handleInputFocus }
+            change={ onInputChange }
+          />
+          <NumberInput
+            className={ styles.attr2 }
+            attribute="attr2"
+            name="cardAttr2"
+            label="Defesa"
+            value={ cardAttr2.toString() }
+            focus={ handleInputFocus }
+            change={ onInputChange }
+          />
 
-        <NumberInput
-          attribute="attr3"
-          name="cardAttr3"
-          label="Agilidade"
-          value={ cardAttr3.toString() }
-          focus={ handleInputFocus }
-          change={ onInputChange }
-        />
+          <NumberInput
+            className={ styles.attr3 }
+            attribute="attr3"
+            name="cardAttr3"
+            label="Energia"
+            value={ cardAttr3.toString() }
+            focus={ handleInputFocus }
+            change={ onInputChange }
+          />
+          <div className={ styles.remaining_power }>
+            {showErrorMessage ? 'A soma de poderes é de no máximo 210' : (
+              <>
+                Poder restante
+                {' '}
+                <strong
+                  className={ styles.remaining_power_value }
+                >
+                  {remainingPower}
 
-        <div className={ styles.remaining_power }>
-          {showErrorMessage ? 'A soma de poderes é de no máximo 210' : (
-            <>
-              Poder restante
-              {' '}
-              <strong className={ styles.remaining_power_value }>{remainingPower}</strong>
-            </>
-          )}
+                </strong>
+              </>
+            )}
+          </div>
         </div>
 
         <TextField
@@ -104,25 +116,10 @@ function Form(props) {
           label="Imagem"
           name="cardImage"
           data-testid="description-input"
-          // placeholder="Placeholder"
           variant="standard"
           value={ cardImage }
           onChange={ onInputChange }
         />
-
-        {/* <label htmlFor="rare-input">
-          Raridade:
-          <select
-            name="cardRare"
-            data-testid="rare-input"
-            value={ cardRare }
-            onChange={ onInputChange }
-          >
-            <option value="normal">normal</option>
-            <option value="raro">raro</option>
-            <option value="muito raro">muito raro</option>
-          </select>
-        </label> */}
 
         <div className={ styles.footer_form_card }>
           <FormControl variant="standard" className={ styles.rare_input }>

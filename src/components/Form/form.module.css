@@ -1,6 +1,5 @@
+/* stylelint-disable font-family-name-quotes */
 .form_new_card {
-
-  /* background-color: tomato; */
   display: flex;
   flex-direction: column;
   gap: 5px;
@@ -22,8 +21,6 @@
 .header_card_front {
   align-items: center;
   display: flex;
-
-  /* justify-content: space-between; */
   gap: 10px;
   height: 40px;
   justify-content: center;
@@ -40,7 +37,6 @@
   padding-left: 20px;
 }
 
-
 .descripition {
   background-color: white;
 }
@@ -48,8 +44,6 @@
 
 .footer_form_card {
   align-items: center;
-
-  /* background-color: violet; */
   display: flex;
   gap: 20px;
   justify-content: space-between;
@@ -63,17 +57,24 @@
   width: 100px;
 }
 
-
 .save_btn {
   align-self: center;
   background-color: var(--color-cta-primary);
   border: none;
   border-radius: 40px;
   color: white;
+  font-family: 'Titillium Web' , sans-serif;
+  font-size: 14px;
+  font-weight: 400;
   height: 40px;
+  text-transform: uppercase;
 
   /* margin-top: 12px; */
-  width: 178px;
+  width: 100%;
+}
+
+.save_btn:disabled {
+  background-color: gray;
 }
 
 .container_power {
@@ -95,24 +96,6 @@
   text-transform: uppercase;
 }
 
-/* .attr1 {
-  display: none;
-  grid-column: 2 / 3;
-  grid-row: 1 / 2;
-}
-
-.attr2 {
-  display: none;
-  grid-column: 2 / 3;
-  grid-row: 2 / 3;
-}
-
-.attr3 {
-  display: none;
-  grid-column: 2 / 3;
-  grid-row: 3 / 4;
-} */
-
 .remaining_power {
   color: var(--color-cta-primary);
   font-size: 14px;
@@ -126,8 +109,3 @@
   font-size: 18px;
   font-weight: 900;
 }
-
-/* .container_power > label {
-  background-color: rgb(23, 80, 129);
-  display: none;
-} */

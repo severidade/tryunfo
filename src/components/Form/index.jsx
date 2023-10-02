@@ -5,6 +5,7 @@ import { TextField } from '@mui/material';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+import Button from '@mui/material/Button';
 import PreviewButton from '../PreviewButton';
 import styles from './form.module.css';
 import NumberInput from '../NumberInput';
@@ -192,7 +193,7 @@ function Form(props) {
         >
           Salvar
         </button>
-
+        <Button color="primary" variant="contained">Contained</Button>
       </form>
 
       {/* <PreviewButton togglePreview={ togglePreview } /> */}

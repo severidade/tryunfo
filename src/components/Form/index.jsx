@@ -1,15 +1,14 @@
 /* eslint-disable react/jsx-max-depth */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { TextField } from '@mui/material';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import Button from '@mui/material/Button';
-import PreviewButton from '../PreviewButton';
 import styles from './form.module.css';
+import PreviewButton from '../PreviewButton';
 import NumberInput from '../NumberInput';
 import CustomTextField from '../../stylesMaterialUi/CustomTextField';
+import CostomCtaButton from '../../stylesMaterialUi/CostomCtaButton';
 
 function Form(props) {
   const {
@@ -51,9 +50,9 @@ function Form(props) {
           value={ cardName }
           onChange={ onInputChange }
           variant="standard"
+          fullWidth
         />
         <CustomTextField
-          className={ styles.descripition }
           id="standard-textarea"
           label="Descrição"
           name="cardDescription"
@@ -63,6 +62,7 @@ function Form(props) {
           variant="standard"
           value={ cardDescription }
           onChange={ onInputChange }
+          fullWidth
         />
 
         <div className={ styles.container_power }>
@@ -121,11 +121,11 @@ function Form(props) {
           variant="standard"
           value={ cardImage }
           onChange={ onInputChange }
+          fullWidth
         />
 
         <div className={ styles.footer_form_card }>
           <FormControl variant="standard" className={ styles.rare_input }>
-            {/* <InputLabel id="rare-input-label">Raridade</InputLabel> */}
             <Select
               labelId="rare-input-label"
               id="rare-input"
@@ -133,6 +133,11 @@ function Form(props) {
               data-testid="rare-input"
               value={ cardRare }
               onChange={ onInputChange }
+              style={
+                { textTransform: 'uppercase',
+                  fontSize: '14px',
+                  fontWeight: '400' }
+              }
             >
               <MenuItem value="normal">Normal</MenuItem>
               <MenuItem value="raro">Raro</MenuItem>
@@ -160,7 +165,6 @@ function Form(props) {
           </label> */}
           <label
             htmlFor="trunfo-input"
-            // className={ styles.super_trunfo }
             className={
               `
                 ${styles.super_trunfo} 
@@ -184,17 +188,7 @@ function Form(props) {
         <div className={ styles.has_trunfo_msg }>
           { hasTrunfo ? 'Já existe um Super Trunfo no baralho' : ''}
         </div>
-
-        {/* <button
-          type="submit"
-          data-testid="save-button"
-          disabled={ isSaveButtonDisabled }
-          onClick={ onSaveButtonClick }
-          className={ styles.save_btn }
-        >
-          Salvar
-        </button> */}
-        <Button
+        {/* <Button
           color="primary"
           variant="contained"
           type="submit"
@@ -203,11 +197,18 @@ function Form(props) {
           disabled={ isSaveButtonDisabled }
         >
           Salvar
-        </Button>
+        </Button> */}
+        <CostomCtaButton
+          color="primary"
+          variant="contained"
+          type="submit"
+          data-testid="save-button"
+          onClick={ onSaveButtonClick }
+          disabled={ isSaveButtonDisabled }
+        >
+          Salvar
+        </CostomCtaButton>
       </form>
-
-      {/* <PreviewButton togglePreview={ togglePreview } /> */}
-
     </div>
   );
 }

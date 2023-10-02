@@ -75,7 +75,7 @@
   background-color: tomato;
 }
 
-.save_btn {
+/* .save_btn {
   align-self: center;
   background-color: var(--color-cta-primary);
   border: none;
@@ -86,14 +86,12 @@
   font-weight: 400;
   height: 40px;
   text-transform: uppercase;
-
-  /* margin-top: 12px; */
   width: 100%;
 }
 
 .save_btn:disabled {
   background-color: gray;
-}
+} */
 
 .container_power {
 

@@ -184,7 +184,7 @@ function Form(props) {
           { hasTrunfo ? 'Já existe um Super Trunfo no baralho' : ''}
         </div>
 
-        <button
+        {/* <button
           type="submit"
           data-testid="save-button"
           disabled={ isSaveButtonDisabled }
@@ -192,8 +192,17 @@ function Form(props) {
           className={ styles.save_btn }
         >
           Salvar
-        </button>
-        <Button color="primary" variant="contained">Contained</Button>
+        </button> */}
+        <Button
+          color="primary"
+          variant="contained"
+          type="submit"
+          data-testid="save-button"
+          onClick={ onSaveButtonClick }
+          disabled={ isSaveButtonDisabled }
+        >
+          Salvar
+        </Button>
       </form>
 
       {/* <PreviewButton togglePreview={ togglePreview } /> */}

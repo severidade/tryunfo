@@ -9,6 +9,7 @@ import Button from '@mui/material/Button';
 import PreviewButton from '../PreviewButton';
 import styles from './form.module.css';
 import NumberInput from '../NumberInput';
+import CustomTextField from '../../stylesMaterialUi/CustomTextField';
 
 function Form(props) {
   const {
@@ -42,7 +43,7 @@ function Form(props) {
         <PreviewButton togglePreview={ togglePreview } isFromForm />
       </div>
       <form className={ styles.form_new_card }>
-        <TextField
+        <CustomTextField
           id="standard-basic"
           name="cardName"
           data-testid="name-input"
@@ -51,7 +52,7 @@ function Form(props) {
           onChange={ onInputChange }
           variant="standard"
         />
-        <TextField
+        <CustomTextField
           className={ styles.descripition }
           id="standard-textarea"
           label="Descrição"
@@ -112,7 +113,7 @@ function Form(props) {
           </div>
         </div>
 
-        <TextField
+        <CustomTextField
           id="standard-textarea"
           label="Imagem"
           name="cardImage"

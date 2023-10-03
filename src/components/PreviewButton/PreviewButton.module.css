@@ -50,6 +50,7 @@
 .preview_card p, .edit_card p {
   align-items: center;
   display: flex;
+  font-family: Titillium Web , Roboto , sans-serif;
   height: 40px;
   justify-content: center;
   position: relative;

@@ -12,7 +12,7 @@
 }
 
 .card:after {
-  background: black;
+  background-image: url('../../img/black_texture.png');
   border-radius: 10px;
   content: '';
   height: calc(100% - 20px);
@@ -34,12 +34,15 @@
 }
 
 .name_card {
+  align-items: center;
   color: white;
+  display: flex;
   font-family: 'MuseoModerno' , cursive;
   font-size: 27px;
   font-weight: 600;
-  height: 40px;
-  line-height: 40px;
+  height: 54px;
+  justify-content: center;
+  line-height: 1;
   margin-top: 230px;
   padding: 0 10px;
   text-align: center;

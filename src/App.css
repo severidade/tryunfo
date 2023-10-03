@@ -26,16 +26,16 @@
   font-weight: normal;
 }
 
-.content_AddNewCard h2, .content_PreviewNewCard h2 {
+/* .content_AddNewCard h2, .content_PreviewNewCard h2 {
   margin-bottom: 20px;
   margin-top: 20px;
 }
 
 .content_PreviewNewCard h2 {
   color: white;
-}
+} */
 
-.PreviewNewCard h3 {
+/* .PreviewNewCard h3 {
   background: #10a1a3;
   border-radius: 10px 10px 0 0;
   color: white;
@@ -44,12 +44,10 @@
   padding: 0 10px;
   text-align: right;
   width: 100%;
-}
+} */
 
 .container_preview_card {
   align-items: center;
-
-  /* background-color: salmon; */
   display: flex;
   justify-content: center;
 }
@@ -78,14 +76,21 @@
   left: 0;
   position: absolute;
   top: 0;
-  width: 100%;
+
+  /* width: 100%; */
 }
 
 .flip_card .card_back {
   transform: rotateY(-180deg);
 }
 
+
+/* Início da seção que mostra as cartas salvas */
 .container_saved_card {
+  background-image: url('./img/black_texture.png');
+  margin-top: 50px;
+  min-height: calc((var(--card-width)) * 8 / 5);
+  padding-top: 40px;
   position: relative;
   width: 100%;
 }
@@ -96,10 +101,28 @@
 
 .container_saved_card .card_back .flip_button {
   display: none;
+
+  /* oculta o botão de edição */
 }
 
-/* este botão é inicializado ivisível e e ativado dentro do componente PreviewButton */
+.card_saved_title_section {
+  color: var(--color-cta-primary);
+  font-family: 'MuseoModerno' , cursive;
+  font-size: 35px;
 
-/* .flip_button {
-  display: none;
-} */
+  /* padding-bottom: 20px; */
+  text-align: center;
+  text-shadow: 3px 2px 4px #000;
+}
+
+.playing_cards {
+  align-items: center;
+
+  /* background-color: tomato; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: calc((var(--card-width)) * 8 / 5);
+  padding: 20px 0;
+  width: 100%;
+}

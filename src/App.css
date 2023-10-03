@@ -117,7 +117,8 @@
 
 .playing_cards {
   align-items: center;
-  background-color: tomato;
+
+  /* background-color: tomato; */
   display: flex;
   flex-direction: column;
   justify-content: center;

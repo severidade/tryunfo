@@ -3,7 +3,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
-// import Select from '@mui/material/Select';
 import styles from './form.module.css';
 import PreviewButton from '../PreviewButton';
 import NumberInput from '../NumberInput';
@@ -29,8 +28,6 @@ function Form(props) {
     togglePreview,
     showErrorMessage,
   } = props;
-
-  // const [value, setValue] = useState(0);
 
   const handleInputFocus = (event) => {
     event.target.value = '';

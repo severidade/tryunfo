@@ -27,6 +27,9 @@ function Card(props) {
   return (
     <div className="card_back">
       <div className={ styles.card }>
+        <div className={ styles.header_card_back }>
+          <PreviewButton togglePreview={ togglePreview } isFromCard />
+        </div>
         <h3 data-testid="name-card" className={ styles.name_card }>{ cardName }</h3>
         <figure className={ styles.card_image_container }>
           <img src={ cardImage } alt={ cardName } data-testid="image-card" />
@@ -93,25 +96,7 @@ function Card(props) {
               {cardAttr3}
             </div>
           </div>
-          {/* <p className="rare" data-testid="rare-card">
-              <strong>
-                {cardRare}
-              </strong>
-            </p> */}
-          {/* <div
-            className={ styles.preview }
-            onClick={ togglePreview }
-            onKeyDown={ (event) => {
-              if (event.key === 'Enter') {
-                togglePreview();
-              }
-            } }
-            role="button" // Add role="button" to indicate it's clickable
-            tabIndex={ 0 } // Add tabIndex to make it focusable
-          >
-            Ver carta
-          </div> */}
-          <PreviewButton togglePreview={ togglePreview } isFromCard />
+
         </div>
       </div>
     </div>

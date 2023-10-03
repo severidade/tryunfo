@@ -1,30 +1,22 @@
 /* stylelint-disable font-family-name-quotes */
 .label_power {
   align-items: center;
-
-  /* background-color: violet; */
   display: flex;
   justify-content: flex-end;
 }
 
 .label_power.attr1 {
-
-  /* background-color: olive; */
   grid-column: 2 /3;
   grid-row: 1 / 2;
 }
 
 
 .label_power.attr2 {
-
-  /* background-color: rgb(0, 77, 128); */
   grid-column: 2 /3;
   grid-row: 2 / 3;
 }
 
 .label_power.attr3 {
-
-  /* background-color: rgb(128, 0, 117); */
   grid-column: 2 /3;
   grid-row: 3 / 4;
 }
@@ -76,7 +68,7 @@
 }
 
 .decrement_btn, .increment_btn {
-  background-color: #fff0;
+  background-color: transparent;
   border: 0;
   color: black;
   font-family: 'Titillium Web' , sans-serif;

@@ -8,7 +8,6 @@
   padding: 20px;
   position: relative;
   width: var(--card-width);
-  width: var(--card-width);
   z-index: 2;
 }
 
@@ -22,6 +21,15 @@
   top: 10px;
   width: calc(100% - 20px);
   z-index: -1;
+}
+
+.header_card_back {
+  display: flex;
+  justify-content: flex-end;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
 }
 
 .name_card {
@@ -125,7 +133,7 @@
 }
 
 .power_gauge_pointer {
-  background-color: var(--primary-color);
+  background-color: var(--color-cta-primary);
   height: 100%;
 }
 

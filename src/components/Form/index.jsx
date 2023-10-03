@@ -3,12 +3,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
 import styles from './form.module.css';
 import PreviewButton from '../PreviewButton';
 import NumberInput from '../NumberInput';
 import CustomTextField from '../../stylesMaterialUi/CustomTextField';
-import CostomCtaButton from '../../stylesMaterialUi/CostomCtaButton';
+import CustomCtaButton from '../../stylesMaterialUi/CustomCtaButton';
+import CustomSelect from '../../stylesMaterialUi/CustomSelect';
 
 function Form(props) {
   const {
@@ -28,8 +28,6 @@ function Form(props) {
     togglePreview,
     showErrorMessage,
   } = props;
-
-  // const [value, setValue] = useState(0);
 
   const handleInputFocus = (event) => {
     event.target.value = '';
@@ -126,43 +124,19 @@ function Form(props) {
 
         <div className={ styles.footer_form_card }>
           <FormControl variant="standard" className={ styles.rare_input }>
-            <Select
+            <CustomSelect
               labelId="rare-input-label"
               id="rare-input"
               name="cardRare" // Nome do campo que será enviado ao `onInputChange`
               data-testid="rare-input"
               value={ cardRare }
               onChange={ onInputChange }
-              style={
-                { textTransform: 'uppercase',
-                  fontSize: '14px',
-                  fontWeight: '400' }
-              }
             >
               <MenuItem value="normal">Normal</MenuItem>
               <MenuItem value="raro">Raro</MenuItem>
               <MenuItem value="muito raro">Muito Raro</MenuItem>
-            </Select>
+            </CustomSelect>
           </FormControl>
-
-          {/* <label
-            htmlFor="trunfo-input"
-            className={ styles.super_trunfo }
-          >
-            trunfo
-            {hasTrunfo ? (
-              ''
-            ) : (
-              <input
-                id="trunfo-input"
-                type="checkbox"
-                name="cardTrunfo"
-                data-testid="trunfo-input"
-                checked={ cardTrunfo }
-                onChange={ onInputChange }
-              />
-            )}
-          </label> */}
           <label
             htmlFor="trunfo-input"
             className={
@@ -188,7 +162,7 @@ function Form(props) {
         <div className={ styles.has_trunfo_msg }>
           { hasTrunfo ? 'Já existe um Super Trunfo no baralho' : ''}
         </div>
-        {/* <Button
+        <CustomCtaButton
           color="primary"
           variant="contained"
           type="submit"
@@ -197,17 +171,7 @@ function Form(props) {
           disabled={ isSaveButtonDisabled }
         >
           Salvar
-        </Button> */}
-        <CostomCtaButton
-          color="primary"
-          variant="contained"
-          type="submit"
-          data-testid="save-button"
-          onClick={ onSaveButtonClick }
-          disabled={ isSaveButtonDisabled }
-        >
-          Salvar
-        </CostomCtaButton>
+        </CustomCtaButton>
       </form>
     </div>
   );

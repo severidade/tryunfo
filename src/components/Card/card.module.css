@@ -8,12 +8,11 @@
   padding: 20px;
   position: relative;
   width: var(--card-width);
-  width: var(--card-width);
   z-index: 2;
 }
 
 .card:after {
-  background: var(--primary-color);
+  background: black;
   border-radius: 10px;
   content: '';
   height: calc(100% - 20px);
@@ -24,37 +23,52 @@
   z-index: -1;
 }
 
+.header_card_back {
+  display: flex;
+  justify-content: flex-end;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+
 .name_card {
-  background: var(--primary-color);
-  border-radius: 10px 10px 0 0;
   color: white;
+  font-family: 'MuseoModerno' , cursive;
+  font-size: 27px;
+  font-weight: 600;
   height: 40px;
   line-height: 40px;
+  margin-top: 230px;
   padding: 0 10px;
-  text-transform: uppercase;
+  text-align: center;
   width: 100%;
+
 }
 
 .card_image_container {
   background: var(--secondary-color);
   border-radius: 10px 10px 0 0;
-  height: 150px;
+  height: 200px;
+  left: 10px;
   overflow: hidden;
-  position: relative;
-  width: 100%;
+  position: absolute;
+  top: 10px;
+  width: calc(100% - 20px);
 }
 
 .super_seal {
   background: url('../../img/selo.svg');
   background-position: center;
   background-size: contain;
-  height: calc(var(--card-width) * 1 / 4.5);
+  height: calc(var(--card-width) * 1 / 4);
+  left: 10px;
   overflow: hidden;
   position: absolute;
-  right: 10px;
   text-indent: -1000%;
   top: 10px;
-  width: calc(var(--card-width) * 1 / 4.5);
+  width: calc(var(--card-width) * 1 / 4);
 }
 
 .rarity {
@@ -73,12 +87,13 @@
 }
 
 .description_card {
-  align-items: center;
-  background-color: var(--primary-color);
+  align-items: flex-start;
+
+  /* background-color: var(--primary-color); */
   color: white;
   display: flex;
   flex-grow: 1;
-  font-size: 14px;
+  font-size: 18px;
   justify-content: center;
   line-height: 1.5;
   padding: 10px 5px 5px;
@@ -125,7 +140,7 @@
 }
 
 .power_gauge_pointer {
-  background-color: var(--primary-color);
+  background-color: var(--color-cta-primary);
   height: 100%;
 }
 

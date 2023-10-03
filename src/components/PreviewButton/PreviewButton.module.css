@@ -5,41 +5,49 @@
   border-radius: 0 10px;
   color: var(--primary-color-extra-dark);
   display: flex;
-  flex-grow: 1;
   font-weight: 700;
   height: 40px;
   justify-content: center;
   padding: 10px 50px 10px 10px;
   position: relative;
+  width: 164px;
+}
+
+.preview_card:before, .preview_card:after {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  content: '';
+  height: 30px;
+  position: absolute;
+  width: 30px;
 }
 
 .preview_card:before {
   background-image: url('./border_inverse/border_inverse.svg');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  content: '';
-  height: 30px;
   left: -27px;
-  position: absolute;
   top: -3px;
-  width: 30px;
 }
 
 .preview_card:after {
   background-image: url('./border_inverse/border_inverse.svg');
+  bottom: -27px;
+  right: -3px;
+}
+
+
+/* .edit_card:before {
+  background-image: url('./border_inverse/border_inverse_withe.svg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
-  bottom: -27px;
   content: '';
   height: 30px;
   position: absolute;
-  right: -3px;
   width: 30px;
-}
+} */
 
-.preview_card p {
+.preview_card p, .edit_card p {
   align-items: center;
   display: flex;
   height: 40px;
@@ -47,15 +55,25 @@
   position: relative;
 }
 
-.preview_card p:after {
-  background-image: url('./icon/view.png');
+.preview_card p:after, .edit_card p:after {
   background-position: center;
   background-repeat: no-repeat;
-  background-size: 70%;
   content: '';
   height: 40px;
   position: absolute;
   right: -40px;
   top: 0;
   width: 40px;
+}
+
+
+.preview_card p:after {
+  background-image: url('./icon/view.png');
+  background-size: 70%;
+}
+
+
+.edit_card p:after {
+  background-image: url('./icon/edit.png');
+  background-size: 50%;
 }

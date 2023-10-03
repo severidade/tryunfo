@@ -109,10 +109,12 @@ const App = () => {
         </div>
       </div>
       <div className="container_saved_card">
-        <h2>Cartas Salvas</h2>
-        {cardState.cardList.map((card, i) => (
-          <Card key={ i } { ...card } />
-        ))}
+        <h2 className="card_saved_title_section">Todo o Baralho</h2>
+        <div className="playing_cards">
+          {cardState.cardList.map((card, i) => (
+            <Card key={ i } { ...card } />
+          ))}
+        </div>
       </div>
     </div>
   );

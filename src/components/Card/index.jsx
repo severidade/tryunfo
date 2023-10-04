@@ -6,6 +6,7 @@ import PreviewButton from '../PreviewButton';
 
 function Card(props) {
   const {
+    id,
     cardName,
     cardImage,
     cardTrunfo,
@@ -16,6 +17,7 @@ function Card(props) {
     cardRare,
     togglePreview,
     hasDeletButton,
+    onDeleteClick,
   } = props;
 
   const MAX_ATTR_VALUE = 90;
@@ -25,6 +27,10 @@ function Card(props) {
     return `${(attrValue / MAX_ATTR_VALUE) * maxWidth}%`;
   };
 
+  const handleDeleteClick = () => {
+    onDeleteClick(id);
+  };
+
   return (
     <div className="card_back">
       <div className={ styles.card }>
@@ -32,7 +38,12 @@ function Card(props) {
           { !hasDeletButton ? (
             <PreviewButton togglePreview={ togglePreview } isFromCard />
           ) : (
-            <button type="button" className="delet_card">
+            <button
+              type="button"
+              // className="delet_card"
+              className={ styles.remove_card }
+              onClick={ handleDeleteClick } // Chame a função de exclusão no clique
+            >
               remove carta
             </button>
           )}
@@ -121,6 +132,8 @@ Card.propTypes = {
   cardRare: PropTypes.string.isRequired,
   hasDeletButton: PropTypes.bool.isRequired,
   togglePreview: PropTypes.func.isRequired,
+  id: PropTypes.string.isRequired, // ID da carta
+  onDeleteClick: PropTypes.func.isRequired, // Função de exclusão
 };
 
 export default Card;

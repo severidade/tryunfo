@@ -101,6 +101,17 @@ const App = () => {
     setIsPreviewFlipped((prevIsFlipped) => !prevIsFlipped);
   };
 
+  const handleDeleteCard = (cardId) => {
+    const updatedCardList = cardState.cardList.filter((card) => card.id !== cardId);
+
+    const updatedCardState = {
+      ...cardState,
+      cardList: updatedCardList,
+    };
+
+    setCardState(updatedCardState);
+  };
+
   return (
     <div className="container_app">
       <h1 className="logo">
@@ -135,6 +146,7 @@ const App = () => {
                 key={ card.id }
                 { ...card }
                 togglePreview={ togglePreview }
+                onDeleteClick={ handleDeleteCard }
                 hasDeletButton
               />
             ))}

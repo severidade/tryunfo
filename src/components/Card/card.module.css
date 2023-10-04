@@ -148,7 +148,7 @@
 }
 
 .remove_card {
-  background-color: var(--color-cta-primary);
+  background-color: #f44336;
   border: none;
   border-radius: 0 10px;
   height: 50px;

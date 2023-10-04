@@ -6,6 +6,7 @@ import validateForm from './utils/validation';
 import './App.css';
 
 const initialState = {
+  id: '44',
   cardName: '',
   cardDescription: '',
   cardAttr1: '0',
@@ -130,7 +131,11 @@ const App = () => {
               togglePreview={ togglePreview }
               showErrorMessage={ showErrorMessage }
             />
-            <Card { ...cardState } togglePreview={ togglePreview } />
+            <Card
+              { ...cardState }
+              togglePreview={ togglePreview }
+              onDeleteClick={ handleDeleteCard }
+            />
 
           </div>
         </div>

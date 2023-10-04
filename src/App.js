@@ -1,4 +1,5 @@
 import React, { useState, useCallback, useRef } from 'react';
+import { v4 as uuidv4 } from 'uuid'; /* para gerar o id */
 import Form from './components/Form/index';
 import Card from './components/Card/index';
 import validateForm from './utils/validation';
@@ -74,9 +75,16 @@ const App = () => {
   const onSaveButtonClick = useCallback((event) => {
     event.preventDefault();
 
+    const cardId = uuidv4();
+
+    const newCard = {
+      ...cardState,
+      id: cardId, // Adicione o ID à carta
+    };
+
     const updatedCardState = {
       ...initialState,
-      cardList: [cardState, ...cardState.cardList],
+      cardList: [newCard, ...cardState.cardList],
       hasTrunfo: cardState.cardTrunfo ? true : hasTrunfo,
     };
 
@@ -122,9 +130,9 @@ const App = () => {
 
           <h2 className="card_saved_title_section">Todo o Baralho</h2>
           <div className="playing_cards">
-            {cardState.cardList.map((card, i) => (
+            {cardState.cardList.map((card) => (
               <Card
-                key={ i }
+                key={ card.id }
                 { ...card }
                 togglePreview={ togglePreview }
                 hasDeletButton

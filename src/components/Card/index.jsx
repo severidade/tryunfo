@@ -15,6 +15,7 @@ function Card(props) {
     cardAttr3,
     cardRare,
     togglePreview,
+    hasDeletButton,
   } = props;
 
   const MAX_ATTR_VALUE = 90;
@@ -29,6 +30,12 @@ function Card(props) {
       <div className={ styles.card }>
         <div className={ styles.header_card_back }>
           <PreviewButton togglePreview={ togglePreview } isFromCard />
+          {hasDeletButton && (
+            // Renderiza o botão de exclusão somente se hasDeletButton for true
+            <button type="button" className="delet_card">
+              remove carta
+            </button>
+          )}
         </div>
         <figure className={ styles.card_image_container }>
           <img src={ cardImage } alt={ cardName } data-testid="image-card" />
@@ -112,6 +119,7 @@ Card.propTypes = {
   cardAttr2: PropTypes.string.isRequired,
   cardAttr3: PropTypes.string.isRequired,
   cardRare: PropTypes.string.isRequired,
+  hasDeletButton: PropTypes.bool.isRequired,
   togglePreview: PropTypes.func.isRequired,
 };
 

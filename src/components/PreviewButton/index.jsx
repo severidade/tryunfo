@@ -26,8 +26,12 @@ function PreviewButton({ togglePreview, isFromForm, isFromCard }) {
 
 PreviewButton.propTypes = {
   togglePreview: PropTypes.func.isRequired,
-  isFromForm: PropTypes.bool.isRequired,
-  isFromCard: PropTypes.bool.isRequired,
+  isFromForm: PropTypes.bool,
+  isFromCard: PropTypes.bool,
 };
 
+PreviewButton.defaultProps = {
+  isFromForm: false,
+  isFromCard: false,
+};
 export default PreviewButton;

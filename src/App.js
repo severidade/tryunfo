@@ -126,9 +126,19 @@ const App = () => {
 
         </div>
       ) : null}
-      <div className="nav_game">
-        <button type="button" onClick={ scrollToSavedCardSection }>Ver Baralho</button>
-      </div>
+      {/* <div className="nav_game">Você está sem cartas no baralho! Para jogar, por favor, preencha o formulário acima.</div> */}
+      {/* <div className="nav_game">
+        <p> seu baralho esta vazio adicione cartas ao baralho</p>
+
+        <button
+          type="button"
+          onClick={ scrollToSavedCardSection }
+          disabled={ cardState.cardList.length === 0 }
+        >
+          {cardState.cardList.length > 0 ? 'Ver Baralho' : 'Não há cartas'}
+        </button>
+        <button type="button">Pesquisar</button>
+      </div> */}
     </div>
   );
 };

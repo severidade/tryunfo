@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useRef } from 'react';
 import Form from './components/Form/index';
 import Card from './components/Card/index';
 import validateForm from './utils/validation';
@@ -25,10 +25,19 @@ const App = () => {
 
   const [isPreviewFlipped, setIsPreviewFlipped] = useState(false);
 
+  const savedCardSectionRef = useRef(null);
+
+  const scrollToSavedCardSection = () => {
+    if (savedCardSectionRef.current) {
+      savedCardSectionRef.current.scrollIntoView({
+        behavior: 'smooth',
+      });
+    }
+  };
+
   const onInputChange = useCallback(({ target }) => {
     const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
-    // console.log(`Name: ${name}, Value: ${value}`);
     const maxValue = 90;
 
     // impede que valor seja maior que 90
@@ -59,11 +68,6 @@ const App = () => {
     } else {
       setShowErrorMessage(true);
     }
-
-    // console.log(`Nome: ${name}, Valor: ${value}`);
-    // if (name.startsWith('cardAttr')) {
-    //   console.log(`Nome: ${name}, Valor: ${value}`);
-    // }
   }, [cardState]);
 
   const onSaveButtonClick = useCallback((event) => {
@@ -76,6 +80,7 @@ const App = () => {
     };
 
     setCardState(updatedCardState);
+    scrollToSavedCardSection();
 
     // Atualize o estado separado hasTrunfo
     setHasTrunfo(updatedCardState.hasTrunfo);
@@ -108,26 +113,22 @@ const App = () => {
           </div>
         </div>
       </div>
-      {/* <div className="container_saved_card">
-        <h2 className="card_saved_title_section">Todo o Baralho</h2>
-        <div className="playing_cards">
-          {cardState.cardList.map((card, i) => (
-            <Card key={ i } { ...card } />
-          ))}
-        </div>
-      </div> */}
 
       {cardState.cardList.length > 0 ? (
-        <div className="container_saved_card">
+        <div ref={ savedCardSectionRef } className="container_saved_card">
+
           <h2 className="card_saved_title_section">Todo o Baralho</h2>
           <div className="playing_cards">
             {cardState.cardList.map((card, i) => (
               <Card key={ i } { ...card } />
             ))}
           </div>
+
         </div>
       ) : null}
-
+      <div className="nav_game">
+        <button type="button" onClick={ scrollToSavedCardSection }>Ver Baralho</button>
+      </div>
     </div>
   );
 };

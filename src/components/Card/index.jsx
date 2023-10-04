@@ -29,9 +29,9 @@ function Card(props) {
     <div className="card_back">
       <div className={ styles.card }>
         <div className={ styles.header_card_back }>
-          <PreviewButton togglePreview={ togglePreview } isFromCard />
-          {hasDeletButton && (
-            // Renderiza o botão de exclusão somente se hasDeletButton for true
+          { !hasDeletButton ? (
+            <PreviewButton togglePreview={ togglePreview } isFromCard />
+          ) : (
             <button type="button" className="delet_card">
               remove carta
             </button>

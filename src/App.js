@@ -120,7 +120,7 @@ const App = () => {
           <h2 className="card_saved_title_section">Todo o Baralho</h2>
           <div className="playing_cards">
             {cardState.cardList.map((card, i) => (
-              <Card key={ i } { ...card } />
+              <Card key={ i } { ...card } togglePreview={ togglePreview } />
             ))}
           </div>
 

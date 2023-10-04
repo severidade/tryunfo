@@ -99,12 +99,6 @@
   position: initial;
 }
 
-.container_saved_card .card_back .flip_button {
-  display: none;
-
-  /* oculta o botão de edição */
-}
-
 .card_saved_title_section {
   color: var(--color-cta-primary);
   font-family: 'MuseoModerno' , cursive;
@@ -117,12 +111,20 @@
 
 .playing_cards {
   align-items: center;
-
-  /* background-color: tomato; */
   display: flex;
   flex-direction: column;
+  gap: 30px;
   justify-content: center;
   min-height: calc((var(--card-width)) * 8 / 5);
   padding: 20px 0;
   width: 100%;
+}
+
+.nav_game {
+  background-color: tomato;
+  bottom: 0;
+  height: 50px;
+  position: fixed;
+  width: 100%;
+  z-index: 3;
 }

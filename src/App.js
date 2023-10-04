@@ -1,10 +1,12 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useRef } from 'react';
+import { v4 as uuidv4 } from 'uuid'; /* para gerar o id */
 import Form from './components/Form/index';
 import Card from './components/Card/index';
 import validateForm from './utils/validation';
 import './App.css';
 
 const initialState = {
+  id: '44',
   cardName: '',
   cardDescription: '',
   cardAttr1: '0',
@@ -15,6 +17,7 @@ const initialState = {
   cardTrunfo: false,
   remainingPower: 210,
   isSaveButtonDisabled: true,
+  hasDeletButton: false,
   cardList: [],
 };
 
@@ -25,10 +28,19 @@ const App = () => {
 
   const [isPreviewFlipped, setIsPreviewFlipped] = useState(false);
 
+  const savedCardSectionRef = useRef(null);
+
+  const scrollToSavedCardSection = () => {
+    if (savedCardSectionRef.current) {
+      savedCardSectionRef.current.scrollIntoView({
+        behavior: 'smooth',
+      });
+    }
+  };
+
   const onInputChange = useCallback(({ target }) => {
     const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
-    // console.log(`Name: ${name}, Value: ${value}`);
     const maxValue = 90;
 
     // impede que valor seja maior que 90
@@ -59,23 +71,28 @@ const App = () => {
     } else {
       setShowErrorMessage(true);
     }
-
-    // console.log(`Nome: ${name}, Valor: ${value}`);
-    // if (name.startsWith('cardAttr')) {
-    //   console.log(`Nome: ${name}, Valor: ${value}`);
-    // }
   }, [cardState]);
 
   const onSaveButtonClick = useCallback((event) => {
     event.preventDefault();
 
+    const cardId = uuidv4();
+
+    const newCard = {
+      ...cardState,
+      id: cardId, // Adicione o ID à carta
+    };
+
     const updatedCardState = {
       ...initialState,
-      cardList: [cardState, ...cardState.cardList],
+      cardList: [newCard, ...cardState.cardList],
       hasTrunfo: cardState.cardTrunfo ? true : hasTrunfo,
     };
 
+    console.log('Este é o meu objeto atualizado', updatedCardState.cardList);
+
     setCardState(updatedCardState);
+    scrollToSavedCardSection();
 
     // Atualize o estado separado hasTrunfo
     setHasTrunfo(updatedCardState.hasTrunfo);
@@ -83,6 +100,17 @@ const App = () => {
 
   const togglePreview = () => {
     setIsPreviewFlipped((prevIsFlipped) => !prevIsFlipped);
+  };
+
+  const handleDeleteCard = (cardId) => {
+    const updatedCardList = cardState.cardList.filter((card) => card.id !== cardId);
+
+    const updatedCardState = {
+      ...cardState,
+      cardList: updatedCardList,
+    };
+
+    setCardState(updatedCardState);
   };
 
   return (
@@ -103,19 +131,47 @@ const App = () => {
               togglePreview={ togglePreview }
               showErrorMessage={ showErrorMessage }
             />
-            <Card { ...cardState } togglePreview={ togglePreview } />
+            <Card
+              { ...cardState }
+              togglePreview={ togglePreview }
+              onDeleteClick={ handleDeleteCard }
+            />
 
           </div>
         </div>
       </div>
-      <div className="container_saved_card">
-        <h2 className="card_saved_title_section">Todo o Baralho</h2>
-        <div className="playing_cards">
-          {cardState.cardList.map((card, i) => (
-            <Card key={ i } { ...card } />
-          ))}
+
+      {cardState.cardList.length > 0 ? (
+        <div ref={ savedCardSectionRef } className="container_saved_card">
+
+          <h2 className="card_saved_title_section">Todo o Baralho</h2>
+          <div className="playing_cards">
+            {cardState.cardList.map((card) => (
+              <Card
+                key={ card.id }
+                { ...card }
+                togglePreview={ togglePreview }
+                onDeleteClick={ handleDeleteCard }
+                hasDeletButton
+              />
+            ))}
+          </div>
+
         </div>
-      </div>
+      ) : null}
+      {/* <div className="nav_game">Você está sem cartas no baralho! Para jogar, por favor, preencha o formulário acima.</div> */}
+      {/* <div className="nav_game">
+        <p> seu baralho esta vazio adicione cartas ao baralho</p>
+
+        <button
+          type="button"
+          onClick={ scrollToSavedCardSection }
+          disabled={ cardState.cardList.length === 0 }
+        >
+          {cardState.cardList.length > 0 ? 'Ver Baralho' : 'Não há cartas'}
+        </button>
+        <button type="button">Pesquisar</button>
+      </div> */}
     </div>
   );
 };

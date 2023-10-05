@@ -5,6 +5,7 @@ import Card from './components/Card/index';
 import validateForm from './utils/validation';
 import handleDeleteCard from './utils/handleDeleteCard';
 import './App.css';
+import EmptyDeckMsg from './components/EmptyDeckMsg';
 
 const initialState = {
   id: '44',
@@ -175,6 +176,10 @@ const App = () => {
         </button>
         <button type="button">Pesquisar</button>
       </div> */}
+      {/* <div className="empty_deck_msg">
+        <p>O Baralho esta vazio. Adicione cartas!</p>
+      </div> */}
+      <EmptyDeckMsg cardList={ cardState.cardList } />
     </div>
   );
 };

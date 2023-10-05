@@ -21,12 +21,12 @@ function Form(props) {
     cardRare,
     cardTrunfo,
     hasTrunfo,
-    onInputChange,
     isSaveButtonDisabled,
     remainingPower,
+    showErrorMessage,
+    onInputChange,
     onSaveButtonClick,
     togglePreview,
-    showErrorMessage,
   } = props;
 
   const handleInputFocus = (event) => {

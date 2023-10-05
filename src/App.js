@@ -30,6 +30,16 @@ const App = () => {
 
   const savedCardSectionRef = useRef(null);
 
+  // useEffect(() => {
+  //   console.log('Componente montado');
+  //   console.log('Componente montado. Existe trunfo no baralho?', hasTrunfo);
+
+  //   // return () => {
+  //   //   console.log('Componente desmontado');
+  //   //   // Faça a limpeza necessária aqui, como cancelar assinaturas, timers, etc.
+  //   // };
+  // }, [hasTrunfo]);
+
   const scrollToSavedCardSection = () => {
     if (savedCardSectionRef.current) {
       savedCardSectionRef.current.scrollIntoView({
@@ -41,6 +51,7 @@ const App = () => {
   const onInputChange = useCallback(({ target }) => {
     const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
+
     const maxValue = 90;
 
     // impede que valor seja maior que 90
@@ -71,6 +82,8 @@ const App = () => {
     } else {
       setShowErrorMessage(true);
     }
+
+    console.log('eu sou o estado inicial modificado antes de ser enviado', cardState);
   }, [cardState]);
 
   const onSaveButtonClick = useCallback((event) => {
@@ -78,18 +91,28 @@ const App = () => {
 
     const cardId = uuidv4();
 
+    // verifica se já existe um trunfo definido
+    // percorre cardList e ver se term um verdadeiro
+    const existingTrunfo = cardState.cardList.find((card) => card.cardTrunfo);
+
+    // verifica se a nova carta deve ser marcada como trunfo
+    const isTrunfo = !existingTrunfo && cardState.cardTrunfo;
+
     const newCard = {
       ...cardState,
       id: cardId, // Adicione o ID à carta
+      cardTrunfo: isTrunfo,
     };
 
     const updatedCardState = {
       ...initialState,
       cardList: [newCard, ...cardState.cardList],
+      // cardTrunfo: cardState.cardTrunfo,
       hasTrunfo: cardState.cardTrunfo ? true : hasTrunfo,
     };
 
     console.log('Este é o meu objeto atualizado', updatedCardState.cardList);
+    console.log('Este é o hasTrunfo', updatedCardState.hasTrunfo);
 
     setCardState(updatedCardState);
     scrollToSavedCardSection();
@@ -104,6 +127,16 @@ const App = () => {
 
   const handleDeleteCard = (cardId) => {
     const updatedCardList = cardState.cardList.filter((card) => card.id !== cardId);
+
+    // Verifica se o card excluído é um "Supertrunfo"
+    const deletedCard = cardState.cardList.find((card) => card.id === cardId);
+    if (deletedCard && deletedCard.cardTrunfo) {
+      // Se for um "Supertrunfo", define hasTrunfo como false
+      setHasTrunfo(false);
+
+      console.log('Deletei um super trunfo');
+      console.log('Este é o hasTrunfo depois de deletar ', hasTrunfo);
+    }
 
     const updatedCardState = {
       ...cardState,
@@ -130,6 +163,7 @@ const App = () => {
               onSaveButtonClick={ onSaveButtonClick }
               togglePreview={ togglePreview }
               showErrorMessage={ showErrorMessage }
+              hasTrunfo={ hasTrunfo }
             />
             <Card
               { ...cardState }

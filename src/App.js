@@ -30,16 +30,6 @@ const App = () => {
 
   const savedCardSectionRef = useRef(null);
 
-  // useEffect(() => {
-  //   console.log('Componente montado');
-  //   console.log('Componente montado. Existe trunfo no baralho?', hasTrunfo);
-
-  //   // return () => {
-  //   //   console.log('Componente desmontado');
-  //   //   // Faça a limpeza necessária aqui, como cancelar assinaturas, timers, etc.
-  //   // };
-  // }, [hasTrunfo]);
-
   const scrollToSavedCardSection = () => {
     if (savedCardSectionRef.current) {
       savedCardSectionRef.current.scrollIntoView({

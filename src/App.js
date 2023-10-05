@@ -3,6 +3,7 @@ import { v4 as uuidv4 } from 'uuid'; /* para gerar o id */
 import Form from './components/Form/index';
 import Card from './components/Card/index';
 import validateForm from './utils/validation';
+import handleDeleteCard from './utils/handleDeleteCard';
 import './App.css';
 
 const initialState = {
@@ -72,8 +73,6 @@ const App = () => {
     } else {
       setShowErrorMessage(true);
     }
-
-    console.log('eu sou o estado inicial modificado antes de ser enviado', cardState);
   }, [cardState]);
 
   const onSaveButtonClick = useCallback((event) => {
@@ -101,9 +100,6 @@ const App = () => {
       hasTrunfo: cardState.cardTrunfo ? true : hasTrunfo,
     };
 
-    console.log('Este é o meu objeto atualizado', updatedCardState.cardList);
-    console.log('Este é o hasTrunfo', updatedCardState.hasTrunfo);
-
     setCardState(updatedCardState);
     scrollToSavedCardSection();
 
@@ -115,25 +111,8 @@ const App = () => {
     setIsPreviewFlipped((prevIsFlipped) => !prevIsFlipped);
   };
 
-  const handleDeleteCard = (cardId) => {
-    const updatedCardList = cardState.cardList.filter((card) => card.id !== cardId);
-
-    // Verifica se o card excluído é um "Supertrunfo"
-    const deletedCard = cardState.cardList.find((card) => card.id === cardId);
-    if (deletedCard && deletedCard.cardTrunfo) {
-      // Se for um "Supertrunfo", define hasTrunfo como false
-      setHasTrunfo(false);
-
-      console.log('Deletei um super trunfo');
-      console.log('Este é o hasTrunfo depois de deletar ', hasTrunfo);
-    }
-
-    const updatedCardState = {
-      ...cardState,
-      cardList: updatedCardList,
-    };
-
-    setCardState(updatedCardState);
+  const handleDeleteCardWrapper = (cardId) => {
+    handleDeleteCard(cardId, cardState, setCardState, setHasTrunfo, hasTrunfo);
   };
 
   return (
@@ -175,7 +154,7 @@ const App = () => {
                 key={ card.id }
                 { ...card }
                 togglePreview={ togglePreview }
-                onDeleteClick={ handleDeleteCard }
+                onDeleteClick={ handleDeleteCardWrapper }
                 hasDeletButton
               />
             ))}

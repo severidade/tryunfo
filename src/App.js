@@ -3,6 +3,7 @@ import { v4 as uuidv4 } from 'uuid'; /* para gerar o id */
 import Form from './components/Form/index';
 import Card from './components/Card/index';
 import validateForm from './utils/validation';
+import handleDeleteCard from './utils/handleDeleteCard';
 import './App.css';
 
 const initialState = {
@@ -41,6 +42,7 @@ const App = () => {
   const onInputChange = useCallback(({ target }) => {
     const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
+
     const maxValue = 90;
 
     // impede que valor seja maior que 90
@@ -78,18 +80,25 @@ const App = () => {
 
     const cardId = uuidv4();
 
+    // verifica se já existe um trunfo definido
+    // percorre cardList e ver se term um verdadeiro
+    const existingTrunfo = cardState.cardList.find((card) => card.cardTrunfo);
+
+    // verifica se a nova carta deve ser marcada como trunfo
+    const isTrunfo = !existingTrunfo && cardState.cardTrunfo;
+
     const newCard = {
       ...cardState,
       id: cardId, // Adicione o ID à carta
+      cardTrunfo: isTrunfo,
     };
 
     const updatedCardState = {
       ...initialState,
       cardList: [newCard, ...cardState.cardList],
+      // cardTrunfo: cardState.cardTrunfo,
       hasTrunfo: cardState.cardTrunfo ? true : hasTrunfo,
     };
-
-    console.log('Este é o meu objeto atualizado', updatedCardState.cardList);
 
     setCardState(updatedCardState);
     scrollToSavedCardSection();
@@ -102,15 +111,8 @@ const App = () => {
     setIsPreviewFlipped((prevIsFlipped) => !prevIsFlipped);
   };
 
-  const handleDeleteCard = (cardId) => {
-    const updatedCardList = cardState.cardList.filter((card) => card.id !== cardId);
-
-    const updatedCardState = {
-      ...cardState,
-      cardList: updatedCardList,
-    };
-
-    setCardState(updatedCardState);
+  const handleDeleteCardWrapper = (cardId) => {
+    handleDeleteCard(cardId, cardState, setCardState, setHasTrunfo, hasTrunfo);
   };
 
   return (
@@ -130,6 +132,7 @@ const App = () => {
               onSaveButtonClick={ onSaveButtonClick }
               togglePreview={ togglePreview }
               showErrorMessage={ showErrorMessage }
+              hasTrunfo={ hasTrunfo }
             />
             <Card
               { ...cardState }
@@ -151,7 +154,7 @@ const App = () => {
                 key={ card.id }
                 { ...card }
                 togglePreview={ togglePreview }
-                onDeleteClick={ handleDeleteCard }
+                onDeleteClick={ handleDeleteCardWrapper }
                 hasDeletButton
               />
             ))}

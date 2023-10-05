@@ -40,12 +40,10 @@ function Card(props) {
           ) : (
             <button
               type="button"
-              // className="delet_card"
               className={ styles.remove_card }
-              onClick={ handleDeleteClick } // Chame a função de exclusão no clique
-            >
-              remove carta
-            </button>
+              onClick={ handleDeleteClick }
+              aria-label="Excluir Cartão"
+            />
           )}
         </div>
         <figure className={ styles.card_image_container }>

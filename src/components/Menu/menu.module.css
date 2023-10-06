@@ -1,0 +1,29 @@
+.menu {
+  align-items: center;
+  background-color: tomato;
+
+  /* background-color: var(--color-cta-primary); */
+  background-image: url('./img/cartas.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 60%;
+  border: none;
+  border-radius: 50%;
+  bottom: 0;
+  display: flex;
+  height: 70px;
+  justify-content: center;
+  left: 50%;
+  overflow: hidden;
+  position: fixed;
+  text-indent: -1000px;
+  transform: translate(-50%, 70px);
+  transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  transition-timing-function: linear;
+  width: 70px;
+  z-index: 3;
+}
+
+.menu.open {
+  transform: translate(-50%, -10px);
+}

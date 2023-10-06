@@ -6,6 +6,7 @@ import validateForm from './utils/validation';
 import handleDeleteCard from './utils/handleDeleteCard';
 import './App.css';
 import EmptyDeckMsg from './components/EmptyDeckMsg';
+import Menu from './components/Menu';
 
 const initialState = {
   id: '44',
@@ -180,6 +181,7 @@ const App = () => {
         <p>O Baralho esta vazio. Adicione cartas!</p>
       </div> */}
       <EmptyDeckMsg cardList={ cardState.cardList } />
+      <Menu cardList={ cardState.cardList } />
     </div>
   );
 };

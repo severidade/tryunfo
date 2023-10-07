@@ -6,6 +6,12 @@ function Menu({ cardList, toggleMenuActive, isMenuActive }) {
   // const { cardList } = props;
   const hasCard = cardList.length;
 
+  const handleInfoButtonClick = () => {
+    const URL_DO_LINK_EXTERN0 = 'https://github.com/severidade/tryunfo';
+    window.open(URL_DO_LINK_EXTERN0, '_blank');
+    toggleMenuActive();
+  };
+
   return (
     <div className={ ` ${styles.container_menu} ${hasCard > 0 ? styles.show_menu : ''}` }>
       <button
@@ -58,6 +64,7 @@ function Menu({ cardList, toggleMenuActive, isMenuActive }) {
         ${styles.info}
         ${isMenuActive ? styles.active : ''}
         ` }
+        onClick={ handleInfoButtonClick }
       >
         Info
       </button>

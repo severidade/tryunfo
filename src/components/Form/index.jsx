@@ -170,7 +170,7 @@ function Form(props) {
           onClick={ onSaveButtonClick }
           disabled={ isSaveButtonDisabled }
         >
-          Salvar
+          Adicionar Carta
         </CustomCtaButton>
       </form>
     </div>

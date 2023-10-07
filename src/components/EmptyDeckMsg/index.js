@@ -8,7 +8,11 @@ function EmptyDeckMsg(props) {
 
   return (
     <div className={ `${styles.empty_deck_msg} ${hasCard > 0 ? styles.escondido : ''}` }>
-      <p>O Baralho esta vazio. Adicione cartas!</p>
+      <p>
+        O Baralho esta vazio.
+        {' '}
+        <strong>Adicione cartas!</strong>
+      </p>
     </div>
   );
 }

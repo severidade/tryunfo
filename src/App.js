@@ -30,6 +30,7 @@ const App = () => {
   const [hasTrunfo, setHasTrunfo] = useState(false);
 
   const [isPreviewFlipped, setIsPreviewFlipped] = useState(false);
+  const [isMenuActive, setIsMenuActive] = useState(false);
 
   const savedCardSectionRef = useRef(null);
 
@@ -113,9 +114,15 @@ const App = () => {
     setIsPreviewFlipped((prevIsFlipped) => !prevIsFlipped);
   };
 
+  const toggleMenuActive = () => {
+    setIsMenuActive(((prevIsActive) => !prevIsActive));
+  };
+
   const handleDeleteCardWrapper = (cardId) => {
     handleDeleteCard(cardId, cardState, setCardState, setHasTrunfo, hasTrunfo);
   };
+
+  console.log('isMenuActive:', isMenuActive);
 
   return (
     <div className="container_app">
@@ -181,7 +188,11 @@ const App = () => {
         <p>O Baralho esta vazio. Adicione cartas!</p>
       </div> */}
       <EmptyDeckMsg cardList={ cardState.cardList } />
-      <Menu cardList={ cardState.cardList } />
+      <Menu
+        cardList={ cardState.cardList }
+        toggleMenuActive={ toggleMenuActive }
+        isMenuActive={ isMenuActive }
+      />
     </div>
   );
 };

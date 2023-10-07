@@ -18,36 +18,6 @@
   transform: translateY(var(--size_item) * -1);
 }
 
-/*
-.menu {
-  align-items: center;
-  background-color: tomato;
-  background-image: url('./img/cartas.png');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 60%;
-  border: none;
-  border-radius: 50%;
-  bottom: 0;
-  display: flex;
-  height: 70px;
-  justify-content: center;
-  left: 50%;
-  overflow: hidden;
-  position: fixed;
-  text-indent: -1000px;
-  transform: translate(-50%, 70px);
-  transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-  transition-timing-function: linear;
-  width: 70px;
-  z-index: 3;
-}
-
-.menu.open {
-  transform: translate(-50%, -10px);
-} */
-
-
 .menu, .menu_item {
   align-items: center;
   border-radius: 50%;
@@ -70,6 +40,7 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: 65%;
+  border: none;
   z-index: 4;
 }
 
@@ -83,13 +54,31 @@
   width: 100vw;
 }
 
-/* .menu .menu_mask {
-  top: -100vh;
-} */
+.search, .play, .info {
+  background-position: center;
+  background-repeat: no-repeat;
+  border: none;
+}
+
+.search {
+  background-image: url('./img/lupa.png') , url('../../img/black_texture.png');
+  background-size: 45% , cover;
+  transition: all 0.2s 0.1s ease-in-out;
+}
+
+.play {
+  background-image: url('./img/play.png') , url('../../img/black_texture.png');
+  background-size: 40% , cover;
+  transition: all 0.2s 0.2s ease-in-out;
+}
+
+.info {
+  background-image: url('./img/github.png') , url('../../img/black_texture.png');
+  background-size: 50% , cover;
+  transition: all 0.2s 0.3s ease-in-out;
+}
 
 /* Estado dos botoes quando ativos */
-.menu, .search, .play, .info { border: none;}
-
 .menu.active ~ .menu_mask {
   top: calc((100vh - var(--size_item)) * -1);
 }
@@ -105,65 +94,3 @@
 .info.active {
   transform: translate(55%, -120%);
 }
-
-
-.search {
-  background: #b5ead7;
-  transition: all 0.2s 0.1s ease-in-out;
-}
-
-.play {
-  background: gold;
-  transition: all 0.2s 0.2s ease-in-out;
-}
-
-.info {
-  background: darksalmon;
-  transition: all 0.2s 0.3s ease-in-out;
-}
-
-/* .search {
-  background: #b5ead7;
-  transition: all 0.2s 0.1s ease-in-out;
-}
-
-.play {
-  background: gold;
-  transition: all 0.2s 0.2s ease-in-out;
-}
-
-.info {
-  background: darksalmon;
-  transition: all 0.2s 0.3s ease-in-out;
-} */
-
-/* .search {
-  left: 15%;
-  top: 15%;
-}
-
-.play {
-  left: 50%;
-  top: 0%;
-}
-
-.info {
-  left: 85%;
-  top: 15%;
-} */
-
-/*
-.container-menu.active .blob-6 {
-  left: 15%;
-  top: 15%;
-}
-
-.container-menu.active .blob-7 {
-  left: 50%;
-  top: 0%;
-}
-
-.container-menu.active .blob-8 {
-  left: 85%;
-  top: 15%;
-} */

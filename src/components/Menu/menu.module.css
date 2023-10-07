@@ -48,13 +48,14 @@
 }
 
 .menu_mask {
-  background-color: rgb(0 0 0 / 0%);
+  background-color: rgb(0 0 0 / 30%);
   border: none;
   height: 100vh;
   position: absolute;
   text-indent: -2000vw;
   top: var(--menu_height);
   width: 100vw;
+
 }
 
 .search, .play, .info {

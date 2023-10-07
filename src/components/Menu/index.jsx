@@ -1,10 +1,26 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 import styles from './menu.module.css';
 
 function Menu({ cardList, toggleMenuActive, isMenuActive }) {
-  // const { cardList } = props;
   const hasCard = cardList.length;
+
+  const maskButtonRef = useRef(null);
+  let scrollStartY = 0;
+
+  const handleScrollStart = (e) => {
+    scrollStartY = e.touches[0].clientY;
+  };
+
+  const handleScrollEnd = (e) => {
+    const scrollEndY = e.changedTouches[0].clientY;
+    const scrollDistance = scrollEndY - scrollStartY;
+
+    // eslint-disable-next-line no-magic-numbers
+    if (Math.abs(scrollDistance) > 1) {
+      toggleMenuActive();
+    }
+  };
 
   const handleInfoButtonClick = () => {
     const URL_DO_LINK_EXTERN0 = 'https://github.com/severidade/tryunfo';
@@ -28,8 +44,12 @@ function Menu({ cardList, toggleMenuActive, isMenuActive }) {
 
       <button
         type="button"
+        id="mask"
         className={ styles.menu_mask }
+        onTouchStart={ handleScrollStart }
+        onTouchEnd={ handleScrollEnd }
         onClick={ toggleMenuActive }
+        ref={ maskButtonRef }
       >
         mascara
       </button>

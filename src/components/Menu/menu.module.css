@@ -1,11 +1,14 @@
 .container_menu {
 
   --size_item: 70px;
-  background-color: violet;
+
+  --menu_height: calc(var(--size_item) + 20px);
+
+  /* background-color: violet; */
   bottom: 0;
-  height: var(--size_item);
+  height: var(--menu_height);
   position: fixed;
-  transform: translateY(var(--size_item));
+  transform: translateY(var(--menu_height));
   transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55);
   transition-timing-function: linear;
   width: 100%;
@@ -15,7 +18,7 @@
 .container_menu.show_menu {
 
   /* background-color: olive; */
-  transform: translateY(var(--size_item) * -1);
+  transform: translateY(var(--menu_height) * -1);
 }
 
 .menu, .menu_item {
@@ -35,7 +38,7 @@
 }
 
 .menu {
-  background: tomato;
+  background: var(--color-cta-primary);
   background-image: url('./img/cartas.png');
   background-position: center;
   background-repeat: no-repeat;
@@ -45,13 +48,14 @@
 }
 
 .menu_mask {
-  background-color: rgb(0 0 0 / 50%);
+  background-color: rgb(0 0 0 / 30%);
   border: none;
   height: 100vh;
   position: absolute;
   text-indent: -2000vw;
-  top: var(--size_item);
+  top: var(--menu_height);
   width: 100vw;
+
 }
 
 .search, .play, .info {
@@ -80,7 +84,7 @@
 
 /* Estado dos botoes quando ativos */
 .menu.active ~ .menu_mask {
-  top: calc((100vh - var(--size_item)) * -1);
+  top: calc((100vh - var(--menu_height)) * -1);
 }
 
 .search.active {

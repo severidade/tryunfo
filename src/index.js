@@ -7,10 +7,10 @@ import theme from './stylesMaterialUi/Theme';
 
 ReactDOM.render(
   <React.StrictMode>
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
-        <App />
-      </ThemeProvider>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <App />
+    </ThemeProvider>
   </React.StrictMode>,
   document.getElementById('root'),
 );

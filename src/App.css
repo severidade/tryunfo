@@ -10,10 +10,14 @@
 }
 
 .logo {
-  color: white;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
   font-family: 'Ultra' , serif;
   font-size: 48px;
   font-weight: normal;
+  height: 100px;
+  justify-content: center;
   line-height: 0.6;
   padding: 15px 0 30px;
   text-align: center;
@@ -21,35 +25,22 @@
   white-space: pre-wrap;
 }
 
-.logo strong {
-  color: var(--color-cta-primary);
+.logo .super {
+  color: white;
   font-weight: normal;
 }
 
-/* .content_AddNewCard h2, .content_PreviewNewCard h2 {
-  margin-bottom: 20px;
-  margin-top: 20px;
+.logo .trunfo {
+  color: var(--color-cta-primary);
+  font-weight: normal;
 }
-
-.content_PreviewNewCard h2 {
-  color: white;
-} */
-
-/* .PreviewNewCard h3 {
-  background: #10a1a3;
-  border-radius: 10px 10px 0 0;
-  color: white;
-  height: 40px;
-  line-height: 40px;
-  padding: 0 10px;
-  text-align: right;
-  width: 100%;
-} */
 
 .container_preview_card {
   align-items: center;
   display: flex;
   justify-content: center;
+  min-height: calc(100vh - 150px);
+  padding-bottom: 60px;
 }
 
 
@@ -121,7 +112,6 @@
 }
 
 .nav_game {
-  background-color: tomato;
   bottom: 0;
   height: 50px;
   position: fixed;

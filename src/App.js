@@ -127,9 +127,8 @@ const App = () => {
   return (
     <div className="container_app">
       <h1 className="logo">
-        Super
-        {' '}
-        <strong>Trunfo</strong>
+        <strong className="super">Super</strong>
+        <strong className="trunfo">Trunfo</strong>
       </h1>
 
       <div className="container_preview_card">

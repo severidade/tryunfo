@@ -1,8 +1,15 @@
 import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 import styles from './menu.module.css';
+import SearchMenu from '../SearchMenu';
 
-function Menu({ cardList, toggleMenuActive, isMenuActive }) {
+function Menu({
+  cardList,
+  toggleMenuActive,
+  toggleSearchActive,
+  isMenuActive,
+  isSearchActive,
+}) {
   const hasCard = cardList.length;
 
   const maskButtonRef = useRef(null);
@@ -53,9 +60,14 @@ function Menu({ cardList, toggleMenuActive, isMenuActive }) {
       >
         mascara
       </button>
-
+      <SearchMenu
+        isSearchActive={ isSearchActive }
+        toggleMenuActive={ toggleMenuActive }
+        toggleSearchActive={ toggleSearchActive }
+      />
       <button
         type="button"
+        onClick={ toggleSearchActive }
         className={ ` 
           ${styles.menu_item} 
           ${styles.search}
@@ -88,6 +100,7 @@ function Menu({ cardList, toggleMenuActive, isMenuActive }) {
       >
         Info
       </button>
+
     </div>
 
   );
@@ -96,11 +109,14 @@ function Menu({ cardList, toggleMenuActive, isMenuActive }) {
 Menu.propTypes = {
   cardList: PropTypes.arrayOf(PropTypes.object).isRequired,
   toggleMenuActive: PropTypes.func.isRequired,
+  toggleSearchActive: PropTypes.func.isRequired,
   isMenuActive: PropTypes.bool,
+  isSearchActive: PropTypes.bool,
 };
 
 Menu.defaultProps = {
   isMenuActive: false,
+  isSearchActive: false,
 };
 
 export default Menu;

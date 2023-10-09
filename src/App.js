@@ -31,6 +31,7 @@ const App = () => {
 
   const [isPreviewFlipped, setIsPreviewFlipped] = useState(false);
   const [isMenuActive, setIsMenuActive] = useState(false);
+  const [isSearchActive, setIsSearchActive] = useState(false);
 
   const savedCardSectionRef = useRef(null);
 
@@ -118,11 +119,17 @@ const App = () => {
     setIsMenuActive(((prevIsActive) => !prevIsActive));
   };
 
+  const toggleSearchActive = () => {
+    setIsSearchActive(((prevIsSearchActive) => !prevIsSearchActive));
+    toggleMenuActive();
+  };
+
   const handleDeleteCardWrapper = (cardId) => {
     handleDeleteCard(cardId, cardState, setCardState, setHasTrunfo, hasTrunfo);
   };
 
-  console.log('isMenuActive:', isMenuActive);
+  // console.log('isMenuActive:', isMenuActive);
+  console.log('isSearchActive:', isSearchActive);
 
   return (
     <div className="container_app">
@@ -170,27 +177,13 @@ const App = () => {
 
         </div>
       ) : null}
-      {/* <div className="nav_game">Você está sem cartas no baralho! Para jogar, por favor, preencha o formulário acima.</div> */}
-      {/* <div className="nav_game">
-        <p> seu baralho esta vazio adicione cartas ao baralho</p>
-
-        <button
-          type="button"
-          onClick={ scrollToSavedCardSection }
-          disabled={ cardState.cardList.length === 0 }
-        >
-          {cardState.cardList.length > 0 ? 'Ver Baralho' : 'Não há cartas'}
-        </button>
-        <button type="button">Pesquisar</button>
-      </div> */}
-      {/* <div className="empty_deck_msg">
-        <p>O Baralho esta vazio. Adicione cartas!</p>
-      </div> */}
       <EmptyDeckMsg cardList={ cardState.cardList } />
       <Menu
         cardList={ cardState.cardList }
         toggleMenuActive={ toggleMenuActive }
+        toggleSearchActive={ toggleSearchActive }
         isMenuActive={ isMenuActive }
+        isSearchActive={ isSearchActive }
       />
     </div>
   );

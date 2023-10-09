@@ -28,8 +28,7 @@
   height: var(--size_item);
   justify-content: center;
   left: 50%;
-
-  /* overflow: hidden; */
+  overflow: hidden;
   position: absolute;
   text-indent: -1000px;
   top: 50%;

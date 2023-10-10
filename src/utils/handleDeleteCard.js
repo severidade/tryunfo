@@ -1,8 +1,11 @@
+// eslint-disable-next-line max-params
 export default function handleDeleteCard(
   cardId,
   cardState,
   setCardState,
   setHasTrunfo,
+  searchResults,
+  setSearchResults,
 ) {
   const updatedCardList = cardState.cardList.filter((card) => card.id !== cardId);
 
@@ -19,4 +22,10 @@ export default function handleDeleteCard(
   };
 
   setCardState(updatedCardState);
+
+  // Verifica se searchResults é uma matriz antes de filtrá-la
+  if (Array.isArray(searchResults)) {
+    const updatedSearchResults = searchResults.filter((card) => card.id !== cardId);
+    setSearchResults(updatedSearchResults);
+  }
 }

@@ -134,7 +134,7 @@ const App = () => {
   };
 
   const handleDeleteCardWrapper = (cardId) => {
-    handleDeleteCard(cardId, cardState, setCardState, setHasTrunfo, hasTrunfo);
+    handleDeleteCard(cardId, cardState, setCardState, setHasTrunfo, searchResults, setSearchResults);
   };
 
   const onInputSearch = (e) => {

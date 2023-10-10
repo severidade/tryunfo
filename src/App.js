@@ -149,6 +149,22 @@ const App = () => {
     handleSearchClose();
   };
 
+  // eslint-disable-next-line no-shadow
+  const aboutPlayingCardsMsg = (selectedValue) => {
+    switch (selectedValue) {
+    case 'todas':
+      return 'Abaixo estão todas as cartas do baralho';
+    case 'normal':
+      return 'Abaixo estão todas as cartas NORMAIS do baralho';
+    case 'raro':
+      return 'Abaixo estão todas as cartas RARAS do baralho';
+    case 'muito_raro':
+      return 'Abaixo estão todas as cartas MUITO RARAS do baralho';
+    default:
+      return 'Mensagem padrão ou mensagem de erro aqui';
+    }
+  };
+
   // console.log('isMenuActive:', isMenuActive);
   // console.log('isSearchActive:', isSearchActive);
   console.log(searchResults);
@@ -182,19 +198,12 @@ const App = () => {
 
       {cardState.cardList.length > 0 ? (
         <div ref={ savedCardSectionRef } className="container_saved_card">
-
-          <h2 className="card_saved_title_section">Todo o Baralho</h2>
-          {/* <div className="playing_cards">
-            {cardState.cardList.map((card) => (
-              <Card
-                key={ card.id }
-                { ...card }
-                togglePreview={ togglePreview }
-                onDeleteClick={ handleDeleteCardWrapper }
-                hasDeletButton
-              />
-            ))}
-          </div> */}
+          <div className="deck_header">
+            <h2 className="card_saved_title_section">Baralho</h2>
+            <p className="about_playing_cards">
+              {aboutPlayingCardsMsg(selectedValue)}
+            </p>
+          </div>
           <div className="playing_cards">
             {(selectedValue === 'todas' ? cardState.cardList : searchResults).map((card) => (
               <Card

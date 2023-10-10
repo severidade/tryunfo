@@ -50,7 +50,7 @@ function SearchMenu({
           <MenuItem value="todas">Todas</MenuItem>
           <MenuItem value="normal">Normal</MenuItem>
           <MenuItem value="raro">Raro</MenuItem>
-          <MenuItem value="muito raro">Muito Raro</MenuItem>
+          <MenuItem value="muito_raro">Muito Raro</MenuItem>
         </Select>
       </FormControl>
 

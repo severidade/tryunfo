@@ -8,7 +8,7 @@
   justify-content: center;
   left: -100%;
   position: absolute;
-  transition: all 1s ease-in-out;
+  transition: all 1.5s ease-in-out;
   width: 100%;
   z-index: 9;
 }

@@ -90,6 +90,10 @@
   position: initial;
 }
 
+/* .deck_header {
+  background-color: tomato;
+} */
+
 .card_saved_title_section {
   color: var(--color-cta-primary);
   font-family: 'MuseoModerno' , cursive;
@@ -98,6 +102,15 @@
   /* padding-bottom: 20px; */
   text-align: center;
   text-shadow: 3px 2px 4px #000;
+}
+
+.about_playing_cards {
+  color: var(--color-cta-primary);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.2;
+  padding: 0 60px;
+  text-align: center;
 }
 
 .playing_cards {

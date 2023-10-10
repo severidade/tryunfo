@@ -9,6 +9,9 @@ function Menu({
   toggleSearchActive,
   isMenuActive,
   isSearchActive,
+  handleSearch,
+  onInputSearch,
+  selectedValue,
 }) {
   const hasCard = cardList.length;
 
@@ -61,9 +64,13 @@ function Menu({
         mascara
       </button>
       <SearchMenu
+        cardList={ cardList }
         isSearchActive={ isSearchActive }
         toggleMenuActive={ toggleMenuActive }
         toggleSearchActive={ toggleSearchActive }
+        handleSearch={ handleSearch }
+        onInputSearch={ onInputSearch }
+        selectedValue={ selectedValue }
       />
       <button
         type="button"
@@ -110,8 +117,11 @@ Menu.propTypes = {
   cardList: PropTypes.arrayOf(PropTypes.object).isRequired,
   toggleMenuActive: PropTypes.func.isRequired,
   toggleSearchActive: PropTypes.func.isRequired,
+  handleSearch: PropTypes.func.isRequired,
+  onInputSearch: PropTypes.func.isRequired,
   isMenuActive: PropTypes.bool,
   isSearchActive: PropTypes.bool,
+  selectedValue: PropTypes.string.isRequired,
 };
 
 Menu.defaultProps = {

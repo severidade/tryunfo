@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import React, { useState, useCallback, useRef } from 'react';
 import { v4 as uuidv4 } from 'uuid'; /* para gerar o id */
 import Form from './components/Form/index';
@@ -32,6 +33,9 @@ const App = () => {
   const [isPreviewFlipped, setIsPreviewFlipped] = useState(false);
   const [isMenuActive, setIsMenuActive] = useState(false);
   const [isSearchActive, setIsSearchActive] = useState(false);
+
+  const [searchResults, setSearchResults] = useState([]);
+  const [selectedValue, setSelectedValue] = useState('todas');
 
   const savedCardSectionRef = useRef(null);
 
@@ -124,13 +128,30 @@ const App = () => {
     toggleMenuActive();
   };
 
+  const handleSearchClose = () => {
+    toggleSearchActive();
+    toggleMenuActive();
+  };
+
   const handleDeleteCardWrapper = (cardId) => {
     handleDeleteCard(cardId, cardState, setCardState, setHasTrunfo, hasTrunfo);
   };
 
-  // console.log('isMenuActive:', isMenuActive);
-  console.log('isSearchActive:', isSearchActive);
+  const onInputSearch = (e) => {
+    setSelectedValue(e.target.value);
+  };
 
+  const handleSearch = () => {
+    const filteredResults = cardState.cardList.filter((card) =>
+      // eslint-disable-next-line implicit-arrow-linebreak
+      selectedValue === 'todas' || card.cardRare === selectedValue);
+    setSearchResults(filteredResults);
+    handleSearchClose();
+  };
+
+  // console.log('isMenuActive:', isMenuActive);
+  // console.log('isSearchActive:', isSearchActive);
+  console.log(searchResults);
   return (
     <div className="container_app">
       <h1 className="logo">
@@ -163,8 +184,19 @@ const App = () => {
         <div ref={ savedCardSectionRef } className="container_saved_card">
 
           <h2 className="card_saved_title_section">Todo o Baralho</h2>
-          <div className="playing_cards">
+          {/* <div className="playing_cards">
             {cardState.cardList.map((card) => (
+              <Card
+                key={ card.id }
+                { ...card }
+                togglePreview={ togglePreview }
+                onDeleteClick={ handleDeleteCardWrapper }
+                hasDeletButton
+              />
+            ))}
+          </div> */}
+          <div className="playing_cards">
+            {(selectedValue === 'todas' ? cardState.cardList : searchResults).map((card) => (
               <Card
                 key={ card.id }
                 { ...card }
@@ -184,6 +216,9 @@ const App = () => {
         toggleSearchActive={ toggleSearchActive }
         isMenuActive={ isMenuActive }
         isSearchActive={ isSearchActive }
+        handleSearch={ handleSearch }
+        onInputSearch={ onInputSearch }
+        selectedValue={ selectedValue }
       />
     </div>
   );

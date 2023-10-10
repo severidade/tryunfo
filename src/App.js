@@ -150,24 +150,31 @@ const App = () => {
   };
 
   // eslint-disable-next-line no-shadow
-  const aboutPlayingCardsMsg = (selectedValue) => {
+  const aboutPlayingCardsMsg = (selectedValue, cardList) => {
+    const cardCountByType = cardList.reduce((count, card) => {
+      const rarity = card.cardRare;
+      if (!count[rarity]) {
+        count[rarity] = 0;
+      }
+      // eslint-disable-next-line no-plusplus
+      count[rarity]++;
+      return count;
+    }, {});
+
     switch (selectedValue) {
     case 'todas':
-      return 'Abaixo estão todas as cartas do baralho';
+      return `Abaixo estão todas as cartas do baralho (${cardList.length} cartas no total)`;
     case 'normal':
-      return 'Abaixo estão todas as cartas NORMAIS do baralho';
+      return `Abaixo estão todas as cartas NORMAIS do baralho (${cardCountByType.normal || 0} cartas)`;
     case 'raro':
-      return 'Abaixo estão todas as cartas RARAS do baralho';
+      return `Abaixo estão todas as cartas RARAS do baralho (${cardCountByType.raro || 0} cartas)`;
     case 'muito_raro':
-      return 'Abaixo estão todas as cartas MUITO RARAS do baralho';
+      return `Abaixo estão todas as cartas MUITO RARAS do baralho (${cardCountByType.muito_raro || 0} cartas)`;
     default:
       return 'Mensagem padrão ou mensagem de erro aqui';
     }
   };
 
-  // console.log('isMenuActive:', isMenuActive);
-  // console.log('isSearchActive:', isSearchActive);
-  console.log(searchResults);
   return (
     <div className="container_app">
       <h1 className="logo">
@@ -201,7 +208,7 @@ const App = () => {
           <div className="deck_header">
             <h2 className="card_saved_title_section">Baralho</h2>
             <p className="about_playing_cards">
-              {aboutPlayingCardsMsg(selectedValue)}
+              {aboutPlayingCardsMsg(selectedValue, cardState.cardList)}
             </p>
           </div>
           <div className="playing_cards">

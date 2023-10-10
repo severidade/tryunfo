@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import React, { useState, useCallback, useRef } from 'react';
 import { v4 as uuidv4 } from 'uuid'; /* para gerar o id */
 import Form from './components/Form/index';
@@ -183,8 +184,19 @@ const App = () => {
         <div ref={ savedCardSectionRef } className="container_saved_card">
 
           <h2 className="card_saved_title_section">Todo o Baralho</h2>
-          <div className="playing_cards">
+          {/* <div className="playing_cards">
             {cardState.cardList.map((card) => (
+              <Card
+                key={ card.id }
+                { ...card }
+                togglePreview={ togglePreview }
+                onDeleteClick={ handleDeleteCardWrapper }
+                hasDeletButton
+              />
+            ))}
+          </div> */}
+          <div className="playing_cards">
+            {(selectedValue === 'todas' ? cardState.cardList : searchResults).map((card) => (
               <Card
                 key={ card.id }
                 { ...card }

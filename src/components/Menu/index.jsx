@@ -64,6 +64,7 @@ function Menu({
         isSearchActive={ isSearchActive }
         toggleMenuActive={ toggleMenuActive }
         toggleSearchActive={ toggleSearchActive }
+        cardList={ cardList }
       />
       <button
         type="button"

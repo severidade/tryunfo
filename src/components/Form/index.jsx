@@ -134,7 +134,7 @@ function Form(props) {
             >
               <MenuItem value="normal">Normal</MenuItem>
               <MenuItem value="raro">Raro</MenuItem>
-              <MenuItem value="muito raro">Muito Raro</MenuItem>
+              <MenuItem value="muito_raro">Muito Raro</MenuItem>
             </CustomSelect>
           </FormControl>
           <label

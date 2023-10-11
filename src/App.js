@@ -145,6 +145,7 @@ const App = () => {
     const filteredResults = cardState.cardList.filter((card) =>
       // eslint-disable-next-line implicit-arrow-linebreak
       selectedValue === 'todas' || card.cardRare === selectedValue);
+    console.log(selectedValue);
     setSearchResults(filteredResults);
     handleSearchClose();
   };

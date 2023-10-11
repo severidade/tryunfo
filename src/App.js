@@ -1,3 +1,4 @@
+/* eslint-disable max-lines */
 /* eslint-disable max-len */
 import React, { useState, useCallback, useRef } from 'react';
 import { v4 as uuidv4 } from 'uuid'; /* para gerar o id */
@@ -166,15 +167,25 @@ const App = () => {
       return count;
     }, {});
 
+    const numCartas = cardList.length;
+    const numCartasNormal = cardCountByType.normal || 0;
+    const numCartasRaro = cardCountByType.raro || 0;
+    const numCartasMuitoRaro = cardCountByType.muito_raro || 0;
+    const mensagemCartas = numCartas === 1 ? 'carta' : 'cartas';
+    const mensagemCartasNormal = numCartasNormal === 1 ? 'carta' : 'cartas';
+    const mensagemCartasRaro = numCartasRaro === 1 ? 'carta' : 'cartas';
+    const mensagemCartasMuitoRaro = numCartasRaro === 1 ? 'carta' : 'cartas';
+
     switch (selectedValue) {
     case 'todas':
-      return `Abaixo estão todas as cartas do baralho (${cardList.length} cartas no total)`;
+      return `Abaixo, você encontrará TODAS as cartas disponíveis. Atualmente, há um total de ${numCartas} ${mensagemCartas} no baralho.`;
     case 'normal':
-      return `Abaixo estão todas as cartas NORMAIS do baralho (${cardCountByType.normal || 0} cartas)`;
+      // return `Abaixo estão todas as cartas NORMAIS do baralho (${cardCountByType.normal || 0} cartas)`;
+      return `Abaixo estão todas as cartas NORMAIS do baralho (${numCartasNormal} ${mensagemCartasNormal} no total)`;
     case 'raro':
-      return `Abaixo estão todas as cartas RARAS do baralho (${cardCountByType.raro || 0} cartas)`;
+      return `Abaixo estão todas as cartas RARAS do baralho (${numCartasRaro} ${mensagemCartasRaro} no total)`;
     case 'muito_raro':
-      return `Abaixo estão todas as cartas MUITO RARAS do baralho (${cardCountByType.muito_raro || 0} cartas)`;
+      return `Abaixo estão todas as cartas MUITO RARAS do baralho (${numCartasMuitoRaro} ${mensagemCartasMuitoRaro} no total)`;
     default:
       return 'Mensagem padrão ou mensagem de erro aqui';
     }

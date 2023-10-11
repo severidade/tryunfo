@@ -1,13 +1,13 @@
 <table width="100%">
-    <!-- <tr>
-        <td colspan="3">
+    <tr>
+        <td colspan="2">
           <img src="./src/img/screenshot/01.png" alt="Descrição da imagem">
         </td>
-    </tr> -->
+    </tr>
     <tr>
-        <td width="33%"><img src="./src/img/screenshot/05.png" alt="Descrição da imagem"></td>
-        <td width="33%"><img src="./src/img/screenshot/02.png" alt="Descrição da imagem"></td>
-        <td width="33%"><img src="./src/img/screenshot/03.png" alt="Descrição da imagem"></td>
+        <td width="50%"><img src="./src/img/screenshot/02.png" alt="Descrição da imagem"></td>
+        <td width="50%"><img src="./src/img/screenshot/03.png" alt="Descrição da imagem"></td>
+        <!-- <td width="33%"><img src="./src/img/screenshot/03.png" alt="Descrição da imagem"></td> -->
     </tr>
 </table>
 

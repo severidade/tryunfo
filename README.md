@@ -1,29 +1,42 @@
-# :construction: README em construção ! :construction:
-deployment
+# SuperTrunfo Card Manager
 
-# Criando, lendo, atualizando e apagando informações
-Quando lidamos com informações, existem quatro operações fundamentais: Criar (create), Ler (read), Atualizar (update) e Excluir (delete).
+Esta aplicação foi desenvolvida com o objetivo de criar e gerenciar cartas para um jogo no estilo SuperTrunfo, demonstrando a implementação das seguintes habilidades:
+- Leitura do estado de um componente e uso desse estado para alterar o que é exibido no navegador.
+- Inicialização de um componente com um estado pré-definido.
+- Atualização do estado de um componente em tempo real.
+- Captura de eventos utilizando a sintaxe do React.
+- Criação de formulários utilizando a sintaxe JSX.
 
-Este projeto marcou o primeiro passo na execução de algumas dessas operações. Foi necessário criar, ler e excluir informações nele, sem a necessidade de edição.
+## Importância deste projeto
+Quando lidamos com informações, existem quatro operações fundamentais que são cruciais para o sucesso de uma aplicação: **Criar** (create), **Ler** (read), **Atualizar** (update) e **Excluir** (delete). O projeto SuperTrufo representa o meu primeiro passo na realização de algumas dessas operações, com foco principal na criação, leitura e exclusão de informações.
 
-# Requisitos do projeto
+Em alguns casos, a aplicação faz uso de [Renderização Condicional](https://pt-br.reactjs.org/docs/conditional-rendering.html) para controlar a exibição de elementos na interface do usuário. .
 
-## 1. Criei um formulário que será usado para adicionar cartas ao baralho
-## 2. Criei o preview da carta que está sendo criada pelo formulário
-## 3. Criei a validação do botão de salvar e a função de salvar
-## 4. Criei um botão para remover as cartas do baralho
+**Observação**: Este projeto foi originalmente criado como um componente de classe e posteriormente transformado em um componente funcional para seguir as melhores práticas do React.
 
+## Dependências
+Para a construção deste projeto, foram utilizadas as seguintes dependências:
 
-## 5. Falta criar três filtros de listagem de cartas: filtro por **nome**, por **raridade** e por **Super Trunfo**. Os filtros **nome** e **raridade** são acumulativos. O filtro **Super Trunfo** funciona de forma independente.
-## 6. Falta criar filtro de Super Trunfo
-## 7. Falta implementar usabilidades (quando uma carta for cirada pagina rolar até o baralho criado)
+- **Material-UI**: Uma biblioteca de componentes de interface de usuário para React que simplifica o desenvolvimento de interfaces elegantes e responsivas.
+- **uuid**: Uma biblioteca para geração de IDs únicos. Essa dependência é utilizada para atribuir identificadores exclusivos a cada carta no jogo.
 
+Certifique-se de instalar essas dependências antes de executar a aplicação. Para mais informações sobre o pacote uuid, consulte [aqui](https://www.npmjs.com/package/uuid).
 
-## Renderização condicional
-Em alguns requisitos foi necessária a utilização de renderização condicional. [Renderização Condicional](https://pt-br.reactjs.org/docs/conditional-rendering.html).
+## Hospedagem
+A aplicação está atualmente hospedada em https://tryunfo.severidade.com.br/. 
+Você pode acessá-la online e experimentar o SuperTrunfo Card Manager em ação!
 
-# OBS: este projeto foi originalmente criado com componete de classe e transformado em funcional
-## DEPENDÊNCIAS 
+## Como Iniciar a Aplicação
+1. Clone este repositório para sua máquina local.
+2. Certifique-se de ter o Node.js instalado. Se não estiver instalado, você pode baixá-lo em [Node.js](https://nodejs.org/).
+3. No diretório raiz do projeto, execute o seguinte comando para instalar as dependências:
 
-:: material-ui 
-:: biblioteca uuid. para gerar id unicos para as cartas https://www.npmjs.com/package/uuid
+```bash
+npm install
+```
+
+4. Após a conclusão da instalação, você pode iniciar a aplicação com o seguinte comando:
+
+```bash
+npm start
+```

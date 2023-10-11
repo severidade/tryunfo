@@ -1,3 +1,17 @@
+<table width="100%">
+    <!-- <tr>
+        <td colspan="3">
+          <img src="./src/img/screenshot/01.png" alt="Descrição da imagem">
+        </td>
+    </tr> -->
+    <tr>
+        <td width="33%"><img src="./src/img/screenshot/05.png" alt="Descrição da imagem"></td>
+        <td width="33%"><img src="./src/img/screenshot/02.png" alt="Descrição da imagem"></td>
+        <td width="33%"><img src="./src/img/screenshot/03.png" alt="Descrição da imagem"></td>
+    </tr>
+</table>
+
+
 # SuperTrunfo Card Manager
 
 Esta aplicação foi desenvolvida com o objetivo de criar e gerenciar cartas para um jogo no estilo SuperTrunfo, demonstrando a implementação das seguintes habilidades:

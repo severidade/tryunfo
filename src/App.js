@@ -113,7 +113,11 @@ const App = () => {
 
     // Atualize o estado separado hasTrunfo
     setHasTrunfo(updatedCardState.hasTrunfo);
-  }, [cardState, hasTrunfo]);
+
+    // Agora, filtre a lista de cartas com base em selectedValue e atualize searchResults
+    const filteredResults = updatedCardState.cardList.filter((card) => selectedValue === 'todas' || card.cardRare === selectedValue);
+    setSearchResults(filteredResults);
+  }, [cardState, hasTrunfo, selectedValue]);
 
   const togglePreview = () => {
     setIsPreviewFlipped((prevIsFlipped) => !prevIsFlipped);

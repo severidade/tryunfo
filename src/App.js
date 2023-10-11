@@ -1,6 +1,7 @@
 /* eslint-disable max-len */
 import React, { useState, useCallback, useRef } from 'react';
 import { v4 as uuidv4 } from 'uuid'; /* para gerar o id */
+import ReactGA4 from 'react-ga4'; // Importe o React-GA4
 import Form from './components/Form/index';
 import Card from './components/Card/index';
 import validateForm from './utils/validation';
@@ -116,6 +117,11 @@ const App = () => {
   }, [cardState, hasTrunfo]);
 
   const togglePreview = () => {
+    ReactGA4.event({
+      category: 'Botões',
+      action: 'Clique em Preview',
+      label: 'Botão de Preview',
+    });
     setIsPreviewFlipped((prevIsFlipped) => !prevIsFlipped);
   };
 

@@ -1,6 +1,9 @@
 .search_menu_container {
   align-items: center;
-  background-color: tomato;
+
+  /* background: var(--secondary-color); */
+  background-color: white;
+  border-top: 1px solid;
   bottom: 0;
   display: flex;
   flex-direction: column;
@@ -14,6 +17,37 @@
 }
 
 .search_menu_container.active {
-  background-color: violet;
   left: 0;
+}
+
+.search_area {
+  border-top: 1px solid;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  height: calc((var(--search-width)) * 8 / 5);
+  justify-content: flex-start;
+  padding: 40px 30px 30px;
+  position: relative;
+  width: var(--search-width);
+}
+
+.close_menu {
+  background-image: url('../../img/icones/fechar.png') , url('../../img/black_texture.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 80% , cover;
+  border: none;
+  border-radius: 10px 0;
+  height: 40px;
+  overflow: hidden;
+  position: absolute;
+  right: -20px;
+  text-indent: -1000px;
+  top: -40px;
+  width: 40px;
+}
+
+.search_title {
+  line-height: 1.2;
 }

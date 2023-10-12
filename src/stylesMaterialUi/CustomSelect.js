@@ -6,6 +6,8 @@ const select = {
   fontSize: '14px',
   fontWeight: '400',
   color: 'var(----primary-color-extra-dark)',
+  // backgroundColor: 'lime',
+  width: '100%',
 };
 
 const CustomSelect = (props) => (

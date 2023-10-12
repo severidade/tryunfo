@@ -11,6 +11,7 @@
   --color-cta-secondary: #8D9909;
 
   --card-width: 87vw;
+  --search-width: 60vw
 }
 
 html {
@@ -53,6 +54,6 @@ input[type="number"]::-webkit-outer-spin-button {
   :root {
 
     --card-width: 320px;
-
+    --search-width: 320px
   }
 }

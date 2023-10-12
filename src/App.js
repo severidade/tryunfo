@@ -1,7 +1,9 @@
 /* eslint-disable max-lines */
 /* eslint-disable max-len */
-import React, { useState, useCallback, useRef } from 'react';
+import React, { useState, useCallback, useRef, useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid'; /* para gerar o id */
+import ReactGA from 'react-ga';
+
 import Form from './components/Form/index';
 import Card from './components/Card/index';
 import validateForm from './utils/validation';
@@ -28,6 +30,13 @@ const initialState = {
 };
 
 const App = () => {
+  const TRACKING_ID = 'G-15JWETV5YR';
+
+  useEffect(() => {
+    ReactGA.initialize(TRACKING_ID);
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  }, []);
+
   const [cardState, setCardState] = useState(initialState);
   const [showErrorMessage, setShowErrorMessage] = useState(false);
   const [hasTrunfo, setHasTrunfo] = useState(false);

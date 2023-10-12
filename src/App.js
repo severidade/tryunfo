@@ -30,7 +30,7 @@ const initialState = {
 };
 
 const App = () => {
-  const TRACKING_ID = 'G-15JWETV5YR';
+  const TRACKING_ID = 'G-RZ8L31ERFQ';
 
   useEffect(() => {
     ReactGA.initialize(TRACKING_ID);

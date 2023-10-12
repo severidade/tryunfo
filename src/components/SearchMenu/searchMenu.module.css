@@ -24,10 +24,10 @@
   border-top: 1px solid;
   display: flex;
   flex-direction: column;
-  gap: 50px;
+  gap: 40px;
   height: calc((var(--search-width)) * 8 / 5);
   justify-content: flex-start;
-  padding: 40px 30px 30px;
+  padding: 40px 10px;
   position: relative;
   width: var(--search-width);
 }

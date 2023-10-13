@@ -53,11 +53,16 @@ npm start
 ```
 
 #### GitHub Visitantes 👀
-<!-- Para popular o GitHub Visitantes com seus dados, basta alterar o campo `username` -->
 
-![Visitantes do Perfil GitHub](https://profile-counter.glitch.me/severidade/count.svg)
+#### Padrão de design
 
----
+| Color   | Name       | Element    |
+| ------- | ---------- | ---------- |
+| #ffffff | write      | title      |
+| #000000 | black      | text       |
+| #ff0000 | red        | icons      |
+| #acacac | light gray | background |
+
 
 
 

@@ -33,8 +33,6 @@ Para a construção deste projeto, foram utilizadas as seguintes dependências:
 - **Material-UI**: Uma biblioteca de componentes de interface de usuário para React que simplifica o desenvolvimento de interfaces elegantes e responsivas.
 - **uuid**: Uma biblioteca para geração de IDs únicos. Essa dependência é utilizada para atribuir identificadores exclusivos a cada carta no jogo.
 
-Certifique-se de instalar essas dependências antes de executar a aplicação. Para mais informações sobre o pacote uuid, consulte [aqui](https://www.npmjs.com/package/uuid).
-
 ## Hospedagem
 A aplicação está atualmente hospedada em https://tryunfo.severidade.com.br/. 
 Você pode acessá-la online e experimentar o SuperTrunfo Card Manager em ação!
@@ -53,3 +51,13 @@ npm install
 ```bash
 npm start
 ```
+
+#### GitHub Statísticas 📈
+
+<!-- Para preencher o GitHub Statísticas com seus dados, basta alterar o campo `username`
+para o seu nome de usuário do GitHub -->
+
+![User GitHub Stats](https://github-readme-stats.vercel.app/api?username=severidade&show_icons=true&count_private=true&hide_border=true&title_color=00bfbf&icon_color=00bfbf&text_color=c9d1d9&bg_color=0d1117)
+
+---
+    

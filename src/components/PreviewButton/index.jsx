@@ -1,9 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import ReactGA from 'react-ga';
 import styles from './PreviewButton.module.css';
 
 function PreviewButton({ togglePreview, isFromForm, isFromCard }) {
   const buttonText = isFromForm ? 'Pré-visualizar' : 'Voltar a edição';
+
+  const trackButtonClick = () => {
+    ReactGA.event({
+      category: 'Botão de Pré-visualização',
+      action: 'Clique no botão',
+    });
+
+    togglePreview();
+  };
 
   return (
     <button
@@ -13,7 +23,7 @@ function PreviewButton({ togglePreview, isFromForm, isFromCard }) {
         ${isFromForm ? styles.preview_card : ''} 
         ${isFromCard ? styles.edit_card : ''}
       ` }
-      onClick={ togglePreview }
+      onClick={ trackButtonClick }
       type="button"
     >
       <p>

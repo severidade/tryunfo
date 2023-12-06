@@ -12,6 +12,7 @@ import aboutPlayingCardsMsg from './utils/aboutPlayingCardsMsg';
 import './App.css';
 import EmptyDeckMsg from './components/EmptyDeckMsg';
 import Menu from './components/Menu';
+import SuperLogo from './components/SuperLogo';
 
 const initialState = {
   id: '44',
@@ -167,11 +168,12 @@ const App = () => {
 
   return (
     <div className="container_app">
-      <h1 className="logo">
+      {/* <h1 className="logo">
         <strong className="super">Super</strong>
         <strong className="trunfo">Trunfo</strong>
-      </h1>
+      </h1> */}
 
+      <SuperLogo />
       <div className="container_preview_card">
         <div className={ `flip_card ${isPreviewFlipped ? 'flipped' : ''}` }>
           <div className="flip_card_inner">

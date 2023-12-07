@@ -1,4 +1,4 @@
-.logo {
+/* .logo {
   align-items: center;
   display: flex;
   flex-direction: column;
@@ -19,4 +19,234 @@
 
 .trunfo {
   color: var(--color-cta-primary);
+} */
+
+.logo_stage {
+  height: var(--logo-height);
+  left: 50%;
+  padding-top: 16px;
+  perspective: 9999px;
+  position: absolute;
+  transform: translateX(-50%);
+  transform-style: preserve-3d;
+  width: 90%;
+
+  /* z-index: 999; */
+}
+
+.super {
+  animation: rotate3d 3s infinite alternate ease-in-out -7.5s;
+  animation-fill-mode: forwards;
+  font-weight: 400;
+  height: 100%;
+  line-height: 0.6;
+  position: absolute;
+  transform: rotateY(-10deg) rotateX(20deg) translateZ(0);
+  transform-style: preserve-3d;
+  width: 100%;
+}
+
+.super:after {
+  color: whitesmoke;
+  content: 'Super';
+  font-family: 'Ultra' , serif;
+  font-size: 48px;
+  height: 100%;
+  letter-spacing: 2px;
+  position: absolute;
+  text-align: center;
+  text-shadow: 4px 0 10px rgba(0, 0, 0, 0.13);
+  transform: translateZ(-10px);
+  width: 100%;
+}
+
+.super:nth-child( 1 ):after {
+  transform: translateZ(11);
+}
+
+.super:nth-child( 2 ):after {
+  transform: translateZ(-12px);
+}
+
+.super:nth-child( 3 ):after {
+  transform: translateZ(-13px);
+}
+
+.super:nth-child( 4 ):after {
+  transform: translateZ(-14px);
+}
+
+.super:nth-child( 5 ):after {
+  transform: translateZ(-15px);
+}
+
+.super:nth-child( 6 ):after {
+  transform: translateZ(-16px);
+}
+
+.super:nth-child( 7 ):after {
+  transform: translateZ(-17px);
+}
+
+.super:nth-child( 8 ):after {
+  transform: translateZ(-18px);
+}
+
+.super:nth-child( 9 ):after {
+  transform: translateZ(-19px);
+}
+
+.super:nth-child( 10 ):after {
+  transform: translateZ(-20px);
+}
+
+.super:nth-child( 11 ):after {
+  transform: translateZ(-21px);
+}
+
+.super:nth-child( 12 ):after {
+  transform: translateZ(-22px);
+}
+
+.super:nth-child( 13 ):after {
+  transform: translateZ(-23px);
+}
+
+.super:nth-child( 14 ):after {
+  transform: translateZ(-24px);
+}
+
+.super:nth-child( 15 ):after {
+  transform: translateZ(-25px);
+}
+
+.super:nth-child( 16 ):after {
+  transform: translateZ(-26px);
+}
+
+.super:nth-child( 17 ):after {
+  transform: translateZ(-27px);
+}
+
+.super:nth-child( 18 ):after {
+  transform: translateZ(-28px);
+}
+
+.super:nth-child( 19 ):after {
+  transform: translateZ(-29px);
+}
+
+.super:nth-child( 20 ):after {
+  transform: translateZ(-30px);
+}
+
+.super:last-child:after {
+  -webkit-text-stroke: 17px rgba(0, 0, 0, 0.1);
+}
+
+
+.super:before {
+  color: var(--color-cta-primary);
+  content: 'Trunfo';
+  font-family: 'Ultra' , serif;
+  font-size: 48px;
+  height: 100%;
+  letter-spacing: 2px;
+  margin-top: 30px;
+  position: absolute;
+  text-align: center;
+  text-shadow: 4px 0 10px rgba(0, 0, 0, 0.13);
+  transform: translateZ(0);
+  width: 100%;
+}
+
+.super:nth-child( 1 ):before {
+  transform: translateZ(-1px);
+}
+
+.super:nth-child( 2 ):before {
+  transform: translateZ(-2px);
+}
+
+.super:nth-child( 3 ):before {
+  transform: translateZ(-3px);
+}
+
+.super:nth-child( 4 ):before {
+  transform: translateZ(-4px);
+}
+
+.super:nth-child( 5 ):before {
+  transform: translateZ(-5px);
+}
+
+.super:nth-child( 6 ):before {
+  transform: translateZ(-6px);
+}
+
+.super:nth-child( 7 ):before {
+  transform: translateZ(-7px);
+}
+
+.super:nth-child( 8 ):before {
+  transform: translateZ(-8px);
+}
+
+.super:nth-child( 9 ):before {
+  transform: translateZ(-9px);
+}
+
+.super:nth-child( 10 ):before {
+  transform: translateZ(-10px);
+}
+
+.super:nth-child( 11 ):before {
+  transform: translateZ(-11px);
+}
+
+.super:nth-child( 12 ):before {
+  transform: translateZ(-12px);
+}
+
+.super:nth-child( 13 ):before {
+  transform: translateZ(-13px);
+}
+
+.super:nth-child( 14 ):before {
+  transform: translateZ(-14px);
+}
+
+.super:nth-child( 15 ):before {
+  transform: translateZ(-15px);
+}
+
+.super:nth-child( 16 ):before {
+  transform: translateZ(-16px);
+}
+
+.super:nth-child( 17 ):before {
+  transform: translateZ(-17px);
+}
+
+.super:nth-child( 18 ):before {
+  transform: translateZ(-18px);
+}
+
+.super:nth-child( 19 ):before {
+  transform: translateZ(-19px);
+}
+
+.super:nth-child( 20 ):before {
+  transform: translateZ(-20px);
+}
+
+.super:last-child:before {
+  -webkit-text-stroke: 17px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes rotate3d {
+
+  100% {
+    transform: rotateY(-30deg) rotateX(30deg);
+  }
 }

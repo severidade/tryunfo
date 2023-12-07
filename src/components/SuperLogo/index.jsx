@@ -3,9 +3,29 @@ import styles from './SuperLogo.module.css';
 
 function SuperLogo() {
   return (
-    <h1 className={ styles.logo }>
-      <strong className={ styles.super }>Super</strong>
-      <strong className={ styles.trunfo }>Trunfo</strong>
+    <h1 className={ styles.logo_stage }>
+      {/* <strong className={ styles.super }>Super</strong>
+      <strong className={ styles.trunfo }>Trunfo</strong> */}
+      <strong className={ styles.super } />
+      <strong className={ styles.super } />
+      <strong className={ styles.super } />
+      <strong className={ styles.super } />
+      <strong className={ styles.super } />
+      <strong className={ styles.super } />
+      <strong className={ styles.super } />
+      <strong className={ styles.super } />
+      <strong className={ styles.super } />
+      <strong className={ styles.super } />
+      <strong className={ styles.super } />
+      <strong className={ styles.super } />
+      <strong className={ styles.super } />
+      <strong className={ styles.super } />
+      <strong className={ styles.super } />
+      <strong className={ styles.super } />
+      <strong className={ styles.super } />
+      <strong className={ styles.super } />
+      <strong className={ styles.super } />
+      <strong className={ styles.super } />
     </h1>
   );
 }

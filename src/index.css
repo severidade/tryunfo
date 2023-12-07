@@ -11,7 +11,8 @@
   --color-cta-secondary: #8D9909;
 
   --card-width: 87vw;
-  --search-width: 60vw
+  --search-width: 60vw;
+  --logo-height: 100px;
 }
 
 html {

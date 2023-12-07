@@ -9,38 +9,13 @@
   width: 100vw;
 }
 
-.logo {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  font-family: 'Ultra' , serif;
-  font-size: 48px;
-  font-weight: normal;
-  height: 100px;
-  justify-content: center;
-  line-height: 0.6;
-  padding: 15px 0 30px;
-  text-align: center;
-  text-shadow: 1px 4px 6px rgba(0, 0, 0, 1);
-  white-space: pre-wrap;
-}
-
-.logo .super {
-  color: white;
-  font-weight: normal;
-}
-
-.logo .trunfo {
-  color: var(--color-cta-primary);
-  font-weight: normal;
-}
-
 .container_preview_card {
   align-items: center;
   display: flex;
   justify-content: center;
   min-height: calc(100vh - 150px);
   padding-bottom: 60px;
+  padding-top: var(--logo-height);
 }
 
 
